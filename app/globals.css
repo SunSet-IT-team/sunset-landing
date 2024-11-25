@@ -5,8 +5,12 @@
 :root {
 	--background: #ffffff;
 	--foreground: #171717;
-	--blue: #4a11af;
+	--blue-400: #4a11af;
+	--blue-300: #6b2bd9;
 	--orange: #ff6400;
 	--grey: #333333;
 	--black-gradient: linear-gradient(90deg, #000000 0%, #131313 100%);
+}
+* {
+	/* outline: 1px solid green; */
 }
