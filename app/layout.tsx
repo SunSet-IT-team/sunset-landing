@@ -28,10 +28,10 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body
-				className={`${akony.variable} ${arodoraPro.variable} antialiased h-[100vh] w-[100vw] bg-black-gradient text-white max-w-[1440px] mx-auto`}
+				className={`${akony.variable} ${arodoraPro.variable} antialiased h-[100vh] w-[100vw] bg-black-gradient text-white  relative`}
 			>
 				<Header />
-				{children}
+				<main className='h-[calc(100vh-112px)]'>{children}</main>
 				<Footer />
 			</body>
 		</html>
