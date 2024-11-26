@@ -1,5 +1,5 @@
-import { CLOSED_MENU_ITEM_WIDTH } from '@/app/shared/data/constants'
-import { TStyles } from '@/app/shared/types/style.types'
+import { CLOSED_MENU_ITEM_WIDTH } from '@/shared/data/constants'
+import { TStyles } from '@/shared/types/style.types'
 import { create } from 'zustand'
 
 interface IState {

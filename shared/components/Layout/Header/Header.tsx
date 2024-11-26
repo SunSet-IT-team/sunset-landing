@@ -1,14 +1,15 @@
 'use client'
-import Container from '@/app/shared/components/ui/Container'
+
 import {
 	CLOSED_MENU_ITEM_WIDTH,
 	DEFAULT_CLIENT_WIDTH,
-} from '@/app/shared/data/constants'
-import { sections } from '@/app/shared/data/data'
-import { useNavStore } from '@/app/store/navStore'
-import { getSectionPosition } from '@/app/utils/getSectionPosition'
+} from '@/shared/data/constants'
+import { sections } from '@/shared/data/data'
+import { useNavStore } from '@/store/navStore'
+import { getSectionPosition } from '@/utils/getSectionPosition'
 import Image from 'next/image'
 import { FC, useEffect, useRef } from 'react'
+import Container from '../../ui/Container'
 import Navbar from './Navbar/Navbar'
 
 const Header: FC = () => {

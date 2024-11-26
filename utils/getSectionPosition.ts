@@ -1,8 +1,8 @@
 import {
 	CLOSED_MENU_ITEM_WIDTH,
 	TOP_OFFSET_MENU_ITEM,
-} from '@/app/shared/data/constants'
-import { TStyles } from '@/app/shared/types/style.types'
+} from '@/shared/data/constants'
+import { TStyles } from '@/shared/types/style.types'
 
 interface IParams {
 	sectionId: number

@@ -1,11 +1,12 @@
 'use client'
+
 import {
 	ANIMATION_DURATION,
 	CLOSED_MENU_ITEM_WIDTH,
-} from '@/app/shared/data/constants'
-import { sections } from '@/app/shared/data/data'
-import { IStyle } from '@/app/shared/types/style.types'
-import { useNavStore } from '@/app/store/navStore'
+} from '@/shared/data/constants'
+import { sections } from '@/shared/data/data'
+import { IStyle } from '@/shared/types/style.types'
+import { useNavStore } from '@/store/navStore'
 import { motion } from 'framer-motion'
 import { FC } from 'react'
 import { twMerge } from 'tailwind-merge'

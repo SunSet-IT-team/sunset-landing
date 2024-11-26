@@ -1,6 +1,7 @@
 'use client'
-import { sections } from '@/app/shared/data/data'
-import { useNavStore } from '@/app/store/navStore'
+
+import { sections } from '@/shared/data/data'
+import { useNavStore } from '@/store/navStore'
 import { FC } from 'react'
 import NavItem from './NavItem'
 

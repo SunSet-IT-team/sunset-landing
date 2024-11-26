@@ -1,7 +1,7 @@
-import Cases from '@/app/shared/components/Sections/Cases/Cases'
-import Contacts from '@/app/shared/components/Sections/Contacts/Contacts'
-import Home from '@/app/shared/components/Sections/Home/Home'
-import Services from '@/app/shared/components/Sections/Services/Services'
+import Cases from '@/app/components/Cases/Cases'
+import Contacts from '@/app/components/Contacts/Contacts'
+import Home from '@/app/components/Home/Home'
+import Services from '@/app/components/Services/Services'
 
 export const sections = [
 	{ id: 1, href: '', text: 'Home', content: <Home /> },

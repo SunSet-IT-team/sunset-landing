@@ -1,9 +1,10 @@
 'use client'
+
 import {
 	ANIMATION_DURATION,
 	CLOSED_MENU_ITEM_WIDTH,
-} from '@/app/shared/data/constants'
-import { useNavStore } from '@/app/store/navStore'
+} from '@/shared/data/constants'
+import { useNavStore } from '@/store/navStore'
 import { motion } from 'framer-motion'
 import { FC, PropsWithChildren, useEffect, useRef } from 'react'
 import { twMerge } from 'tailwind-merge'
@@ -25,11 +26,11 @@ const Section: FC<PropsWithChildren<IProps>> = ({ sectionId, children }) => {
 			<motion.div
 				ref={ref}
 				className={twMerge('mt-10 h-full -translate-x-full absolute ')}
-				initial={{ x: '-100%' }}
+				initial={{ x: '-101%' }}
 				animate={{
 					x:
 						stack.at(-1) !== sectionId
-							? '-100%'
+							? '-101%'
 							: stack.at(-1) === 1
 							? `0%`
 							: `calc(0% + ${CLOSED_MENU_ITEM_WIDTH * (sectionId - 2)}px)`,

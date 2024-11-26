@@ -1,5 +1,5 @@
-import Footer from '@/app/shared/components/Layout/Footer/Footer'
-import Header from '@/app/shared/components/Layout/Footer/Header/Header'
+import Footer from '@/shared/components/Layout/Footer/Footer'
+import Header from '@/shared/components/Layout/Header/Header'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
