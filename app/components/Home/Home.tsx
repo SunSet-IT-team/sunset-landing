@@ -3,7 +3,7 @@ import { FC } from 'react'
 
 const Home: FC = () => {
 	return (
-		<section className='font-akony w-[400px] text-xl mt-20'>
+		<section className='font-akony w-[400px] text-xl '>
 			<h2>
 				Вы
 				<br /> придумываете
