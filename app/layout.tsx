@@ -30,8 +30,9 @@ export default function RootLayout({
 			<body
 				className={`${akony.variable} ${arodoraPro.variable} antialiased h-[100vh] w-[100vw] bg-black-gradient text-white  relative`}
 			>
+				{' '}
 				<Header />
-				<main className='h-[calc(100vh-112px)]'>{children}</main>
+				<main className='h-[calc(100vh-160px)] mt-48'>{children}</main>
 				<Footer />
 			</body>
 		</html>

@@ -1,10 +1,5 @@
 'use client'
-
-import {
-	CLOSED_MENU_ITEM_WIDTH,
-	DEFAULT_CLIENT_WIDTH,
-} from '@/shared/data/constants'
-import { sections } from '@/shared/data/data'
+import { DEFAULT_CLIENT_WIDTH } from '@/shared/data/constants'
 import { useNavStore } from '@/store/navStore'
 import { getSectionPosition } from '@/utils/getSectionPosition'
 import Image from 'next/image'
@@ -22,24 +17,22 @@ const Header: FC = () => {
 		setStyles,
 		styles,
 		currentActiveSectionWidth,
-		clientWidth,
-		setClientWidth,
+		maxContentWidth,
+		setMaxContentWidth,
 	} = useNavStore()
 	useEffect(() => {
 		const data = getSectionPosition({
-			countMenuItems: sections.length,
 			sectionId: activeId,
 			stack,
 			styles,
-			windowWidth: clientWidth,
-			closedSectionWidth: CLOSED_MENU_ITEM_WIDTH,
+			windowWidth: maxContentWidth,
 			sectionWidth: currentActiveSectionWidth,
 		})
 		setStack(data.stack)
 		setStyles(data.styles)
 	}, [activeId, currentActiveSectionWidth])
 	useEffect(() => {
-		setClientWidth(ref.current?.clientWidth || DEFAULT_CLIENT_WIDTH)
+		setMaxContentWidth(ref.current?.clientWidth || DEFAULT_CLIENT_WIDTH)
 	}, [])
 	return (
 		<header className='py-4 font-akony h-28'>
@@ -49,7 +42,7 @@ const Header: FC = () => {
 			>
 				<a
 					href='#'
-					className=' flex items-center text-2xl gap-2'
+					className='flex items-center text-2xl gap-2'
 					onClick={() => {
 						setActiveId(1)
 					}}

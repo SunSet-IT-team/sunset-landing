@@ -1,4 +1,4 @@
-import { CLOSED_MENU_ITEM_WIDTH } from '@/shared/data/constants'
+import { defaultStyles } from '@/shared/data/defaultStyles'
 import { TStyles } from '@/shared/types/style.types'
 import { create } from 'zustand'
 
@@ -7,39 +7,21 @@ interface IState {
 	stack: number[]
 	styles: TStyles
 	currentActiveSectionWidth: number
-	clientWidth: number
+	maxContentWidth: number
 	setStyles: (styles: TStyles) => void
-	setClientWidth: (width: number) => void
+	setMaxContentWidth: (width: number) => void
 	setActiveId: (id: number) => void
 	setStack: (stack: number[]) => void
 	setCurrentActiveSection: (widht: number) => void
 }
 
-const styles: TStyles = {
-	'2': {
-		right: 2 * CLOSED_MENU_ITEM_WIDTH,
-		top: 0,
-		width: CLOSED_MENU_ITEM_WIDTH,
-	},
-	'3': {
-		right: 1 * CLOSED_MENU_ITEM_WIDTH,
-		top: 0,
-		width: CLOSED_MENU_ITEM_WIDTH,
-	},
-	'4': {
-		right: 0 * CLOSED_MENU_ITEM_WIDTH,
-		top: 0,
-		width: CLOSED_MENU_ITEM_WIDTH,
-	},
-}
-
 export const useNavStore = create<IState>(set => ({
 	activeId: 1,
 	stack: [1],
-	styles: styles,
+	styles: defaultStyles,
 	currentActiveSectionWidth: 0,
-	clientWidth: 0,
-	setClientWidth: width => set(() => ({ clientWidth: width })),
+	maxContentWidth: 0,
+	setMaxContentWidth: width => set(() => ({ maxContentWidth: width })),
 	setStyles: styles => set(() => ({ styles })),
 	setActiveId: id => set(() => ({ activeId: id })),
 	setStack: stack => set(() => ({ stack: stack })),

@@ -1,5 +1,6 @@
 'use client'
 
+import Button from '@/shared/components/ui/Button'
 import {
 	ANIMATION_DURATION,
 	CLOSED_MENU_ITEM_WIDTH,
@@ -44,11 +45,15 @@ const NavItem: FC<IProps> = ({ id, styles, text, href }) => {
 				'pl-5 absolute top-0 h-[calc(100vh-160px)] before:w-0.5 before:h-[100vh] before:absolute before:-top-40 before:bottom-0 before:left-0 before:bg-grey',
 				id === 2 && stack.includes(2) && 'before:-left-20',
 				`right-[${styles.right}px]`,
-				activeId === id && 'text-blue-300',
+
 				stack.includes(id) && activeId !== id && ' bg-black'
 			)}
 		>
-			<p>{text}</p>
+			<Button
+				className={twMerge('text-lg p-3', activeId === id && 'text-blue-300')}
+			>
+				{text}
+			</Button>
 		</motion.li>
 	)
 }
