@@ -1,6 +1,6 @@
 import Container from '@/shared/components/ui/Container'
 import { sections } from '@/shared/data/data'
-import Section from './components/Section/Section'
+import Section from '../components/Section/Section'
 
 export default function Page() {
 	return (

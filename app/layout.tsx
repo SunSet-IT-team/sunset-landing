@@ -1,5 +1,3 @@
-import Footer from '@/shared/components/Layout/Footer/Footer'
-import Header from '@/shared/components/Layout/Header/Header'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
@@ -28,12 +26,9 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body
-				className={`${akony.variable} ${arodoraPro.variable} antialiased h-[100vh] w-[100vw] bg-black-gradient text-white  relative`}
+				className={`${akony.variable} ${arodoraPro.variable} antialiased h-[calc(100vh+160px)] w-[100vw] bg-black-gradient text-white  relative overflow-x-hidden font-akony`}
 			>
-				{' '}
-				<Header />
-				<main className='h-[calc(100vh-160px)] mt-48'>{children}</main>
-				<Footer />
+				{children}
 			</body>
 		</html>
 	)
