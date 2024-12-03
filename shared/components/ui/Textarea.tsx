@@ -1,16 +1,14 @@
 'use client'
-import { FC, InputHTMLAttributes } from 'react'
+import { FC, TextareaHTMLAttributes } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-interface IProps extends InputHTMLAttributes<HTMLInputElement> {
+interface IProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 	label: string
-	error?: string
 	isValid?: boolean
 }
 
-const Field: FC<IProps> = ({
+const Textarea: FC<IProps> = ({
 	label,
-	error = '',
 	isValid = true,
 	className,
 	...rest
@@ -18,19 +16,16 @@ const Field: FC<IProps> = ({
 	return (
 		<label className='flex flex-col gap-3 font-akony text-white text-sm'>
 			<span className=''>{label}</span>
-			<input
+			<textarea
 				className={twMerge(
-					'bg-grey w-full rounded outline-none px-2 py-1',
+					'bg-grey w-full rounded outline-none px-2 py-1 resize-none',
 					!isValid && 'border-2 border-orange',
 					className
 				)}
 				{...rest}
-			/>
-			{!isValid && (
-				<span className='text-red-500'>{error || 'Заполните поле верно'}</span>
-			)}
+			></textarea>
 		</label>
 	)
 }
 
-export default Field
+export default Textarea
