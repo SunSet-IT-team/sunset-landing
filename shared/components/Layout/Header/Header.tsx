@@ -2,7 +2,8 @@
 import { DEFAULT_CLIENT_WIDTH } from '@/shared/data/constants'
 import { useNavStore } from '@/store/navStore'
 import { getSectionPosition } from '@/utils/getSectionPosition'
-import Image from 'next/image'
+
+import Logo from '@/shared/components/ui/Logo'
 import { FC, useEffect, useRef } from 'react'
 import Container from '../../ui/Container'
 import Navbar from './Navbar/Navbar'
@@ -40,21 +41,7 @@ const Header: FC = () => {
 				className='flex justify-between items-center relative z-10  gap-4 overflow-x-clip'
 				ref={ref}
 			>
-				<a
-					href='#'
-					className='flex items-center text-2xl gap-2'
-					onClick={() => {
-						setActiveId(1)
-					}}
-				>
-					<Image
-						alt='Логотип компании Sunset'
-						src={'/logo.webp'}
-						width={73}
-						height={81}
-					/>
-					Sunset
-				</a>
+				<Logo />
 				<Navbar />
 			</Container>
 		</header>

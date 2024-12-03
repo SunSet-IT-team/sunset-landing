@@ -42,7 +42,7 @@ const NavItem: FC<IProps> = ({ id, styles, text, href }) => {
 			transition={{ duration: ANIMATION_DURATION, type: 'spring' }}
 			key={text + href + id}
 			className={twMerge(
-				'pl-5 absolute top-0 h-[calc(100vh-160px)] before:w-0.5 before:h-[100vh] before:absolute before:-top-40 before:bottom-0 before:left-0 before:bg-grey',
+				'pl-5 absolute top-0 h-[calc(100vh)] before:w-0.5 before:h-[calc(100vh+100px)] before:absolute before:-top-[130px] before:bottom-0 before:left-0 before:bg-grey',
 				id === 2 && stack.includes(2) && 'before:-left-20',
 				`right-[${styles.right}px]`,
 
