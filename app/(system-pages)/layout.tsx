@@ -1,6 +1,10 @@
 import Footer from '@/shared/components/Layout/Footer/Footer'
 import Logo from '@/shared/components/ui/Logo'
-
+import { Metadata } from 'next'
+export const metadata: Metadata = {
+	title: 'Тех.работы',
+	description: 'Извините, но сейчас идут технические работы',
+}
 export default function SystemPagesLayout({
 	children,
 }: Readonly<{

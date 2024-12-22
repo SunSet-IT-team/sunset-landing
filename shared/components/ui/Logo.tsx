@@ -1,12 +1,13 @@
 'use client'
 import { useNavStore } from '@/store/navStore'
 import Image from 'next/image'
+import Link from 'next/link'
 import { FC } from 'react'
 const Logo: FC = () => {
 	const { setActiveId } = useNavStore()
 	return (
-		<a
-			href='#'
+		<Link
+			href='/'
 			className='flex items-center text-2xl gap-2'
 			onClick={() => {
 				setActiveId(1)
@@ -19,7 +20,7 @@ const Logo: FC = () => {
 				height={81}
 			/>
 			Sunset
-		</a>
+		</Link>
 	)
 }
 
