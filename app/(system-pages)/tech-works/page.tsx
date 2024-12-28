@@ -1,6 +1,6 @@
+import { HelmetModel } from '@/app/components/Models/HelmetModel'
 import { Metadata } from 'next'
 import { FC } from 'react'
-import { HelmetModelWithLight } from './ModelHelmetWithLight'
 
 export const metadata: Metadata = {
 	title: 'Тех.работы',
@@ -16,7 +16,7 @@ const TechWorks: FC = () => {
 			</p>
 
 			<div className='-mt-10 -ml-10 absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
-				<HelmetModelWithLight />
+				<HelmetModel />
 			</div>
 			<h1 className='text-8xl mt-auto'>
 				Тех.

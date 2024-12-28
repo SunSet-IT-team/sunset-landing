@@ -17,7 +17,7 @@ export default function SystemPagesLayout({
 			<div className='flex justify-center mt-10'>
 				<Logo />
 			</div>
-			<main className=' h-[calc(100vh-160px-80px)]'>{children}</main>
+			<main className=' h-[calc(100vh-120px)] relative'>{children}</main>
 			<Footer />
 		</div>
 	)

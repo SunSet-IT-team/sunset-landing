@@ -45,6 +45,7 @@ const Section: FC<PropsWithChildren<IProps>> = ({ sectionId, children }) => {
 	const motionStyle = useMemo(() => {
 		const isHomeSection = stack.at(-1) === 1
 		return {
+			opacity: !isActiveSection ? 0 : 1,
 			x: !isActiveSection
 				? '-150%'
 				: isHomeSection
@@ -60,7 +61,7 @@ const Section: FC<PropsWithChildren<IProps>> = ({ sectionId, children }) => {
 			style={{
 				width: isActiveSection ? `${calculatedWidth}px` : 'auto',
 			}}
-			initial={{ x: '-150%' }}
+			initial={{ x: '-150%', opacity: 0 }}
 			animate={motionStyle}
 			transition={{ duration: ANIMATION_DURATION, type: 'spring' }}
 		>
