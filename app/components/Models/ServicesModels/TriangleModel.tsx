@@ -1,17 +1,23 @@
 'use client'
 
-import { OrbitControls, useGLTF } from '@react-three/drei'
-import { Canvas } from '@react-three/fiber'
+import { TransformControls, useGLTF } from '@react-three/drei'
 import { FC, useRef } from 'react'
 
 export const TriangleModel: FC = props => {
 	const group = useRef()
-	const { nodes, materials, animations } = useGLTF(
+	const { nodes, materials } = useGLTF(
 		'/models/services_models/triangle/triangle.gltf'
 	)
 
+	// useFrame(() => {
+	// 	if (nodes && nodes.Куб) {
+	// 		console.log('Position:', nodes.Куб.position)
+	// 		console.log('Rotation:', nodes.Куб.rotation)
+	// 	}
+	// })
+
 	return (
-		<Canvas className='!h-[800px]'>
+		<>
 			<directionalLight
 				position={[-1.41508, -0.991563, 0.917187]}
 				intensity={50}
@@ -102,18 +108,21 @@ export const TriangleModel: FC = props => {
 				intensity={50}
 				color='#2B00FF'
 			/>
-			<OrbitControls />
-
-			<group {...props} dispose={null}>
+			{/* <axesHelper /> */}
+			<TransformControls mode='rotate'>
+				{/* <group {...props} dispose={null} rotation={[-1, -1.3, -1.2]} scale={2}> */}
 				<mesh
 					geometry={nodes.Куб.geometry}
 					material={materials['Материал.006']}
 					position={[-0.378, 0.725, -0.052]}
-					rotation={[0.666, -0.294, 0.133]}
+					rotation={[
+						0.6655432169335181, -0.29438471674280436, 0.1333971712589562,
+					]}
 					scale={[0.197, 0.88, 0.27]}
 				/>
-			</group>
-		</Canvas>
+				{/* </group> */}
+			</TransformControls>
+		</>
 	)
 }
 

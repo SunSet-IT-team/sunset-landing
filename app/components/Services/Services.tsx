@@ -1,6 +1,9 @@
-import Image from 'next/image'
+'use client'
+import { Canvas } from '@react-three/fiber'
 import { FC } from 'react'
 import { twMerge } from 'tailwind-merge'
+import { BallModel } from '../Models/BallModel'
+import { TriangleModel } from '../Models/ServicesModels/TriangleModel'
 
 export const data = [
 	{
@@ -53,28 +56,13 @@ const Services: FC = () => {
 					)
 				})}
 			</div>
-			<div className=''>
-				<Image
-					alt=''
-					src={'/services/abstract1.png'}
-					width={256}
-					height={258}
-					className='absolute top-[500px] left-5'
-				/>
-				<Image
-					alt=''
-					src={'/services/abstract2.png'}
-					width={175}
-					height={175}
-					className='absolute top-32 left-5'
-				/>
-				<Image
-					alt=''
-					src={'/services/abstract3.png'}
-					width={231}
-					height={266}
-					className='absolute -top-10 right-5'
-				/>
+			<div className='absolute bottom-0 left-0 w-[600px] h-[600px] opacity-50'>
+				<Canvas className='!h-[800px]'>
+					<TriangleModel />
+				</Canvas>
+			</div>
+			<div className='absolute -top-[25%] right-0 w-[600px] h-[600px] opacity-50'>
+				<BallModel />
 			</div>
 		</>
 	)
