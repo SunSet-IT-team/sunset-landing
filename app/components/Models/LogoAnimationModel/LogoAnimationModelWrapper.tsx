@@ -5,8 +5,7 @@ import { LogoAnimationModel } from './LogoAnimationModel'
 
 export const LogoAnimationModelWrapper: FC = props => {
 	return (
-		<Canvas className='!h-full mt-28'>
-			{/* <OrbitControls enableZoom={false} enableRotate={false} zoom={20} /> */}
+		<Canvas className='!h-[calc(100vh-120px)]'>
 			<LogoAnimationModel />
 		</Canvas>
 	)

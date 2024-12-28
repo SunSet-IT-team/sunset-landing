@@ -16,8 +16,14 @@ export const LogoAnimationModel: FC = props => {
 		})
 	}, [actions, names])
 	return (
-		<group ref={group} {...props} dispose={null}>
-			<group name='Scene' rotation={[0, Math.PI, 0]} scale={2}>
+		<group
+			ref={group}
+			{...props}
+			dispose={null}
+			position={[0, -2, 0]}
+			scale={3.2}
+		>
+			<group name='Scene' rotation={[0, Math.PI, 0]}>
 				<directionalLight
 					intensity={50}
 					name='Источник-область'
