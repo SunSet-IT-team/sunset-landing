@@ -3,10 +3,32 @@ import { useGLTF } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 
 import { FC, useRef } from 'react'
+import * as THREE from 'three'
 
-export const CubesModel: FC = props => {
+import { GLTF } from 'three-stdlib'
+
+type GLTFResult = GLTF & {
+	nodes: {
+		Куб: THREE.Mesh
+		Куб001: THREE.Mesh
+		Куб002: THREE.Mesh
+		Куб003: THREE.Mesh
+		Куб004: THREE.Mesh
+		Куб005: THREE.Mesh
+		Куб006: THREE.Mesh
+		Куб007: THREE.Mesh
+		Куб008: THREE.Mesh
+		Куб009: THREE.Mesh
+		Куб010: THREE.Mesh
+	}
+	materials: {
+		['Материал.006']: THREE.MeshStandardMaterial
+	}
+}
+
+const CubesModel: FC = props => {
 	const group = useRef()
-	const { nodes, materials } = useGLTF('/models/cubes/cubes.gltf')
+	const { nodes, materials } = useGLTF('/models/cubes/cubes.gltf') as GLTFResult
 
 	return (
 		<Canvas className='relative z-10 !h-[calc(100vh-120px)]'>
@@ -210,3 +232,4 @@ export const CubesModel: FC = props => {
 }
 
 useGLTF.preload('/models/cubes/cubes.gltf')
+export default CubesModel

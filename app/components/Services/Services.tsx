@@ -2,8 +2,8 @@
 import { Canvas } from '@react-three/fiber'
 import { FC } from 'react'
 import { twMerge } from 'tailwind-merge'
-import { BallModel } from '../Models/BallModel'
-import { TriangleModel } from '../Models/ServicesModels/TriangleModel'
+
+import { BallModel, TriangleModel } from '../Models'
 
 export const data = [
 	{

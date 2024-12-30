@@ -1,4 +1,4 @@
-import { HelmetModel } from '@/app/components/Models/HelmetModel'
+import { HelmetModel } from '@/app/components/Models'
 import { Metadata } from 'next'
 import { FC } from 'react'
 

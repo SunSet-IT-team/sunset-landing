@@ -1,13 +1,31 @@
 'use client'
 import { useAnimations, useGLTF } from '@react-three/drei'
 import React, { FC, useEffect } from 'react'
+import * as THREE from 'three'
 
-export const LogoAnimationModel: FC = props => {
-	const scale = 2
+import { GLTF } from 'three-stdlib'
+
+type GLTFResult = GLTF & {
+	nodes: {
+		Сфера: THREE.Mesh
+		Сфера001: THREE.Mesh
+		Сфера002: THREE.Mesh
+		Сфера003: THREE.Mesh
+		Сфера004: THREE.Mesh
+	}
+	materials: {
+		['Материал.001']: THREE.MeshStandardMaterial
+		['Материал.003']: THREE.MeshStandardMaterial
+		['Материал.004']: THREE.MeshStandardMaterial
+		['Материал.006']: THREE.MeshStandardMaterial
+		['Материал.005']: THREE.MeshStandardMaterial
+	}
+}
+const LogoAnimationModel: FC = props => {
 	const group = React.useRef()
 	const { nodes, materials, animations } = useGLTF(
 		'/models/logo_animation/logo_animation.gltf'
-	)
+	) as GLTFResult
 	const { actions, names } = useAnimations(animations, group)
 
 	useEffect(() => {
@@ -174,3 +192,4 @@ export const LogoAnimationModel: FC = props => {
 }
 
 useGLTF.preload('/models/logo_animation/logo_animation.gltf')
+export default LogoAnimationModel

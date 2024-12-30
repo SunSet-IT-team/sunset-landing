@@ -1,7 +1,7 @@
 'use client'
 import { Canvas } from '@react-three/fiber'
 import { FC } from 'react'
-import { LogoAnimationModel } from './LogoAnimationModel'
+import { LogoAnimationModel } from '..'
 
 export const LogoAnimationModelWrapper: FC = props => {
 	return (

@@ -2,9 +2,20 @@
 import { useGLTF } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { FC } from 'react'
+import * as THREE from 'three'
 
-export const ConeModel: FC = props => {
-	const { nodes, materials } = useGLTF('/models/cone/cone.gltf')
+import { GLTF } from 'three-stdlib'
+
+type GLTFResult = GLTF & {
+	nodes: {
+		Конус: THREE.Mesh
+	}
+	materials: {
+		['Материал.006']: THREE.MeshStandardMaterial
+	}
+}
+const ConeModel: FC = props => {
+	const { nodes, materials } = useGLTF('/models/cone/cone.gltf') as GLTFResult
 	return (
 		<Canvas>
 			<group {...props} dispose={null}>
@@ -125,3 +136,4 @@ export const ConeModel: FC = props => {
 }
 
 useGLTF.preload('/models/cone/cone.gltf')
+export default ConeModel

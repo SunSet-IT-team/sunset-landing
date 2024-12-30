@@ -3,9 +3,22 @@ import { OrbitControls, useGLTF } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { motion } from 'framer-motion-3d'
 import { FC } from 'react'
+import * as THREE from 'three'
 
-export const HelmetModel: FC = props => {
-	const { nodes, materials } = useGLTF('/models/helmet/helmet.gltf')
+import { GLTF } from 'three-stdlib'
+
+type GLTFResult = GLTF & {
+	nodes: {
+		helmet: THREE.Mesh
+	}
+	materials: {
+		['Default']: THREE.MeshStandardMaterial
+	}
+}
+const HelmetModel: FC = props => {
+	const { nodes, materials } = useGLTF(
+		'/models/helmet/helmet.gltf'
+	) as GLTFResult
 	return (
 		<Canvas className='!h-[800px]'>
 			<directionalLight
@@ -131,3 +144,4 @@ export const HelmetModel: FC = props => {
 }
 
 useGLTF.preload('/models/helmet/helmet.gltf')
+export default HelmetModel

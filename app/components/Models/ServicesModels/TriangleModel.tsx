@@ -1,13 +1,25 @@
 'use client'
 
 import { TransformControls, useGLTF } from '@react-three/drei'
-import { FC, useRef } from 'react'
+import { FC } from 'react'
 
-export const TriangleModel: FC = props => {
-	const group = useRef()
+import * as THREE from 'three'
+
+import { GLTF } from 'three-stdlib'
+
+type GLTFResult = GLTF & {
+	nodes: {
+		Куб: THREE.Mesh
+	}
+	materials: {
+		['Материал.006']: THREE.MeshStandardMaterial
+	}
+}
+
+const TriangleModel: FC = props => {
 	const { nodes, materials } = useGLTF(
 		'/models/services_models/triangle/triangle.gltf'
-	)
+	) as GLTFResult
 
 	// useFrame(() => {
 	// 	if (nodes && nodes.Куб) {
@@ -127,3 +139,4 @@ export const TriangleModel: FC = props => {
 }
 
 useGLTF.preload('/models/services_models/triangle/triangle.gltf')
+export default TriangleModel

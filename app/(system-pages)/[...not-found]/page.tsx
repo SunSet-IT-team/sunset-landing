@@ -1,4 +1,4 @@
-import { CubesModel } from '@/app/components/Models/CubesModel'
+import { CubesModel } from '@/app/components/Models'
 import { Metadata } from 'next'
 import { FC } from 'react'
 

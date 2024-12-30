@@ -3,8 +3,23 @@ import { useGLTF } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { FC } from 'react'
 
-export const BallModel: FC = props => {
-	const { nodes, materials } = useGLTF('/models/services_models/ball/ball.gltf')
+import * as THREE from 'three'
+
+import { GLTF } from 'three-stdlib'
+
+type GLTFResult = GLTF & {
+	nodes: {
+		Цилиндр: THREE.Mesh
+	}
+	materials: {
+		['Материал.006']: THREE.MeshStandardMaterial
+	}
+}
+
+const BallModel: FC = props => {
+	const { nodes, materials } = useGLTF(
+		'/models/services_models/ball/ball.gltf'
+	) as GLTFResult
 	return (
 		<Canvas
 		// camera={{
@@ -137,3 +152,4 @@ export const BallModel: FC = props => {
 }
 
 useGLTF.preload('/models/services_models/ball/ball.gltf')
+export default BallModel

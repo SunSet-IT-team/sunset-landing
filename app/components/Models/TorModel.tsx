@@ -1,9 +1,23 @@
 'use client'
 import { OrbitControls, useGLTF } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
+import { FC } from 'react'
 
-export function TorModel(props) {
-	const { nodes, materials } = useGLTF('/models/tor/tor.gltf')
+import * as THREE from 'three'
+
+import { GLTF } from 'three-stdlib'
+
+type GLTFResult = GLTF & {
+	nodes: {
+		Тор: THREE.Mesh
+	}
+	materials: {
+		['Материал.006']: THREE.MeshStandardMaterial
+	}
+}
+
+const TorModel: FC = props => {
+	const { nodes, materials } = useGLTF('/models/tor/tor.gltf') as GLTFResult
 	return (
 		<Canvas className='!h-[800px]'>
 			<OrbitControls />
@@ -110,7 +124,7 @@ export function TorModel(props) {
 					rotation={[-Math.PI / 2, 0, 0]}
 				/>
 				<mesh
-					geometry={nodes.Тор.geometry}
+					geometry={nodes['Тор'].geometry}
 					material={materials['Материал.006']}
 					position={[-0.153, 0.735, -0.078]}
 					rotation={[-0.951, 0.509, -0.235]}
@@ -122,3 +136,4 @@ export function TorModel(props) {
 }
 
 useGLTF.preload('/models/tor/tor.gltf')
+export default TorModel
