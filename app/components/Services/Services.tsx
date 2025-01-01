@@ -1,9 +1,9 @@
 'use client'
-import { Canvas } from '@react-three/fiber'
+import RenderModel from '@/shared/components/RenderModel/RenderModel'
 import { FC } from 'react'
 import { twMerge } from 'tailwind-merge'
-
-import { BallModel, TriangleModel } from '../Models'
+import BallModelWithLight from '../Models/BallModel/BallModelWithLight'
+import TriangleModelWithLight from '../Models/TriangleModel/TriangleModelWithLight'
 
 export const data = [
 	{
@@ -37,7 +37,7 @@ const Services: FC = () => {
 		<>
 			<div
 				className={twMerge(
-					'grid grid-cols-2 justify-between ml-24 grid-rows-4 gap-y-10 text-sm mt-24'
+					'grid grid-cols-2 justify-between ml-24 grid-rows-4 gap-y-10 text-sm mt-24 relative z-20'
 				)}
 			>
 				{data.map((item, index) => {
@@ -56,13 +56,15 @@ const Services: FC = () => {
 					)
 				})}
 			</div>
-			<div className='absolute bottom-0 left-0 w-[600px] h-[600px] opacity-50'>
-				<Canvas className='!h-[800px]'>
-					<TriangleModel />
-				</Canvas>
+			<div className='absolute -top-[33%] right-0 opacity-50  h-[600px]  w-[600px] z-10'>
+				<RenderModel>
+					<BallModelWithLight />
+				</RenderModel>
 			</div>
-			<div className='absolute -top-[25%] right-0 w-[600px] h-[600px] opacity-50'>
-				<BallModel />
+			<div className='absolute bottom-0 left-0 w-[600px] h-[600px] opacity-50 z-10'>
+				<RenderModel>
+					<TriangleModelWithLight />
+				</RenderModel>
 			</div>
 		</>
 	)

@@ -71,6 +71,9 @@ importers:
       three-stdlib:
         specifier: ^2.35.2
         version: 2.35.2(three@0.171.0)
+      tunnel-rat:
+        specifier: ^0.1.2
+        version: 0.1.2(@types/react@18.3.12)(react@19.0.0-rc-66855b96-20241106)
       validator:
         specifier: ^13.12.0
         version: 13.12.0
@@ -96,6 +99,9 @@ importers:
       '@types/validator':
         specifier: ^13.12.2
         version: 13.12.2
+      lil-gui:
+        specifier: ^0.20.0
+        version: 0.20.0
       postcss:
         specifier: ^8
         version: 8.4.49
@@ -755,6 +761,9 @@ packages:
 
   lie@3.3.0:
     resolution: {integrity: sha512-UaiMJzeWRlEujzAuw5LokY1L5ecNQYZKfmyZ9L7wDHb/p5etKaxXhohBcrw0EYby+G/NA52vRSN4N39dxHAIwQ==}
+
+  lil-gui@0.20.0:
+    resolution: {integrity: sha512-k7Ipr0ztqslMA2XvM5z5ZaWhxQtnEOwJBfI/hmSuRh6q4iMG9L0boqqrnZSzBR1jzyJ28OMl47l65ILzRe1TdA==}
 
   lilconfig@2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
@@ -1904,6 +1913,8 @@ snapshots:
   lie@3.3.0:
     dependencies:
       immediate: 3.0.6
+
+  lil-gui@0.20.0: {}
 
   lilconfig@2.1.0: {}
 

@@ -2,37 +2,34 @@
 
 import dynamic from 'next/dynamic'
 
-export const HelmetModel = dynamic(
-	() => import('../../components/Models/HelmetModel'),
+export const DynamicHelmetModel = dynamic(
+	() => import('./HelmetModel/HelmetModel'),
 	{ ssr: false }
 )
 
-export const TorModel = dynamic(
-	() => import('../../components/Models/TorModel'),
+export const DynamicTorModel = dynamic(() => import('./TorModel/TorModel'), {
+	ssr: false,
+})
+
+export const DynamicCubesModel = dynamic(
+	() => import('./CubesModel/CubesModel'),
 	{ ssr: false }
 )
 
-export const CubesModel = dynamic(
-	() => import('../../components/Models/CubesModel'),
+export const DynamicConeModel = dynamic(() => import('./ConeModel/ConeModel'), {
+	ssr: false,
+})
+
+export const DynamicBallModel = dynamic(() => import('./BallModel/BallModel'), {
+	ssr: false,
+})
+
+export const DynamicTriangleModel = dynamic(
+	() => import('./TriangleModel/TriangleModel'),
 	{ ssr: false }
 )
 
-export const ConeModel = dynamic(
-	() => import('../../components/Models/ConeModel'),
-	{ ssr: false }
-)
-
-export const BallModel = dynamic(
-	() => import('../../components/Models/BallModel'),
-	{ ssr: false }
-)
-
-export const TriangleModel = dynamic(
-	() => import('../../components/Models/ServicesModels/TriangleModel'),
-	{ ssr: false }
-)
-
-export const LogoAnimationModel = dynamic(
+export const DynamicLogoAnimationModel = dynamic(
 	() => import('../../components/Models/LogoAnimationModel/LogoAnimationModel'),
 	{ ssr: false }
 )

@@ -24,7 +24,7 @@ type GLTFResult = GLTF & {
 const LogoAnimationModel: FC = props => {
 	const group = React.useRef()
 	const { nodes, materials, animations } = useGLTF(
-		'/models/logo_animation/logo_animation.gltf'
+		'/models/logo_animation/logo_animation_compressed.glb'
 	) as GLTFResult
 	const { actions, names } = useAnimations(animations, group)
 
@@ -42,7 +42,7 @@ const LogoAnimationModel: FC = props => {
 			scale={3.2}
 		>
 			<group name='Scene' rotation={[0, Math.PI, 0]}>
-				<directionalLight
+				{/* <directionalLight
 					intensity={50}
 					name='Источник-область'
 					position={[-1.415, 0.917, 0.992]}
@@ -145,7 +145,7 @@ const LogoAnimationModel: FC = props => {
 					color='#2300ff'
 					position={[1.684, 0.807, -1.973]}
 					rotation={[-Math.PI / 2, 0, 0]}
-				/>
+				/> */}
 				<mesh
 					name='Сфера'
 					geometry={nodes.Сфера.geometry}
@@ -191,5 +191,5 @@ const LogoAnimationModel: FC = props => {
 	)
 }
 
-useGLTF.preload('/models/logo_animation/logo_animation.gltf')
+useGLTF.preload('/models/logo_animation/logo_animation_compressed.glb')
 export default LogoAnimationModel
