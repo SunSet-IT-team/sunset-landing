@@ -1,6 +1,6 @@
 'use client'
-import RenderModel from '@/shared/components/RenderModel/RenderModel'
-import { FC } from 'react'
+import { View } from '@/shared/components/canvas/View'
+import { FC, Suspense } from 'react'
 import { twMerge } from 'tailwind-merge'
 import BallModelWithLight from '../Models/BallModel/BallModelWithLight'
 import TriangleModelWithLight from '../Models/TriangleModel/TriangleModelWithLight'
@@ -31,7 +31,6 @@ export const data = [
 			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, ipsa!',
 	},
 ]
-
 const Services: FC = () => {
 	return (
 		<>
@@ -56,16 +55,19 @@ const Services: FC = () => {
 					)
 				})}
 			</div>
-			<div className='absolute -top-[33%] right-0 opacity-50  h-[600px]  w-[600px] z-10'>
-				<RenderModel>
+			<div className='absolute -top-[33%] right-0 opacity-50 h-[400px] w-[400px] bg-[#0D0D0D] '></div>
+			<div className='absolute bottom-0 left-10 w-[400px] h-[400px] opacity-50  bg-[#0D0D0D] '></div>
+			<View className='absolute -top-[33%] right-0 opacity-50 h-[400px] w-[400px] '>
+				<Suspense fallback={null}>
 					<BallModelWithLight />
-				</RenderModel>
-			</div>
-			<div className='absolute bottom-0 left-0 w-[600px] h-[600px] opacity-50 z-10'>
-				<RenderModel>
+				</Suspense>
+			</View>
+
+			<View className='absolute bottom-0 left-0 w-[20vw] h-[20vw] opacity-50 '>
+				<Suspense fallback={null}>
 					<TriangleModelWithLight />
-				</RenderModel>
-			</div>
+				</Suspense>
+			</View>
 		</>
 	)
 }

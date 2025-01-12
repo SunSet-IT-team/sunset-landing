@@ -21,15 +21,15 @@ const TriangleModel: FC = props => {
 		'/models/services_models/triangle/triangle_compressed.glb'
 	) as GLTFResult
 	const ref = useRef(null)
-	// useDebugModel(ref)
+
 	return (
 		<primitive
-			rotation={[0.339292006587698, 3.11645991236108, 0]}
-			position={[-0.666017642561036, -1.4451326206513, 0.100530964914873]}
+			rotation={[0.339292006587698, 3.04106168867492, 0]}
+			position={[-0.0502654824574362, -1.4451326206513, 0.100530964914873]}
 			ref={ref}
 			object={scene}
 			{...props}
-			scale={2.5}
+			scale={3}
 		/>
 	)
 }

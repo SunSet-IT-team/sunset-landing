@@ -15,21 +15,22 @@ type GLTFResult = GLTF & {
 	}
 }
 
-const BallModel: FC = props => {
+const BallModel: FC = () => {
 	const { scene } = useGLTF(
 		'/models/services_models/ball/ball_compressed.glb'
 	) as GLTFResult
-	const ref = useRef(null)
-	// useDebugModel(ref)
+	const ref = useRef<THREE.Group>(null)
+
 	return (
-		<primitive
-			position={[-0.816814089933346, 3.04106168867492, 3.19185813604723]}
-			rotation={[-1.74672551539592, -1.59592906802361, 0.716283125018474]}
-			scale={[6.283185307179586, 6.283185307179586, 6.283185307179586]}
-			ref={ref}
-			object={scene}
-			{...props}
-		/>
+		<>
+			<primitive
+				rotation={[-1.74672551539592, -1.59592906802361, 1.03044239037745]}
+				position={[-0.515221195188726, 2.11115026321234, 3.19185813604723]}
+				scale={[5, 5, 5]}
+				ref={ref}
+				object={scene}
+			/>
+		</>
 	)
 }
 

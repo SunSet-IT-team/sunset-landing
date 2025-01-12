@@ -1,3 +1,4 @@
+import { Float } from '@react-three/drei'
 import { FC } from 'react'
 import { DynamicTriangleModel } from '..'
 
@@ -94,9 +95,9 @@ const TriangleModelWithLight: FC = () => {
 				intensity={30}
 				color='#2B00FF'
 			/>
-			{/* <Float speed={2} rotationIntensity={0.6} floatIntensity={0.6}> */}
-			<DynamicTriangleModel />
-			{/* </Float> */}
+			<Float speed={2} rotationIntensity={0.6} floatIntensity={0.6}>
+				<DynamicTriangleModel />
+			</Float>
 		</>
 	)
 }

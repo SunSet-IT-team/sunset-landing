@@ -1,5 +1,4 @@
 'use client'
-import { useDebugModel } from '@/shared/hooks/useDebugModel'
 import { useGLTF } from '@react-three/drei'
 import { FC, useRef } from 'react'
 import * as THREE from 'three'
@@ -17,7 +16,7 @@ type GLTFResult = GLTF & {
 const HelmetModel: FC = props => {
 	const ref = useRef(null)
 	const { scene } = useGLTF('/models/helmet/helmet.glb') as GLTFResult
-	useDebugModel(ref)
+	// useDebugModel(ref)
 	return (
 		<primitive
 			rotation={[0.16336281798667, 2.78973427638774, -0.100530964914873]}

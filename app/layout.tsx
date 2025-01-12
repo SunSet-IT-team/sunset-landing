@@ -1,5 +1,7 @@
-import type { Metadata } from 'next'
+import { Metadata } from 'next'
 import localFont from 'next/font/local'
+
+import { CanvasPortal } from '@/shared/components/dom/CanvasPortal'
 import './globals.css'
 
 const akony = localFont({
@@ -28,7 +30,7 @@ export default function RootLayout({
 			<body
 				className={`${akony.variable} ${arodoraPro.variable} antialiased h-[calc(100vh+160px)] w-[100vw] bg-black-gradient text-white  relative overflow-x-hidden font-akony`}
 			>
-				{children}
+				<CanvasPortal>{children}</CanvasPortal>
 			</body>
 		</html>
 	)
