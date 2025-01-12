@@ -33,3 +33,7 @@ export const DynamicLogoAnimationModel = dynamic(
 	() => import('../../components/Models/LogoAnimationModel/LogoAnimationModel'),
 	{ ssr: false }
 )
+
+export const DynamicCircleModel = dynamic(() => import('./Circles/Circle'), {
+	ssr: false,
+})
