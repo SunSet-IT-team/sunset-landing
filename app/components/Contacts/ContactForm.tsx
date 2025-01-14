@@ -21,13 +21,13 @@ const ContactForm: FC = () => {
 		control,
 	} = useForm<IContactData>({
 		defaultValues: {
-			name: 'имя',
-			phone: '+79781231212',
-			message: 'test',
-			email: 'test@test.ru',
+			name: '',
+			phone: '',
+			message: '',
+			email: '',
 		},
 		resolver: zodResolver(contactSchema),
-		mode: 'onTouched',
+		mode: 'onChange',
 	})
 	const onSubmit = (data: IContactData) => {
 		console.log(data)
