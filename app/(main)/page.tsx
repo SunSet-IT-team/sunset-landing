@@ -8,10 +8,10 @@ import Section from '../components/Section/Section'
 export default function Page() {
 	return (
 		<>
-			<Container className='relative  h-full -mt-40  z-20'>
+			<Container className='relative font-akony h-full -mt-40  z-20'>
 				{sections.map(section => (
 					<Section sectionId={section.id} key={section.id + section.text}>
-						<div className='font-akony'>{section.content}</div>
+						{section.content}
 					</Section>
 				))}
 			</Container>

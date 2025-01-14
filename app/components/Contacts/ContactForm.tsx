@@ -3,12 +3,16 @@ import Button from '@/shared/components/ui/Button'
 import Field from '@/shared/components/ui/Field'
 import Textarea from '@/shared/components/ui/Textarea'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { FC } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { FC, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { IContactData } from './contactData.type'
+import FormSuccess from './FormSuccess'
+import Lines from './Lines'
 import { contactSchema } from './validationSchema'
 
 const ContactForm: FC = () => {
+	const [isSuccess, setIsSuccess] = useState<boolean>(false)
 	const {
 		handleSubmit,
 		formState: { errors },
@@ -17,74 +21,110 @@ const ContactForm: FC = () => {
 		control,
 	} = useForm<IContactData>({
 		defaultValues: {
-			name: '',
-			phone: '',
-			message: '',
-			email: '',
+			name: 'имя',
+			phone: '+79781231212',
+			message: 'test',
+			email: 'test@test.ru',
 		},
 		resolver: zodResolver(contactSchema),
 		mode: 'onTouched',
 	})
 	const onSubmit = (data: IContactData) => {
 		console.log(data)
-		// reset()
+		setIsSuccess(true)
 	}
 	return (
-		<form
-			className='flex flex-col gap-10 w-3/4 mt-10'
-			onSubmit={handleSubmit(onSubmit)}
-		>
-			<Controller
-				name='message'
-				control={control}
-				render={({ field }) => (
-					<Textarea {...field} label='Готовы обсудить проект?' rows={5} />
-				)}
-			/>
+		<>
+			<AnimatePresence>
+				{!isSuccess && (
+					<motion.form
+						className='flex flex-col gap-10 w-3/4 mt-10 pl-28'
+						onSubmit={handleSubmit(onSubmit)}
+						initial={{
+							opacity: 1,
+						}}
+						exit={{
+							opacity: 0,
+						}}
+						transition={{
+							duration: 0.5 + 1,
+						}}
+					>
+						<Controller
+							name='message'
+							control={control}
+							render={({ field }) => (
+								<Textarea {...field} label='Готовы обсудить проект?' rows={5} />
+							)}
+						/>
 
-			<Controller
-				name='name'
-				control={control}
-				render={({ field }) => (
-					<Field
-						{...field}
-						label='Как вас зовут?'
-						className=' px-3 py-2'
-						isValid={!errors.name?.message}
-						error={errors.name?.message}
-					/>
+						<Controller
+							name='name'
+							control={control}
+							render={({ field }) => (
+								<Field
+									{...field}
+									label='Как вас зовут?'
+									className=' px-3 py-2'
+									isValid={!errors.name?.message}
+									error={errors.name?.message}
+								/>
+							)}
+						/>
+						<Controller
+							name='phone'
+							control={control}
+							render={({ field }) => (
+								<Field
+									{...field}
+									label='Ваш телефон'
+									className=' px-3 py-2'
+									isValid={!errors.phone?.message}
+									error={errors.phone?.message}
+								/>
+							)}
+						/>
+						<Controller
+							name='email'
+							control={control}
+							render={({ field }) => (
+								<Field
+									{...field}
+									label='Ваша почта'
+									className=' px-3 py-2'
+									isValid={!errors.email?.message}
+									error={errors.email?.message}
+								/>
+							)}
+						/>
+						<Button className='text-orange' type='submit'>
+							Отправить
+						</Button>
+					</motion.form>
 				)}
-			/>
-			<Controller
-				name='phone'
-				control={control}
-				render={({ field }) => (
-					<Field
-						{...field}
-						label='Ваш телефон'
-						className=' px-3 py-2'
-						isValid={!errors.phone?.message}
-						error={errors.phone?.message}
-					/>
+			</AnimatePresence>
+			<AnimatePresence>
+				{isSuccess && (
+					<>
+						<Lines />
+						<motion.div
+							initial={{
+								opacity: 0,
+							}}
+							animate={{
+								opacity: 1,
+							}}
+							transition={{
+								delay: 0.5 + 1.1,
+								duration: 0.5,
+							}}
+						>
+							<FormSuccess />
+						</motion.div>
+					</>
 				)}
-			/>
-			<Controller
-				name='email'
-				control={control}
-				render={({ field }) => (
-					<Field
-						{...field}
-						label='Ваша почта'
-						className=' px-3 py-2'
-						isValid={!errors.email?.message}
-						error={errors.email?.message}
-					/>
-				)}
-			/>
-			<Button className='text-orange' type='submit'>
-				Отправить
-			</Button>
-		</form>
+			</AnimatePresence>
+		</>
 	)
 }
 
