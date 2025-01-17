@@ -1,11 +1,13 @@
-import { HelmetModel } from '@/app/components/Models/HelmetModel'
-import { Metadata } from 'next'
-import { FC } from 'react'
+'use client'
 
-export const metadata: Metadata = {
-	title: 'Тех.работы',
-	description: 'Извините, но сейчас идут технические работы',
-}
+import HelmetModelWithLight from '@/app/components/Models/HelmetModel/HelmetModelWithLight'
+import { View } from '@/shared/components/canvas/View'
+import { FC, Suspense } from 'react'
+
+// export const metadata: Metadata = {
+// 	title: 'Тех.работы',
+// 	description: 'Извините, но сейчас идут технические работы',
+// }
 
 const TechWorks: FC = () => {
 	return (
@@ -15,8 +17,12 @@ const TechWorks: FC = () => {
 				мы станем ещё лучше!
 			</p>
 
-			<div className='-mt-10 -ml-10 absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
-				<HelmetModel />
+			<div className='-mt-10 -ml-10 absolute w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+				<View className='h-full w-full'>
+					<Suspense fallback={null}>
+						<HelmetModelWithLight />
+					</Suspense>
+				</View>
 			</div>
 			<h1 className='text-8xl mt-auto'>
 				Тех.

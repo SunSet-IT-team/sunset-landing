@@ -1,9 +1,9 @@
 'use client'
-import { Canvas } from '@react-three/fiber'
-import { FC } from 'react'
+import { View } from '@/shared/components/canvas/View'
+import { FC, Suspense } from 'react'
 import { twMerge } from 'tailwind-merge'
-import { BallModel } from '../Models/BallModel'
-import { TriangleModel } from '../Models/ServicesModels/TriangleModel'
+import BallModelWithLight from '../Models/BallModel/BallModelWithLight'
+import TriangleModelWithLight from '../Models/TriangleModel/TriangleModelWithLight'
 
 export const data = [
 	{
@@ -31,13 +31,12 @@ export const data = [
 			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, ipsa!',
 	},
 ]
-
 const Services: FC = () => {
 	return (
 		<>
 			<div
 				className={twMerge(
-					'grid grid-cols-2 justify-between ml-24 grid-rows-4 gap-y-10 text-sm mt-24'
+					'grid grid-cols-2 justify-between ml-24 grid-rows-4 gap-y-10 text-sm mt-24 relative z-20'
 				)}
 			>
 				{data.map((item, index) => {
@@ -56,14 +55,19 @@ const Services: FC = () => {
 					)
 				})}
 			</div>
-			<div className='absolute bottom-0 left-0 w-[600px] h-[600px] opacity-50'>
-				<Canvas className='!h-[800px]'>
-					<TriangleModel />
-				</Canvas>
-			</div>
-			<div className='absolute -top-[25%] right-0 w-[600px] h-[600px] opacity-50'>
-				<BallModel />
-			</div>
+			<div className='absolute -top-[33%] right-0 opacity-50 h-[400px] w-[400px] bg-[#0D0D0D] '></div>
+			<div className='absolute bottom-0 left-10 w-[400px] h-[400px] opacity-50  bg-[#0D0D0D] '></div>
+			<View className='absolute -top-[33%] right-0 opacity-50 h-[400px] w-[400px] '>
+				<Suspense fallback={null}>
+					<BallModelWithLight />
+				</Suspense>
+			</View>
+
+			<View className='absolute bottom-0 left-0 w-[20vw] h-[20vw] opacity-50 '>
+				<Suspense fallback={null}>
+					<TriangleModelWithLight />
+				</Suspense>
+			</View>
 		</>
 	)
 }

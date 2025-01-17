@@ -1,4 +1,5 @@
 'use client'
+
 import Button from '@/shared/components/ui/Button'
 import { FC, useMemo, useState } from 'react'
 import Slider from 'react-slick'

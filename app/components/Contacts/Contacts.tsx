@@ -3,7 +3,7 @@ import ContactForm from './ContactForm'
 
 const Contacts: FC = () => {
 	return (
-		<div className='font-akony ml-28'>
+		<div className='font-akony  h-full overflow-hidden relative'>
 			<ContactForm />
 		</div>
 	)

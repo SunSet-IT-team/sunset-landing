@@ -1,6 +1,8 @@
-import { LogoAnimationModelWrapper } from '@/app/components/Models/LogoAnimationModel/LogoAnimationModelWrapper'
+import { LogoAnimationModelWithLight } from '@/app/components/Models/LogoAnimationModel/LogoAnimationModelWithLight'
+import { View } from '@/shared/components/canvas/View'
+
 import { Metadata } from 'next'
-import { FC } from 'react'
+import { FC, Suspense } from 'react'
 
 export const metadata: Metadata = {
 	title: 'Загрузка...',
@@ -9,10 +11,13 @@ export const metadata: Metadata = {
 
 const Waiting: FC = () => {
 	return (
-		<div className='flex flex-col px-20 h-full relative'>
-			<div className=' absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full'>
-				<LogoAnimationModelWrapper />
-			</div>
+		<div className='flex flex-col px-20 h-full w-full relative'>
+			{/* @ts-ignore */}
+			<View className='absolute w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 '>
+				<Suspense fallback={null}>
+					<LogoAnimationModelWithLight />
+				</Suspense>
+			</View>
 		</div>
 	)
 }

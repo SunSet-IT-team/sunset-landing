@@ -7,16 +7,19 @@ export const contactSchema: ZodType<IContactData> = z.object({
 		.string({
 			required_error: 'Имя обязательно',
 		})
-		.regex(/^[а-яA-Z]+$/, 'Имя должно содержать только буквы'),
+		.min(1, 'Имя обязательно')
+		.regex(/^[а-яА-Яa-zA-Z]+$/, 'Имя должно содержать только буквы'),
 	email: z
 		.string({
-			required_error: 'Email обязательно',
+			required_error: 'Email обязателен',
 		})
+		.min(1, 'Email обязателен')
 		.email('Введите корректный email'),
 	phone: z
 		.string({
-			required_error: 'Телефон обязательно',
+			required_error: 'Телефон обязателен',
 		})
+		.min(1, 'Телефон обязателен')
 		.refine(validator.isMobilePhone, {
 			message: 'Введите корректный номер телефона',
 		}),

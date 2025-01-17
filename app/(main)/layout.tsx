@@ -15,7 +15,10 @@ export default function MainLayout({
 	return (
 		<>
 			<Header />
-			<main className='h-[calc(100vh-160px)] mt-48'>{children}</main>
+
+			<main className='h-[calc(100vh-160px)] mt-48 relative z-30'>
+				{children}
+			</main>
 			<Footer />
 		</>
 	)
