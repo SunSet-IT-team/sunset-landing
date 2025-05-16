@@ -16,7 +16,7 @@ interface MainLayoutProps {
  */
 export default function MainLayout({ children }: MainLayoutProps) {
     return (
-        <div className="w-full h-full overflow-y-hidden ">
+        <div className="w-full h-full overflow-y-hidden">
             <Header />
             <main className="h-[calc(100vh-160px)] mt-48 relative z-30">{children}</main>
             <Footer />

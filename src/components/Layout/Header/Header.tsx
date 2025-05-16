@@ -8,8 +8,12 @@ import { DEFAULT_CLIENT_WIDTH } from '@/src/data/constants';
 import { useNavStore } from '@/src/store/navStore';
 import Logo from '../../ui/Logo';
 
+/**
+ * Шапка
+ */
 const Header: FC = () => {
     const ref = useRef<HTMLDivElement | null>(null);
+
     const {
         activeId,
         setActiveId,
@@ -21,6 +25,10 @@ const Header: FC = () => {
         maxContentWidth,
         setMaxContentWidth,
     } = useNavStore();
+
+    /**
+     * Перерасчёт секции
+     */
     useEffect(() => {
         const data = getSectionPosition({
             sectionId: activeId,
@@ -32,9 +40,14 @@ const Header: FC = () => {
         setStack(data.stack);
         setStyles(data.styles);
     }, [activeId, currentActiveSectionWidth]);
+
+    /**
+     * Определение максимальной ширины
+     */
     useEffect(() => {
         setMaxContentWidth(ref.current?.clientWidth || DEFAULT_CLIENT_WIDTH);
     }, []);
+
     return (
         <header className="py-4 font-akony h-28">
             <Container

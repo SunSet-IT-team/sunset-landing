@@ -46,8 +46,6 @@ const NavItem: FC<IProps> = ({ id, styles, text, href }) => {
                 'pl-5 absolute top-0 h-[calc(100vh)] before:w-0.5 before:h-[calc(100vh+100px)] before:absolute before:-top-[130px] before:bottom-10 before:left-0 before:bg-grey',
                 id === 2 && stack.includes(2) && 'before:-left-20',
                 `right-[${styles.right}px]`,
-
-                stack.includes(id) && activeId !== id && ' bg-black',
             )}>
             <Button className={twMerge('text-lg p-3', activeId === id && 'text-blue-300')}>
                 {text}
