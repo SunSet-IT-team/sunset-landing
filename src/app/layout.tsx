@@ -1,20 +1,8 @@
 import { Metadata } from 'next';
-import localFont from 'next/font/local';
-
-import '../assets/globals.css';
-
 import { CanvasPortal } from '../components/dom/CanvasPortal';
 
-const akony = localFont({
-    src: '../assets/fonts/akony.woff',
-    variable: '--font-akony',
-    weight: '700',
-});
-const arodoraPro = localFont({
-    src: '../assets/fonts/ArodoraPro-Light.otf',
-    variable: '--font-arodora-pro',
-    weight: '300',
-});
+import '../assets/globals.css';
+import { akony, arodoraPro } from '../assets/fonts/lindex';
 
 export const metadata: Metadata = {
     title: 'Sunset',
