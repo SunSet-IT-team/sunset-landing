@@ -1,9 +1,9 @@
 'use client';
 
-import { Leva } from 'leva';
+import Container from '@/src/components/ui/Container';
 import Section from '../../components/Section/Section';
 import { sections } from '@/src/data/data';
-import Container from '@/src/components/ui/Container';
+import { Leva } from 'leva';
 
 export default function Page() {
     return (

@@ -3,7 +3,7 @@ import { FC, Suspense } from 'react';
 import { twMerge } from 'tailwind-merge';
 import BallModelWithLight from '../Models/BallModel/BallModelWithLight';
 import TriangleModelWithLight from '../Models/TriangleModel/TriangleModelWithLight';
-import { View } from '../canvas/View';
+import { View } from '../CanvasPortal/View';
 
 export const data = [
     {

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { CanvasPortal } from '../components/dom/CanvasPortal';
+import { CanvasPortal } from '../components/CanvasPortal/CanvasPortal';
 
 import '../assets/globals.css';
 import { akony, arodoraPro } from '../assets/fonts/lindex';
@@ -17,7 +17,11 @@ export default function RootLayout({
     return (
         <html lang="ru">
             <body
-                className={`${akony.variable} ${arodoraPro.variable} antialiased h-[calc(100vh+160px)] w-[100vw] bg-black-gradient text-white  relative overflow-x-hidden font-akony`}>
+                className={`${akony.variable} ${arodoraPro.variable} 
+                    antialiased h-[calc(100vh)] 
+                    w-[100vw] bg-black-gradient
+                    text-white  relative overflow-x-hidden 
+                    font-akony`}>
                 <CanvasPortal>{children}</CanvasPortal>
             </body>
         </html>

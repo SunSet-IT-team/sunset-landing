@@ -7,17 +7,19 @@ export const metadata: Metadata = {
     description: 'Sunset',
 };
 
-export default function MainLayout({
-    children,
-}: Readonly<{
+interface MainLayoutProps {
     children: React.ReactNode;
-}>) {
-    return (
-        <>
-            <Header />
+}
 
+/**
+ * Страница лендоса
+ */
+export default function MainLayout({ children }: MainLayoutProps) {
+    return (
+        <div className="w-full h-full overflow-y-hidden ">
+            <Header />
             <main className="h-[calc(100vh-160px)] mt-48 relative z-30">{children}</main>
             <Footer />
-        </>
+        </div>
     );
 }

@@ -4,6 +4,10 @@ import { r3f } from '@/src/helpers/global';
 import { Preload } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';
+
+/**
+ * Сцена для рендре а 3d
+ */
 export default function Scene({ ...props }) {
     return (
         <Canvas {...props} onCreated={(state) => (state.gl.toneMapping = THREE.AgXToneMapping)}>

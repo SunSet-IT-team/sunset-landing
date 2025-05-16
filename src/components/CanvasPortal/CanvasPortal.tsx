@@ -2,10 +2,14 @@
 
 import dynamic from 'next/dynamic';
 import { FC, PropsWithChildren, useRef } from 'react';
-const Scene = dynamic(() => import('..//canvas/Scene'), {
+
+const Scene = dynamic(() => import('./Scene'), {
     ssr: false,
 });
 
+/**
+ * Компонент для рендера 3d сзади контента
+ */
 export const CanvasPortal: FC<PropsWithChildren> = ({ children }) => {
     const ref = useRef(null);
 
