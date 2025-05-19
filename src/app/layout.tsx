@@ -18,7 +18,7 @@ export default function RootLayout({
         <html lang="ru">
             <body
                 className={`${akony.variable} ${arodoraPro.variable} 
-                    antialiased h-[calc(100vh)] 
+                    antialiased h-[100vh] 
                     w-[100vw] bg-black-gradient
                     text-white  relative overflow-x-hidden 
                     font-akony`}>

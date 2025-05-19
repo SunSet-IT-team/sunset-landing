@@ -1,21 +1,21 @@
-'use client';
-
 import Container from '@/src/components/ui/Container';
-import Section from '../../components/Section/Section';
 import { sections } from '@/src/data/data';
 import { Leva } from 'leva';
+import AccordionSection from '@/src/components/AccordionSection';
 
 export default function Page() {
     return (
         <>
-            <Container className="relative font-akony h-full -mt-40  z-20">
-                {sections.map((section) => (
-                    <Section sectionId={section.id} key={section.id + section.text}>
-                        {section.content}
-                    </Section>
-                ))}
+            <Container className="relative font-akony h-full z-20">
+                <div className="flex items-stretch h-full w-full">
+                    {sections.map((section) => (
+                        <AccordionSection key={section.id} id={section.id} title={section.text}>
+                            {section.content}
+                        </AccordionSection>
+                    ))}
+                </div>
             </Container>
-            <Leva />
+            {/* <Leva /> */}
         </>
     );
 }

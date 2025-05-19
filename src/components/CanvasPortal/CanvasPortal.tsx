@@ -24,7 +24,7 @@ export const CanvasPortal: FC<PropsWithChildren> = ({ children }) => {
                 touchAction: 'auto',
             }}>
             {children}
-            <Scene
+            {/* <Scene
                 style={{
                     position: 'fixed',
                     top: 0,
@@ -36,7 +36,7 @@ export const CanvasPortal: FC<PropsWithChildren> = ({ children }) => {
                 }}
                 eventSource={ref}
                 eventPrefix="client"
-            />
+            /> */}
         </div>
     );
 };

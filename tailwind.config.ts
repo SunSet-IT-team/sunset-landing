@@ -12,6 +12,7 @@ export default {
                     400: 'var(--blue-400)',
                 },
                 grey: 'var(--grey)',
+                darkGrey: 'var(--dark-grey)',
                 orange: 'var(--orange)',
             },
             fontFamily: {

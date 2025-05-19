@@ -1,0 +1,12 @@
+@tailwind components;
+
+/* Кастомная типографика */
+@layer components {
+    .heading {
+        @apply text-xs sm:text-sm lg:text-xl font-bold leading-[125%] font-akony;
+    }
+
+    .text {
+        @apply text-xs sm:text-sm  lg:text-xl font-light leading-[125%]  font-arodora-pro;
+    }
+}
