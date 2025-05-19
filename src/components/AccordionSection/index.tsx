@@ -23,27 +23,32 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
     // Расчёт - первая вкладка должна показывать только если она актива
     const flexGrow = isActive
         ? id === 1
-            ? 'flex-[2.15]'
-            : 'flex-[2.65]'
+            ? 'flex-[1] md:flex-[2.15]'
+            : 'flex-[1] md:flex-[2.65]'
         : id === 1
-        ? 'flex-[0]'
-        : 'flex-[1]';
+        ? 'h-0 flex-[0] md:h-[unset]'
+        : 'h-[52px] lg:flex-[1] md:h-[unset]';
 
     // Расчёт -  также для первой вкладки
-    const width = id === 1 && !isActive ? 'w-0' : '';
+    const width = id === 1 && !isActive ? 'w-full md:w-0' : 'w-full md:w-[50px] lg:w-[unset]';
 
     // Расчёт - границы должны быть только для услуг и активной первой секции
-    const border = id === 3 ? 'border-x' : id === 1 && isActive ? 'border-r' : '';
+    const border =
+        id === 3
+            ? 'border-y md:border-x md:border-y-0'
+            : id === 1 && isActive
+            ? 'border-b md:border-r md:border-b-0'
+            : '';
 
     // Расчёт - паддинги
     const padding =
         id === 1 && !isActive
             ? ''
             : (activeId !== 1 && id === 2) || id === 1
-            ? 'pr-6'
+            ? 'py-3 md:pr-3 md:py-0 lg:pr-6'
             : id === 4
-            ? 'pl-6'
-            : 'px-6';
+            ? 'py-3 md:pl-3 md:py-0 lg:pl-6'
+            : 'py-3 md:px-3 md:py-0 lg:px-6';
 
     return (
         <>
@@ -52,13 +57,22 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
                     ${border} border-darkGrey border-opacity-50
                     transition-all duration-300 ease-in-out
                     ${padding}
-                    relative ${flexGrow} ${width}`}>
+                    relative ${flexGrow} ${width}`}
+                onClick={() => setActiveId(id)}>
                 {id != 1 && (
                     <h2
                         className={`transition-all duration-300 ease-in-out
                          relative z-20 heading
-                     ${isActiveText ? 'mt-[120px]' : 'mt-[44px]'}`}>
-                        <button onClick={() => setActiveId(id)}>{title}</button>
+                     ${
+                         isActiveText
+                             ? `md:mt-[104px] ${
+                                   isActive
+                                       ? 'md:[transform:none]'
+                                       : 'md:[transform:rotate(90deg)_translateX(50%)] '
+                               } lg:mt-[120px] lg:[transform:none]`
+                             : `md:mt-[32px] md:[transform:rotate(90deg)_translateX(50%)] lg:mt-[44px] lg:[transform:none]`
+                     }`}>
+                        {title}
                     </h2>
                 )}
 
@@ -66,7 +80,7 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
                     className={`w-full overflow-x-hidden
                     transition-all duration-300 ease-in-out
                     relative z-10
-                    ${id === 1 ? 'mt-[150px]' : ''}
+                    ${id === 1 ? 'mt-[20px] md:mt-[150px]' : ''}
                      ${isActive ? 'opacity-1' : 'opacity-0'}`}>
                     {children}
                 </div>

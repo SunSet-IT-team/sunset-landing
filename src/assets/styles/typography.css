@@ -9,4 +9,8 @@
     .text {
         @apply text-xs sm:text-sm  lg:text-xl font-light leading-[125%]  font-arodora-pro;
     }
+
+    .main-heading {
+        @apply text-[15px] lg:text-2xl font-bold leading-[125%] font-akony;
+    }
 }

@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 const Home: FC = () => {
     return (
-        <section className="w-[400px] text-xl ">
+        <section className="">
             <h2 className="heading">
                 Вы
                 <br /> придумываете
