@@ -1,12 +1,12 @@
-import { FC } from 'react'
-import ContactForm from './ContactForm'
+import { FC } from 'react';
+import ContactForm from './ContactForm';
 
 const Contacts: FC = () => {
-	return (
-		<div className='font-akony  h-full overflow-hidden relative'>
-			<ContactForm />
-		</div>
-	)
-}
+    return (
+        <div className="lg:h-full overflow-hidden relative">
+            <ContactForm />
+        </div>
+    );
+};
 
-export default Contacts
+export default Contacts;

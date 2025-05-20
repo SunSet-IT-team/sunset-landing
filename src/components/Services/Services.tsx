@@ -80,8 +80,8 @@ const Services: FC = () => {
                     return (
                         <div
                             key={item.title}
-                            className={`col-span-2 xl:col-span-1 ${mappginRows[index]}
-                                ${index % 2 == 0 ? '!col-start-1' : '!col-start-2'}`}>
+                            className={`md:col-span-2 xl:col-span-1 ${mappginRows[index]}
+                                ${index % 2 == 0 ? 'md:!col-start-1' : 'md:!col-start-2'}`}>
                             <h3 className="heading-h3 mb-2">{item.title}</h3>
                             <p
                                 className="text-descr"
