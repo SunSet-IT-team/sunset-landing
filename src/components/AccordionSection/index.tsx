@@ -62,14 +62,14 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
                 {id != 1 && (
                     <h2
                         className={`transition-all duration-300 ease-in-out origin-bottom-left
-                         relative z-20 heading ${
+                         relative z-20 heading cursor-pointer ${
                              id == 4 ? 'xl:-tracking-wider 2xl:tracking-wider' : ''
                          }
                      ${
                          isActiveText
                              ? `md:mt-[104px] ${
                                    isActive
-                                       ? 'text-blue-200 md:[transform:none]'
+                                       ? 'cursor-text text-blue-200 md:[transform:none]'
                                        : 'md:[transform:rotate(90deg)_translateX(50%)] '
                                } xl:mt-[120px] xl:[transform:none]`
                              : `md:mt-[32px] md:[transform:rotate(90deg)_translateX(50%)] xl:mt-[44px] xl:[transform:none]`
