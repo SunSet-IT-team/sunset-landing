@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import './styles/typography.css';
+@import './styles/swiper.css';
 
 :root {
     --background: #ffffff;

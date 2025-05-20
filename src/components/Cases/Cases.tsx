@@ -1,47 +1,61 @@
 'use client';
 
-import { FC, useMemo, useState } from 'react';
-import 'slick-carousel/slick/slick-theme.css';
-import 'slick-carousel/slick/slick.css';
-import { twMerge } from 'tailwind-merge';
+import { useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import type { Swiper as SwiperType } from 'swiper';
+import { EffectCoverflow } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
 import Case from './Case';
-import { data } from './data';
 import Button from '../ui/Button';
-import Slider from 'react-slick';
 
-const Cases: FC = () => {
-    const [activeId, setActiveId] = useState(1);
-    const settings = {
-        infinite: true,
-        speed: 300,
-        slidesToShow: 3,
-        centerMode: true,
-        centerPadding: '0',
-        initialSlide: 1,
-        beforeChange: (current: number, next: number) => setActiveId(next),
-    };
-
-    const cases = useMemo(() => {
-        return data.map((item) => (
-            <Case
-                id={item.id}
-                img={item.img}
-                name={item.name}
-                key={item.id + item.name}
-                isActive={activeId === item.id - 1}
-                activeId={activeId}
-            />
-        ));
-    }, [activeId]);
+export default function Cases() {
+    const cards = ['Card 1', 'Card 2', 'Card 3', 'Card 4', 'Card 5', 'Card 6'];
+    const swiperRef = useRef<SwiperType | null>(null);
+    const [activeId, setActiveId] = useState(0);
 
     return (
-        <div className={twMerge('z-10 ml-16 mt-6 text-center', `w-[800px]`)}>
-            <Slider {...settings} lazyLoad="anticipated">
-                {cases}
-            </Slider>
+        <div className="px-16 mt-6 text-center">
+            <Swiper
+                effect="coverflow"
+                modules={[EffectCoverflow]}
+                centeredSlides
+                slidesPerView={2.5}
+                loop
+                loopAdditionalSlides={2}
+                spaceBetween={40}
+                onRealIndexChange={(s) => setActiveId(s.realIndex)}
+                coverflowEffect={{
+                    rotate: 20,
+                    depth: 350,
+                    modifier: 1,
+                    slideShadows: false,
+                }}
+                onSwiper={(s) => (swiperRef.current = s)}
+                className="mx-auto max-w-[830px] py-10 overflow-hidden swiper-cards">
+                {cards.map((card, i) => {
+                    const total = cards.length;
+                    const prevIndex = (activeId - 1 + total) % total;
+                    const nextIndex = (activeId + 1) % total;
+
+                    return (
+                        <SwiperSlide key={card} className="flex justify-center items-center">
+                            <Case
+                                id={i}
+                                img=""
+                                isActive={activeId === i}
+                                isPrev={i === prevIndex}
+                                isNext={i === nextIndex}
+                                activeId={activeId}
+                                swiper={swiperRef.current}
+                                total={total}
+                            />
+                        </SwiperSlide>
+                    );
+                })}
+            </Swiper>
+
             <Button className="mt-10 p-5">Посмотреть все</Button>
         </div>
     );
-};
-
-export default Cases;
+}

@@ -1,0 +1,11 @@
+.swiper-cards .swiper-slide {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+.swiper-cards .swiper-slide-prev,
+.swiper-cards .swiper-slide-next {
+    opacity: 0.6;
+}
+.swiper-cards .swiper-slide-active {
+    opacity: 1;
+}
