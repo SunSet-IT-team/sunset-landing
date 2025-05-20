@@ -1,20 +1,24 @@
 'use client';
+
 import { FC } from 'react';
+import { motion } from 'framer-motion';
 
 const Home: FC = () => {
     return (
-        <section className="">
-            <h2 className="heading">
-                Вы
-                <br /> придумываете
-            </h2>
+        <main>
+            <h1 className="heading">
+                <strong className="text-orange">SunSet IT</strong> —<br />
+                <strong className="text-blue-200">digital-команда</strong> для вашего бизнеса
+            </h1>
             <p className="mt-10 text">
-                Создаем цифровые шедевры с нуля!" Готовы выделиться в цифровом мире? В "Sunset IT"
-                мы превращаем смелые идеи в мощные цифровые продукты. Беремся за проекты на любой
-                стадии, будь то ранняя задумка или готовый концепт, требующий профессионального
-                воплощения.
+                Мы&nbsp;&mdash; за&nbsp;ясные планы, прозрачные результаты и&nbsp;спокойный сон
+                заказчика. Помогаем малому и&nbsp;среднему бизнесу быстро запустить, улучшить или
+                обновить сайты, веб-приложения и&nbsp;другие цифровые продукты под ключ.
             </p>
-        </section>
+            <p className="mt-2 text">
+                К&nbsp;нам приходят с&nbsp;идеей&nbsp;&mdash; а&nbsp;уходят с&nbsp;результатом.
+            </p>
+        </main>
     );
 };
 
