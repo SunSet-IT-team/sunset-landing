@@ -45,7 +45,9 @@ export default function Case({
                 if (isNext) swiper.slideNext();
             }}>
             <motion.div
-                className={'relative w-full h-[350px] rounded-xl overflow-hidden bg-white'}
+                className={
+                    'relative w-full h-[30vh] md:h-[350px] rounded-xl overflow-hidden bg-white'
+                }
                 ref={ref}
                 initial={{
                     scale: 0.85,
