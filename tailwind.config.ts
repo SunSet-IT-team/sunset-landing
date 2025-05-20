@@ -8,6 +8,7 @@ export default {
                 background: 'var(--background)',
                 foreground: 'var(--foreground)',
                 blue: {
+                    200: 'var(--blue-200)',
                     300: 'var(--blue-300)',
                     400: 'var(--blue-400)',
                 },

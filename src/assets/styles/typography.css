@@ -2,15 +2,23 @@
 
 /* Кастомная типографика */
 @layer components {
+    .main-heading {
+        @apply text-[15px] lg:text-2xl font-bold leading-[125%] font-akony tracking-wider;
+    }
+
     .heading {
-        @apply text-xs sm:text-sm lg:text-xl font-bold leading-[125%] font-akony;
+        @apply text-xs sm:text-sm lg:text-xl font-bold leading-[125%] font-akony tracking-wider;
+    }
+
+    .heading-h3 {
+        @apply text-xs lg:text-sm  font-bold leading-[125%] font-akony tracking-wider;
     }
 
     .text {
-        @apply text-xs sm:text-sm  lg:text-xl font-light leading-[125%]  font-arodora-pro;
+        @apply text-xs sm:text-sm  lg:text-xl font-light leading-[125%]  font-arodora-pro opacity-90;
     }
 
-    .main-heading {
-        @apply text-[15px] lg:text-2xl font-bold leading-[125%] font-akony;
+    .text-descr {
+        @apply text-[13px]  lg:text-sm font-light leading-[125%]  font-arodora-pro opacity-85;
     }
 }

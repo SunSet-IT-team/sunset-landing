@@ -27,10 +27,10 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
             : 'flex-[1] md:flex-[2.65]'
         : id === 1
         ? 'h-0 flex-[0] md:h-[unset]'
-        : 'h-[52px] lg:flex-[1] md:h-[unset]';
+        : 'h-[52px] xl:flex-[1] md:h-[unset]';
 
     // Расчёт -  также для первой вкладки
-    const width = id === 1 && !isActive ? 'w-full md:w-0' : 'w-full md:w-[50px] lg:w-[unset]';
+    const width = id === 1 && !isActive ? 'w-full md:w-0' : 'w-full md:w-[50px] xl:w-[unset]';
 
     // Расчёт - границы должны быть только для услуг и активной первой секции
     const border =
@@ -45,10 +45,10 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
         id === 1 && !isActive
             ? ''
             : (activeId !== 1 && id === 2) || id === 1
-            ? 'py-3 md:pr-3 md:py-0 lg:pr-6'
+            ? 'py-3 md:pr-3 md:py-0 2xl:pr-6'
             : id === 4
-            ? 'py-3 md:pl-3 md:py-0 lg:pl-6'
-            : 'py-3 md:px-3 md:py-0 lg:px-6';
+            ? 'py-3 md:pl-3 md:py-0 2xl:pl-6'
+            : 'py-3 md:px-3 md:py-0 2xl:px-6';
 
     return (
         <>
@@ -61,16 +61,18 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
                 onClick={() => setActiveId(id)}>
                 {id != 1 && (
                     <h2
-                        className={`transition-all duration-300 ease-in-out
-                         relative z-20 heading
+                        className={`transition-all duration-300 ease-in-out origin-bottom-left
+                         relative z-20 heading ${
+                             id == 4 ? 'xl:-tracking-wider 2xl:tracking-wider' : ''
+                         }
                      ${
                          isActiveText
                              ? `md:mt-[104px] ${
                                    isActive
-                                       ? 'md:[transform:none]'
+                                       ? 'text-blue-200 md:[transform:none]'
                                        : 'md:[transform:rotate(90deg)_translateX(50%)] '
-                               } lg:mt-[120px] lg:[transform:none]`
-                             : `md:mt-[32px] md:[transform:rotate(90deg)_translateX(50%)] lg:mt-[44px] lg:[transform:none]`
+                               } xl:mt-[120px] xl:[transform:none]`
+                             : `md:mt-[32px] md:[transform:rotate(90deg)_translateX(50%)] xl:mt-[44px] xl:[transform:none]`
                      }`}>
                         {title}
                     </h2>

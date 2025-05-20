@@ -7,14 +7,13 @@ import { forwardRef, HTMLAttributes, PropsWithChildren, useImperativeHandle, use
 export const View = forwardRef<HTMLDivElement, PropsWithChildren<HTMLAttributes<HTMLDivElement>>>(
     ({ children, ...props }, ref) => {
         const localRef = useRef<HTMLDivElement | null>(null);
-        // @ts-ignore
+
         useImperativeHandle(ref, () => localRef.current);
 
         return (
             <>
                 <div ref={localRef} {...props} />
                 <Three>
-                    {/* @ts-ignore */}
                     <ViewImpl track={localRef}>{children}</ViewImpl>
                 </Three>
             </>
