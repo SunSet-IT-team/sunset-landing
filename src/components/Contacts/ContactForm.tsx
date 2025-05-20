@@ -11,8 +11,12 @@ import Button from '../ui/Button';
 import Field from '../ui/Field';
 import Textarea from '../ui/Textarea';
 
+/**
+ * Форма обратной связи
+ */
 const ContactForm: FC = () => {
     const [isSuccess, setIsSuccess] = useState<boolean>(false);
+
     const {
         handleSubmit,
         formState: { errors },
@@ -29,6 +33,9 @@ const ContactForm: FC = () => {
         resolver: zodResolver(contactSchema),
         mode: 'onChange',
     });
+
+    const errorMessages = Object.values(errors).map((error) => error.message);
+
     const onSubmit = (data: IContactData) => {
         console.log(data);
         setIsSuccess(true);
@@ -38,7 +45,7 @@ const ContactForm: FC = () => {
             <AnimatePresence>
                 {!isSuccess && (
                     <motion.form
-                        className="flex flex-col gap-10 w-3/4 mt-10 pl-28"
+                        className="flex flex-col gap-5 pl-2 lg:pl-0 mt-6 lg:mt-7 lg:max-w-[650px] lg:mx-auto lg:gap-6"
                         onSubmit={handleSubmit(onSubmit)}
                         initial={{
                             opacity: 1,
@@ -53,7 +60,12 @@ const ContactForm: FC = () => {
                             name="message"
                             control={control}
                             render={({ field }) => (
-                                <Textarea {...field} label="Готовы обсудить проект?" rows={5} />
+                                <Textarea
+                                    {...field}
+                                    label="Готовы обсудить проект?"
+                                    rows={5}
+                                    className="tracking-wider"
+                                />
                             )}
                         />
 
@@ -64,7 +76,7 @@ const ContactForm: FC = () => {
                                 <Field
                                     {...field}
                                     label="Как вас зовут?"
-                                    className=" px-3 py-2"
+                                    className=" px-3 py-2 tracking-wider"
                                     isValid={!errors.name?.message}
                                     error={errors.name?.message}
                                 />
@@ -77,7 +89,7 @@ const ContactForm: FC = () => {
                                 <Field
                                     {...field}
                                     label="Ваш телефон"
-                                    className=" px-3 py-2"
+                                    className=" px-3 py-2 tracking-wider"
                                     isValid={!errors.phone?.message}
                                     error={errors.phone?.message}
                                 />
@@ -89,14 +101,20 @@ const ContactForm: FC = () => {
                             render={({ field }) => (
                                 <Field
                                     {...field}
-                                    label="Ваша почта"
-                                    className=" px-3 py-2"
+                                    label="Email"
+                                    className=" px-3 py-2 tracking-wider"
                                     isValid={!errors.email?.message}
                                     error={errors.email?.message}
                                 />
                             )}
                         />
-                        <Button className="text-orange" type="submit">
+
+                        <Button
+                            className={`text-orange transition-all duration-300 ${
+                                errorMessages.length ? 'opacity-0' : ''
+                            }`}
+                            disabled={errorMessages.length > 0}
+                            type="submit">
                             Отправить
                         </Button>
                     </motion.form>
