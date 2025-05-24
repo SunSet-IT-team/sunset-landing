@@ -1,9 +1,9 @@
 'use client';
-import { FC, Suspense } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { FC, Suspense, useState } from 'react';
 import BallModelWithLight from '../Models/BallModel/BallModelWithLight';
 import TriangleModelWithLight from '../Models/TriangleModel/TriangleModelWithLight';
 import { View } from '../CanvasPortal/View';
+import { useNavStore } from '@/src/store/navStore';
 
 // export const data = [
 //     {
@@ -71,6 +71,9 @@ const mappginRows = {
  * Секция услуги
  */
 const Services: FC = () => {
+    const { activeId } = useNavStore();
+    const isActive = activeId == 3;
+
     return (
         <>
             <div
@@ -92,19 +95,17 @@ const Services: FC = () => {
                 })}
             </div>
 
-            {/* <div className="absolute -top-[33%] right-0 opacity-50 h-[400px] w-[400px] bg-[#0D0D0D] "></div>
-            <div className="absolute bottom-0 left-10 w-[400px] h-[400px] opacity-50  bg-[#0D0D0D] "></div>
-            <View className="absolute -top-[33%] right-0 opacity-50 h-[400px] w-[400px] ">
+            <View className="absolute top-[13%] md:-top-[33%] right-0 opacity-50 h-[20vw] w-[20vw] ">
                 <Suspense fallback={null}>
-                    <BallModelWithLight />
+                    <BallModelWithLight active={isActive} />
                 </Suspense>
             </View>
 
             <View className="absolute bottom-0 left-0 w-[20vw] h-[20vw] opacity-50 ">
                 <Suspense fallback={null}>
-                    <TriangleModelWithLight />
+                    <TriangleModelWithLight active={isActive} />
                 </Suspense>
-            </View> */}
+            </View>
         </>
     );
 };

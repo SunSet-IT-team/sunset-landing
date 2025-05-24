@@ -6,11 +6,14 @@ import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';
 
 /**
- * Сцена для рендре а 3d
+ * Сцена для рендра 3d
  */
 export default function Scene({ ...props }) {
     return (
-        <Canvas {...props} onCreated={(state) => (state.gl.toneMapping = THREE.AgXToneMapping)}>
+        <Canvas
+            {...props}
+            frameloop="always"
+            onCreated={(state) => (state.gl.toneMapping = THREE.AgXToneMapping)}>
             <r3f.Out />
             <Preload all />
         </Canvas>
