@@ -10,9 +10,15 @@ const HomeLogo = () => {
     const isActive = activeId == 1;
     return (
         <div
-            className={`h-[50vw] w-[50vw] max-w-[500px] max-h-[500px] absolute z-30 bottom-[10%] pointer-events-none
+            className={`max-w-[300px] max-h-[300px] lg:max-w-[350px] lg:max-h-[350px]  xl:max-w-[500px] xl:max-h-[500px]
+                   h-[50vw] w-[50vw]  absolute z-30 
+                    
                     transition-all duration-300 ease-in-out
-                ${!isActive ? 'right-[110%] opacity-0' : 'right-[5%] opacity-100'}
+                ${
+                    !isActive
+                        ? 'bottom-[150%] right-[105%] md:right-[110%] opacity-0'
+                        : 'bottom-[25%] sm:bottom-[15%] right-[5%] md:right-[1%] md:bottom-[7%] opacity-100'
+                }
                 `}
             style={{
                 backgroundImage: `url('/home_logo.webp')`,
