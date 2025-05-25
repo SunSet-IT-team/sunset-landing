@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import Container from '../../ui/Container';
 import Legality from './Legality';
 import Questions from './Questions';
@@ -12,12 +12,29 @@ import SocialMedia from './SocialMedia';
 const Footer: FC = () => {
     const [isVisible, setIsVisible] = useState(false);
 
+    const footerRef = useRef<HTMLDivElement>(null);
+
+    // Обработчик клика вне подвала
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (footerRef.current && !footerRef.current.contains(event.target as Node)) {
+                setIsVisible(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
         <>
-            {/* Оранжевый триггер */}
+            {/* Триггер */}
             <div
                 className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full h-[12px] bg-blue-400 z-40 cursor-pointer"
                 onMouseEnter={() => setIsVisible(true)}
+                onClick={() => setIsVisible(true)}
                 style={{
                     backgroundImage: `url('/icons/arrow.svg')`,
                     backgroundSize: '10px 10px',
@@ -28,12 +45,13 @@ const Footer: FC = () => {
 
             {/* Подвал с анимацией */}
             <footer
-                className={`bg-blue-400 fixed left-0 right-0 bottom-0 px-11 py-4 h-40 z-50 transition-transform duration-300 ease-in-out ${
+                ref={footerRef}
+                className={`bg-blue-400 fixed left-0 right-0 bottom-0 py-2 md:py-4 h-16 md:h-30 z-50 transition-transform duration-300 ease-in-out ${
                     isVisible ? 'translate-y-0' : 'translate-y-full'
                 }`}
                 onMouseLeave={() => setIsVisible(false)}>
-                <Container className="grid grid-cols-3 w-full h-full">
-                    <Questions />
+                <Container className="flex flex-col items-center justify-center gap-2 md:gap-4 w-full h-full">
+                    {/* <Questions /> */}
                     <SocialMedia />
                     <Legality />
                 </Container>

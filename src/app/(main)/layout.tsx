@@ -21,7 +21,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
             <main className="pt-2 md:pt-0 relative z-30 flex-grow-[1] h-0 md:h-full ">
                 {children}
             </main>
-            {/* <Footer /> */}
+            <Footer />
         </div>
     );
 }
