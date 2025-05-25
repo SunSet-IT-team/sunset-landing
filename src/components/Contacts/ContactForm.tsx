@@ -45,7 +45,7 @@ const ContactForm: FC = () => {
             <AnimatePresence>
                 {!isSuccess && (
                     <motion.form
-                        className="flex flex-col gap-5 pl-2 lg:pl-0 mt-6 lg:mt-7 lg:max-w-[650px] lg:mx-auto lg:gap-6"
+                        className="flex flex-col gap-5 pl-2 lg:pl-0 mt-6 lg:mt-7 lg:max-w-[650px] lg:mx-auto lg:gap-6  max-h-[532px]"
                         onSubmit={handleSubmit(onSubmit)}
                         initial={{
                             opacity: 1,

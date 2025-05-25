@@ -26,27 +26,27 @@ const TorModelWithLight: FC<{ active?: boolean }> = ({ active = true }) => {
             />
             <directionalLight
                 position={[-0.796234, -2.19012, 1.84228]}
-                intensity={10}
+                intensity={40}
                 rotation={[1.05609, 0.061284, -0.357682]}
-                color="#a25b13"
+                color="#6310ec"
             />
             <directionalLight
                 position={[1.56781, 4.67911, 2.73073]}
-                intensity={10}
+                intensity={30}
                 rotation={[-0.542054, -1.17824, -1.12879]}
-                color="#2B00FF"
+                color="#8d2fb3"
             />
             <pointLight
                 intensity={50}
                 decay={2}
-                color="#2300ff"
+                color="#802669"
                 position={[0.547, 0.771, -0.857]}
                 rotation={[-Math.PI / 2, 0, 0]}
             />
             <pointLight
                 intensity={50}
                 decay={2}
-                color="#2300ff"
+                color="#802669"
                 position={[-1.886, 1.811, -0.489]}
                 rotation={[-Math.PI / 2, 0, 0]}
             />
@@ -81,7 +81,7 @@ const TorModelWithLight: FC<{ active?: boolean }> = ({ active = true }) => {
             <pointLight
                 intensity={50}
                 decay={2}
-                color="#fbffeb"
+                color="#802669"
                 position={[1.746, -1.157, -1.342]}
                 rotation={[-Math.PI / 2, 0, 0]}
             />

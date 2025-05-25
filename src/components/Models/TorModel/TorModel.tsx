@@ -39,7 +39,7 @@ const TorModel: FC = (props) => {
                 material={materials['Материал.006']}
                 position={[0, -0.2, 0]}
                 rotation={[0.16, 1.1, 3.99]}
-                scale={3}
+                scale={2.7}
             />
         </group>
     );
