@@ -1,6 +1,7 @@
 import Container from '@/src/components/ui/Container';
 import { sections } from '@/src/data/data';
 import AccordionSection from '@/src/components/AccordionSection';
+import HomeLogo from '@/src/components/Home/HomeLogo';
 
 export default function Page() {
     return (
@@ -13,6 +14,7 @@ export default function Page() {
                         </AccordionSection>
                     ))}
                 </div>
+                <HomeLogo />
             </Container>
         </>
     );

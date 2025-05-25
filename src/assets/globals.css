@@ -31,3 +31,23 @@
     border-radius: 8px;
     background-color: #292929;
 }
+
+.blinking-cursor {
+    display: inline-block;
+    width: 1px;
+    background-color: #60a5fa; /* или другой цвет */
+    animation: blink 1s step-start infinite;
+    margin-left: 2px;
+    vertical-align: bottom;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+::selection {
+    background-color: #ff66008c;
+    color: white;
+}

@@ -3,8 +3,19 @@ import Header from '@/src/components/Layout/Header/Header';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Sunset',
-    description: 'Sunset',
+    title: 'Sunset IT — Создание сайтов и приложений для бизнеса',
+    description:
+        'SunSet IT — команда разработчиков, создающая удобные и надёжные сайты, веб-приложения и цифровые продукты для малого и среднего бизнеса. Быстрый запуск, поддержка и развитие онлайн-проектов.',
+    keywords: [
+        'создание сайта',
+        'разработка веб-приложений',
+        'digital-команда',
+        'разработка сайтов для бизнеса',
+        'поддержка сайтов',
+        'SunSet IT',
+        'создать сайт дешево',
+        'малый бизнес',
+    ],
 };
 
 interface MainLayoutProps {
