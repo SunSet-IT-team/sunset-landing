@@ -79,7 +79,7 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
                 )}
 
                 <div
-                    className={`w-full overflow-x-hidden
+                    className={`w-full overflow-hidden
                     transition-all duration-300 ease-in-out
                     relative z-10
                     ${id === 1 ? 'mt-[20px] md:mt-[150px]' : ''}

@@ -95,13 +95,13 @@ const Services: FC = () => {
                 })}
             </div>
 
-            <View className="absolute top-[13%] md:-top-[33%] right-0 opacity-50 h-[20vw] w-[20vw] ">
+            <View className="absolute top-[13%] md:-top-[33%] right-0 h-[20vw] w-[20vw] ">
                 <Suspense fallback={null}>
                     <BallModelWithLight active={isActive} />
                 </Suspense>
             </View>
 
-            <View className="absolute bottom-0 left-0 w-[20vw] h-[20vw] opacity-50 ">
+            <View className="absolute bottom-0 left-0 w-[25vw] h-[25vw] ">
                 <Suspense fallback={null}>
                     <TriangleModelWithLight active={isActive} />
                 </Suspense>

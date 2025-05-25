@@ -35,12 +35,11 @@ const TriangleModel = () => {
 
     return (
         <primitive
-            opacity={0.1}
             ref={ref}
             object={scene}
             scale={3}
             position={[-0.05, -1.45, 0.1]}
-            rotation={[0.339, 3.041, 0]}
+            rotation={[0.239, 3.041, 0.1]}
         />
     );
 };

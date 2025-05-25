@@ -24,6 +24,19 @@ export const CanvasPortal: FC<PropsWithChildren> = ({ children }) => {
                 touchAction: 'auto',
             }}>
             {children}
+            <div
+                style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100vw',
+                    height: '100vh',
+                    pointerEvents: 'none',
+                    zIndex: 21,
+                    mixBlendMode: 'multiply',
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                }}
+            />
             <Scene
                 style={{
                     position: 'fixed',
@@ -32,7 +45,7 @@ export const CanvasPortal: FC<PropsWithChildren> = ({ children }) => {
                     width: '100vw',
                     height: '100vh',
                     pointerEvents: 'none',
-                    zIndex: '20',
+                    zIndex: 20,
                 }}
                 eventSource={ref}
                 eventPrefix="client"

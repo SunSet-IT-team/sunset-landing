@@ -1,33 +1,46 @@
-'use client'
-import { useGLTF } from '@react-three/drei'
-import { FC } from 'react'
-import * as THREE from 'three'
+'use client';
+import { useGLTF } from '@react-three/drei';
+import { FC, useEffect, useRef } from 'react';
+import * as THREE from 'three';
 
-import { GLTF } from 'three-stdlib'
+import { GLTF } from 'three-stdlib';
 
 type GLTFResult = GLTF & {
-	nodes: {
-		Конус: THREE.Mesh
-	}
-	materials: {
-		['Материал.006']: THREE.MeshStandardMaterial
-	}
-}
-const ConeModel: FC = props => {
-	const { scene } = useGLTF('/models/cone/cone.glb') as GLTFResult
-	return (
-		<primitive object={scene} {...props} />
-		// <group {...props} dispose={null}>
-		// 	<mesh
-		// 		geometry={nodes.Конус.geometry}
-		// 		material={materials['Материал.006']}
-		// 		position={[-0.38, 0.757, -0.047]}
-		// 		rotation={[0.791, 0.382, 2.328]}
-		// 		scale={[0.367, 0.357, 0.367]}
-		// 	/>
-		// </group>
-	)
-}
+    nodes: {
+        Конус: THREE.Mesh;
+    };
+    materials: {
+        ['Материал.006']: THREE.MeshStandardMaterial;
+    };
+};
 
-useGLTF.preload('/models/cone/cone.glb')
-export default ConeModel
+useGLTF.preload('/models/cone/cone.glb');
+
+const ConeModel: FC = (props) => {
+    const { scene } = useGLTF('/models/cone/cone.glb') as GLTFResult;
+
+    const ref = useRef<THREE.Object3D>(null);
+
+    useEffect(() => {
+        if (!ref.current) return;
+
+        // Включаем прозрачность у всех материалов
+        ref.current.traverse((child) => {
+            if (child instanceof THREE.Mesh && child.material) {
+                child.material.transparent = true;
+            }
+        });
+    }, []);
+
+    return (
+        <primitive
+            ref={ref}
+            object={scene}
+            scale={4}
+            rotation={[-1.25, 2.66, -0.62]}
+            position={[0.075, 0.18, 4.62]}
+        />
+    );
+};
+
+export default ConeModel;
