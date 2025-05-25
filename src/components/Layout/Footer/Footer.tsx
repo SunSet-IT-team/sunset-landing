@@ -46,7 +46,7 @@ const Footer: FC = () => {
             {/* Подвал с анимацией */}
             <footer
                 ref={footerRef}
-                className={`bg-blue-400 fixed left-0 right-0 bottom-0 py-2 md:py-4 h-16 md:h-30 z-50 transition-transform duration-300 ease-in-out ${
+                className={`bg-blue-400 fixed left-0 right-0 bottom-0 py-2 md:py-4 h-16 md:h-28 z-50 transition-transform duration-300 ease-in-out ${
                     isVisible ? 'translate-y-0' : 'translate-y-full'
                 }`}
                 onMouseLeave={() => setIsVisible(false)}>

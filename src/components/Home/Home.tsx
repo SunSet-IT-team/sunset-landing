@@ -1,11 +1,17 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
+import { FC, Suspense, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { View } from '../CanvasPortal/View';
+import { useNavStore } from '@/src/store/navStore';
+import { LogoAnimationModelWithLight } from '../Models/LogoAnimationModel/LogoAnimationModelWithLight';
 
 const Home: FC = () => {
     const phrases = ['digital-команда', 'двигатель', 'делаем сайты', 'делаем приложения'];
     const [index, setIndex] = useState(0);
+
+    const { activeId } = useNavStore();
+    const isActive = activeId == 1;
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -36,6 +42,11 @@ const Home: FC = () => {
             <p className="mt-2 text">
                 К&nbsp;нам приходят с&nbsp;идеей&nbsp;&mdash; а&nbsp;уходят с&nbsp;результатом.
             </p>
+            {/* <View className="absolute h-[50vw] w-[50vw]">
+                <Suspense fallback={null}>
+                    <LogoAnimationModelWithLight />
+                </Suspense>
+            </View> */}
         </main>
     );
 };
