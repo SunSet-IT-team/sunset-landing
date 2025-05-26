@@ -13,6 +13,7 @@ export type CasePreview = {
     description?: string;
     link?: string;
     tags?: string[];
+    to?: string;
 };
 
 interface Props {
@@ -116,7 +117,13 @@ export default function Case({
                     </div>
                 )}
 
-                <div className="relative w-full h-[60%] bg-gradient-to-b from-orange to-blue-400">
+                <div
+                    className={`relative w-full h-[60%] `}
+                    style={{
+                        background: `linear-gradient(to bottom, var(--orange) ${
+                            caseData.to ? `, ${caseData.to}` : ', var(--blue-400)'
+                        }`,
+                    }}>
                     <svg
                         className="absolute -top-2 left-0 w-full"
                         viewBox="0 0 1440 150"
