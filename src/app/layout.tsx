@@ -73,8 +73,7 @@ export default function RootLayout({
                 className={`${akony.variable} ${arodoraPro.variable} 
                     antialiased h-[100vh] 
                     w-[100vw] bg-black-gradient
-                    text-white  relative overflow-x-hidden 
-                    font-akony`}>
+                    text-white  relative overflow-x-hidden `}>
                 <BodyScriptMetrika />
                 <CanvasPortal>{children}</CanvasPortal>
             </body>

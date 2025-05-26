@@ -11,8 +11,7 @@ export default function SystemPagesLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div
-            className={`antialiased h-[calc(100vh+160px)] w-[100vw] bg-black-gradient text-white  relative overflow-x-hidden`}>
+        <div className={`w-full h-full flex flex-col overflow-y-hidden relative z-[22]`}>
             <div className="flex justify-center mt-10">
                 <Logo />
             </div>
