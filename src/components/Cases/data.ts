@@ -1,32 +1,58 @@
-export const data = [
-	{
-		id: 1,
-		name: 'Project',
-		img: 'https://placehold.co/300x550',
-	},
-	{
-		id: 2,
-		name: 'Project',
-		img: 'https://placehold.co/300x550',
-	},
-	{
-		id: 3,
-		name: 'Project',
-		img: 'https://placehold.co/300x550',
-	},
-	{
-		id: 4,
-		name: 'Project',
-		img: 'https://placehold.co/300x550',
-	},
-	{
-		id: 5,
-		name: 'Project',
-		img: 'https://placehold.co/300x550',
-	},
-	{
-		id: 6,
-		name: 'Project',
-		img: 'https://placehold.co/300x550',
-	},
-]
+import { CasePreview } from './Case';
+
+export const data: CasePreview[] = [
+    {
+        id: 1,
+        title: 'Экоконтроль',
+        description: 'Площадки услуг по работе со септиками',
+        logo: '/cases/eko-kontrol-logo.png',
+        bg: '/cases/eko-kontrol.png',
+        link: 'https://eko-kontrol.ru/',
+        tags: ['Экосистема', 'PWA'],
+    },
+    {
+        id: 2,
+        title: 'Asb-video',
+        description: 'Московской компании с автоматизацией заявок',
+        logo: '/cases/asb-video-logo.png',
+        bg: '/cases/asb-video.png',
+        link: 'https://asb-video.ru/',
+        tags: ['Каталог', 'Ecommerce', 'Корпоративный'],
+    },
+    {
+        id: 3,
+        title: '22 ARCHETYPES',
+        description: 'С&nbsp;калькуляторами судьбы и&nbsp;&laquo;вау-эффектами&raquo;',
+        logo: '/cases/22archetypes-logo.png',
+        bg: '/cases/22archetypes.png',
+        link: 'https://www.22archetypes.com/',
+        tags: ['Лендинг', 'Иностранный', 'Экзотерика'],
+    },
+    {
+        id: 4,
+        title: 'Аэроплан',
+        description: 'Рекламное агенство',
+        logo: '/cases/aeroplane-logo.png',
+        bg: '/cases/aeroplane.png',
+        link: 'https://klumba-vrn.ru/',
+        tags: ['Корпоративный'],
+    },
+    {
+        id: 5,
+        title: 'Klumba-vrn',
+        description: 'С автоматизацией и удобным расчётом времени доставки',
+        logo: '/cases/klumba-vrn-logo.png',
+        bg: '/cases/klumba-vrn.png',
+        link: 'https://klumba-vrn.ru/',
+        tags: ['Ecommerce'],
+    },
+    {
+        id: 6,
+        title: 'Город детства',
+        description: 'Создание платёжной системы с возможностью оплаты сертфикатом',
+        logo: '/cases/gorod-logo.webp',
+        bg: '/cases/gorod.png',
+        link: 'https://xn---56-6cdjehbj0gaxsnb.xn--p1ai/oplata-sertificatom',
+        tags: ['Платёжка'],
+    },
+];

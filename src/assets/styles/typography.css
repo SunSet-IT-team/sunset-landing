@@ -21,4 +21,12 @@
     .text-descr {
         @apply text-[13px]  lg:text-sm font-light leading-[125%]  font-arodora-pro opacity-85;
     }
+
+    .text-tag {
+        @apply text-[11px]  lg:text-[13px] font-light leading-[125%]  font-arodora-pro;
+    }
+
+    .text-button {
+        @apply text-[11px] lg:text-[12px]  font-bold leading-[100%] font-akony tracking-wider;
+    }
 }

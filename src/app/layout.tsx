@@ -54,8 +54,6 @@ export const metadata: Metadata = {
             'max-snippet': -1,
         },
     },
-    // Theme color для браузеров
-    themeColor: '#ff6400',
 };
 
 export default function RootLayout({
