@@ -1,6 +1,6 @@
 'use client';
 
-import { Three } from '@/src/helpers/components/Three';
+import { Three } from '@/src/feature/3d/helpers/components/Three';
 import { View as ViewImpl } from '@react-three/drei';
 import { forwardRef, HTMLAttributes, PropsWithChildren, useImperativeHandle, useRef } from 'react';
 

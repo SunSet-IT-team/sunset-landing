@@ -4,6 +4,7 @@ import type { Swiper as SwiperType } from 'swiper';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getRotation, useFrames, useTilt } from './anims';
+import { metrika, MetrikGoal } from '@/src/feature/metrika/MetrikSender';
 
 export type CasePreview = {
     id?: number;
@@ -47,11 +48,7 @@ export default function Case({
 
     return (
         <motion.div
-            onClick={(e) => {
-                if (isActive) return;
-
-                e.preventDefault();
-
+            onClick={() => {
                 if (isPrev) changeSlide('prev');
                 if (isNext) changeSlide('next');
             }}
@@ -138,7 +135,13 @@ export default function Case({
                             className="text mb-4 flex-grow-[1]"
                             dangerouslySetInnerHTML={{ __html: caseData.description }}></p>
                         <a
+                            target="_blank"
                             href={caseData.link}
+                            onClick={() =>
+                                metrika(MetrikGoal.GO_PORTFOLIO, {
+                                    portfolioName: caseData.title,
+                                })
+                            }
                             className="text-button rounded-lg border-[1px] border-white border-solid px-2 py-1 
                             w-full transition-all duration-300 hover:bg-white hover:text-orange">
                             Взглянуть

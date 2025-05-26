@@ -1,6 +1,6 @@
 'use client';
 
-import { r3f } from '@/src/helpers/global';
+import { r3f } from '@/src/feature/3d/helpers/global';
 import { Preload } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';

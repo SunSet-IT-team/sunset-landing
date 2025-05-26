@@ -10,6 +10,7 @@ import { contactSchema } from './validationSchema';
 import Button from '../ui/Button';
 import Field from '../ui/Field';
 import Textarea from '../ui/Textarea';
+import { metrika, MetrikGoal } from '@/src/feature/metrika/MetrikSender';
 
 const urlLink =
     'https://api.telegram.org/bot8170983542:AAF_mUheHm7MH6p5hzfxqiIwo0AzC1gJSAc/sendMessage?chat_id=-1002582530760&parse_mode=html&text=';
@@ -47,6 +48,8 @@ const ContactForm: FC = () => {
         <b>Информация:</b> ${data.message ? data.message : 'отсутствует'}`);
 
         await fetch(urlLink + text);
+
+        metrika(MetrikGoal.SEND_FORM);
 
         setIsSuccess(true);
     };

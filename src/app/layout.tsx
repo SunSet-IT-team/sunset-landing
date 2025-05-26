@@ -3,6 +3,8 @@ import { CanvasPortal } from '../components/CanvasPortal/CanvasPortal';
 
 import '../assets/globals.css';
 import { akony, arodoraPro } from '../assets/fonts/lindex';
+import BodyScriptMetrika from '../feature/metrika/BodyScriptMetrika';
+import HeadScriptMetrika from '../feature/metrika/HeadScriptMetrika';
 
 export const metadata: Metadata = {
     title: 'Sunset IT — digital-команда разработчиков',
@@ -65,6 +67,7 @@ export default function RootLayout({
         <html lang="ru">
             <head>
                 <meta name="apple-mobile-web-app-title" content="SunSet IT" />
+                <HeadScriptMetrika />
             </head>
             <body
                 className={`${akony.variable} ${arodoraPro.variable} 
@@ -72,6 +75,7 @@ export default function RootLayout({
                     w-[100vw] bg-black-gradient
                     text-white  relative overflow-x-hidden 
                     font-akony`}>
+                <BodyScriptMetrika />
                 <CanvasPortal>{children}</CanvasPortal>
             </body>
         </html>
