@@ -9,16 +9,7 @@ export const metadata: Metadata = {
 };
 
 const Waiting: FC = () => {
-    return (
-        <div className="flex flex-col px-20 h-full w-full relative">
-            {/* @ts-ignore */}
-            <View className="absolute w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
-                <Suspense fallback={null}>
-                    <LogoAnimationModelWithLight />
-                </Suspense>
-            </View>
-        </div>
-    );
+    return <div className="flex flex-col px-20 h-full w-full relative"></div>;
 };
 
 export default Waiting;

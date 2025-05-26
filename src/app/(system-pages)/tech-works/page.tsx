@@ -17,13 +17,6 @@ const TechWorks: FC = () => {
                 ещё лучше!
             </p>
 
-            <div className="-mt-10 -ml-10 absolute w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <View className="h-full w-full">
-                    <Suspense fallback={null}>
-                        <HelmetModelWithLight />
-                    </Suspense>
-                </View>
-            </div>
             <h1 className="text-8xl mt-auto">
                 Тех.
                 <br />
