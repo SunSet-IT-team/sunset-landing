@@ -7,8 +7,7 @@ export const contactSchema: ZodType<IContactData> = z.object({
         .string({
             required_error: 'Имя обязательно',
         })
-        .min(1, 'Имя обязательно')
-        .regex(/^[а-яА-Яa-zA-Z]+$/, 'Имя должно содержать только буквы'),
+        .min(1, 'Имя обязательно'),
     email: z
         .string({
             required_error: 'Email обязателен',

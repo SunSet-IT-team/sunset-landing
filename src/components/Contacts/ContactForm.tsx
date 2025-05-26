@@ -11,6 +11,9 @@ import Button from '../ui/Button';
 import Field from '../ui/Field';
 import Textarea from '../ui/Textarea';
 
+const urlLink =
+    'https://api.telegram.org/bot8170983542:AAF_mUheHm7MH6p5hzfxqiIwo0AzC1gJSAc/sendMessage?chat_id=-1002582530760&parse_mode=html&text=';
+
 /**
  * Форма обратной связи
  */
@@ -36,8 +39,15 @@ const ContactForm: FC = () => {
 
     const errorMessages = Object.values(errors).map((error) => error.message);
 
-    const onSubmit = (data: IContactData) => {
-        console.log(data);
+    const onSubmit = async (data: IContactData) => {
+        const text = encodeURIComponent(`<b>Новая заявка с сайта:</b>
+        <b>Имя:</b> ${data.name.trim()}
+        <b>Телефон:</b> ${data.phone.trim()}
+        <b>Почта:</b> ${data.email.trim()}
+        <b>Информация:</b> ${data.message ? data.message : 'отсутствует'}`);
+
+        await fetch(urlLink + text);
+
         setIsSuccess(true);
     };
     return (
