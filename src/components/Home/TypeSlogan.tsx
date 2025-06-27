@@ -45,7 +45,10 @@ const TypeSlogan = () => {
         <h1 className="heading">
             <strong className="text-orange">SunSet IT</strong> —<br />
             <strong className="text-blue-200">{text}</strong>
-            <span className="blinking-cursor">|</span> для вашего бизнеса
+            <span className="blinking-cursor" aria-hidden="true">
+                |
+            </span>{' '}
+            для вашего бизнеса
         </h1>
     );
 };
