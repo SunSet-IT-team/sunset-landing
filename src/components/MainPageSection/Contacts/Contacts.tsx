@@ -2,10 +2,10 @@
 
 import { FC, Suspense } from 'react';
 import ContactForm from './ContactForm';
-import ConeModelWithLight from '../Models/ConeModel/ConeModelWithLight';
-import { View } from '../CanvasPortal/View';
-import TorModelWithLight from '../Models/TorModel/TorModelWithLight';
 import { useNavStore } from '@/src/store/navStore';
+import ConeModelWithLight from '../../Models/ConeModel/ConeModelWithLight';
+import TorModelWithLight from '../../Models/TorModel/TorModelWithLight';
+import { View } from '../../CanvasPortal/View';
 
 /**
  * Секция связи

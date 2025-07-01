@@ -1,7 +1,5 @@
 'use client';
 import { motion } from 'framer-motion';
-import type { Swiper as SwiperType } from 'swiper';
-import Link from 'next/link';
 import Image from 'next/image';
 import { getRotation, useFrames, useTilt } from './anims';
 import { metrika, MetrikGoal } from '@/src/feature/metrika/MetrikSender';

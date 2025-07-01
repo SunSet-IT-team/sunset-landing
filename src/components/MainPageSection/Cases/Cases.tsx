@@ -7,8 +7,6 @@ import { EffectCoverflow } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import Case from './Case';
-import Button from '../ui/Button';
-import Link from 'next/link';
 import { data } from './data';
 
 /**

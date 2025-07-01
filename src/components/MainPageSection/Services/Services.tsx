@@ -1,36 +1,10 @@
 'use client';
-import { FC, Suspense, useState } from 'react';
-import BallModelWithLight from '../Models/BallModel/BallModelWithLight';
-import TriangleModelWithLight from '../Models/TriangleModel/TriangleModelWithLight';
-import { View } from '../CanvasPortal/View';
-import { useNavStore } from '@/src/store/navStore';
+import { FC, Suspense } from 'react';
 
-// export const data = [
-//     {
-//         id: 1,
-//         title: 'Разработка сайтов «под ключ»: интернет-магазины и корпоративные порталы',
-//         description:
-//             'Клиенты уходят с устаревшего сайта? Мы сделаем продающий ресурс за 30 дней: адаптивный дизайн, SEO-оптимизация, быстрая загрузка (<1 c), интеграция CRM и онлайн-оплата. Конверсия ↑ до 40 %. Стоимость от 50 000 ₽.',
-//     },
-//     {
-//         id: 2,
-//         title: 'Техническая поддержка и ускорение сайта 24/7',
-//         description:
-//             'Сайт падает в разгар продаж или медленно открывается? Берём ваш проект на сопровождение: исправляем ошибки, обновляем плагины, усиливаем безопасность и повышаем скорость. Прозрачная отчётность. Час работы — 1 200 ₽.',
-//     },
-//     {
-//         id: 3,
-//         title: 'PWA и мобильные web-приложения для роста мобильного трафика',
-//         description:
-//             '80 % посетителей приходят со смартфонов. Превратим сайт в прогрессивное web-приложение (PWA) с push-уведомлениями и офлайн-режимом: +25 % повторных продаж и удержания пользователей. Цена от 50 000 ₽.',
-//     },
-//     {
-//         id: 4,
-//         title: 'Индивидуальная digital-разработка и сложные интеграции',
-//         description:
-//             'Нужен нестандартный сервис, ERP-интеграция или внутренний портал? Соберём команду под задачу, поможем сформировать техническое задание и доведём проект до результата под SLA. Бесплатный аудит идеи.',
-//     },
-// ];
+import { useNavStore } from '@/src/store/navStore';
+import TriangleModelWithLight from '../../Models/TriangleModel/TriangleModelWithLight';
+import { View } from '../../CanvasPortal/View';
+import BallModelWithLight from '../../Models/BallModel/BallModelWithLight';
 
 export const data = [
     {

@@ -1,6 +1,6 @@
-import Cases from '@/src/components/Cases/Cases';
+import Cases from '@/src/components/MainPageSection/Cases/Cases';
 import Contacts from '@/src/components/Contacts/Contacts';
-import Home from '@/src/components/Home/Home';
+import Home from '@/src/components/MainPageSection/Home/Home';
 import Services from '@/src/components/Services/Services';
 
 export const sections = [

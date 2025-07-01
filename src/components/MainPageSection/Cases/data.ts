@@ -4,7 +4,7 @@ export const data: CasePreview[] = [
     {
         id: 1,
         title: 'Экоконтроль',
-        description: 'Площадки услуг по работе со септиками',
+        description: 'Площадки услуг по работе с септиками',
         logo: '/cases/eko-kontrol-logo.webp',
         bg: '/cases/eko-kontrol.webp',
         link: 'https://eko-kontrol.ru/',
@@ -14,7 +14,7 @@ export const data: CasePreview[] = [
     {
         id: 2,
         title: 'Asb-video',
-        description: 'Московской компании с автоматизацией заявок',
+        description: 'Сайт Московской компании с автоматизацией заявок',
         logo: '/cases/asb-video-logo.webp',
         bg: '/cases/asb-video.webp',
         link: 'https://asb-video.ru/',
@@ -34,10 +34,10 @@ export const data: CasePreview[] = [
     {
         id: 4,
         title: 'Аэроплан',
-        description: 'Рекламное агенство',
+        description: 'Рекламное агентство',
         logo: '/cases/aeroplane-logo.webp',
         bg: '/cases/aeroplane.webp',
-        link: 'https://klumba-vrn.ru/',
+        link: 'https://www.aeroplane-media.ru',
         tags: ['Корпоративный'],
         to: '#385599',
     },
