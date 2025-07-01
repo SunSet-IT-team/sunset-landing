@@ -1,7 +1,7 @@
 import Cases from '@/src/components/MainPageSection/Cases/Cases';
-import Contacts from '@/src/components/Contacts/Contacts';
+import Contacts from '@/src/components/MainPageSection/Contacts/Contacts';
 import Home from '@/src/components/MainPageSection/Home/Home';
-import Services from '@/src/components/Services/Services';
+import Services from '@/src/components/MainPageSection/Services/Services';
 
 export const sections = [
     { id: 1, href: '', text: 'Home', content: <Home /> },
