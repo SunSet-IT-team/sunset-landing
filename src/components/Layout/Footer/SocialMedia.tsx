@@ -3,11 +3,12 @@ import { FC } from 'react';
 import { FaInstagram, FaTelegramPlane, FaVk, FaYoutube } from 'react-icons/fa';
 
 const data = [
-    // {
-    // 	id: 1,
-    // 	icon: <FaTelegramPlane size={38} />,
-    // 	src: '',
-    // },
+    {
+        id: 1,
+        icon: <FaTelegramPlane className="w-[24px] mdw-[38px] h-[24px] md:h-[38px]" />,
+        src: 'https://t.me/sunset_digital_team',
+        type: 'Telegram ',
+    },
     // {
     // 	id: 2,
     // 	icon: <FaYoutube size={38} />,
