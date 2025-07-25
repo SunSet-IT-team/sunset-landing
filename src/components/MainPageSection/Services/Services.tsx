@@ -51,7 +51,7 @@ const Services: FC = () => {
     return (
         <>
             <div
-                className="mt-8 ml-2 md:ml-auto md:mr-auto grid grid-rows-4 gap-y-6 md:gap-y-8 lg:gap-y-10 relative
+                className="mt-8 ml-2 md:ml-auto md:mr-auto grid grid-rows-4 gap-y-6 md:gap-y-8 lg:gap-y-2 3xl:gap-y-10 relative
                 z-20 md:gap-x-2 md:grid-cols-3 xl:grid-cols-2 max-w-[600px] lg:max-w-[670px]">
                 {data.map((item, index) => {
                     return (

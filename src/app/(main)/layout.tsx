@@ -1,5 +1,6 @@
 import Footer from '@/src/components/Layout/Footer/Footer';
 import Header from '@/src/components/Layout/Header/Header';
+import UIBackground from '@/src/feature/UIBackground/ui';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                 {children}
             </main>
             <Footer />
+            <UIBackground />
         </div>
     );
 }

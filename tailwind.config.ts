@@ -23,6 +23,9 @@ export default {
             backgroundImage: {
                 'black-gradient': 'var(--black-gradient)',
             },
+            screens: {
+                '3xl': '1920px', // => @media (min-width: 1920px)
+            },
         },
     },
     plugins: [],
