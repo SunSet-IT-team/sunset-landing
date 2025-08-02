@@ -9,9 +9,9 @@ import Lines from "./Lines"
 import { contactSchema } from "./validationSchema"
 import { metrika, MetrikGoal } from "@/src/feature/metrika/MetrikSender"
 import Field from "../../ui/Field"
-import Textarea from "../../ui/Textarea"
 import Button from "../../ui/Button"
 import PhoneInput from "../../ui/PhoneInput"
+import FullHeightTextarea from "./FullHeightTextarea"
 
 const urlLink =
   "https://api.telegram.org/bot8170983542:AAF_mUheHm7MH6p5hzfxqiIwo0AzC1gJSAc/sendMessage?chat_id=-1002582530760&parse_mode=html&text="
@@ -21,6 +21,7 @@ const urlLink =
  */
 const ContactForm: FC = () => {
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
+  const [isTextareaFocused, setIsTextareaFocused] = useState<boolean>(false)
 
   const {
     handleSubmit,
@@ -59,7 +60,7 @@ const ContactForm: FC = () => {
       <AnimatePresence>
         {!isSuccess && (
           <motion.form
-            className="flex flex-col gap-5 pl-2 lg:pl-0 mt-6 lg:mt-7 lg:max-w-[650px] lg:mx-auto lg:gap-6  max-h-[532px] relative"
+            className="flex flex-col gap-5 pl-2 lg:pl-0 mt-6 lg:mt-7 lg:max-w-[650px] lg:mx-auto lg:gap-6 max-h-[532px] h-[410px] sm:h-[435px] lg:h-[532px] relative"
             onSubmit={handleSubmit(onSubmit)}
             initial={{
               opacity: 1,
@@ -75,13 +76,21 @@ const ContactForm: FC = () => {
               name="name"
               control={control}
               render={({ field }) => (
-                <Field
-                  {...field}
-                  label="Как вас зовут?"
-                  className=" px-3 py-2 tracking-wider"
-                  isValid={!errors.name?.message}
-                  error={errors.name?.message}
-                />
+                <div
+                  className={`"transition-[oopacity] duration-300 ease", ${
+                    isTextareaFocused
+                      ? "opacity-0 delay-500"
+                      : "opacity-90 delay-0"
+                  }`}
+                >
+                  <Field
+                    {...field}
+                    label="Как вас зовут?"
+                    className=" px-3 py-2 tracking-wider"
+                    isValid={!errors.name?.message}
+                    error={errors.name?.message}
+                  />
+                </div>
               )}
             />
             <Controller
@@ -115,17 +124,20 @@ const ContactForm: FC = () => {
               name="message"
               control={control}
               render={({ field }) => (
-                <Textarea
+                <FullHeightTextarea
                   {...field}
                   label="Пару слов о Вашем проекте?"
                   rows={5}
                   className="tracking-wider"
+                  isFullHeight={isTextareaFocused}
+                  onFocus={() => setIsTextareaFocused(true)}
+                  onBlur={() => setIsTextareaFocused(false)}
                 />
               )}
             />
 
             <Button
-              className={`text-orange transition-all duration-300 ${
+              className={`text-orange transition-all duration-300 mt-auto ${
                 errorMessages.length ? "opacity-0" : ""
               }`}
               disabled={errorMessages.length > 0}
