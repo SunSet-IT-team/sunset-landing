@@ -2,7 +2,7 @@
 import { FC, TextareaHTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-interface IProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface IProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
     label: string;
     isValid?: boolean;
 }

@@ -16,6 +16,7 @@
 		"@react-three/postprocessing": "^2.16.5",
 		"framer-motion": "^11.11.17",
 		"framer-motion-3d": "^11.15.0",
+		"inputmask": "^5.0.9",
 		"next": "15.0.3",
 		"postprocessing": "^6.36.4",
 		"react": "19.0.0-rc-66855b96-20241106",
@@ -33,6 +34,7 @@
 		"zustand": "^5.0.1"
 	},
 	"devDependencies": {
+		"@types/inputmask": "^5.0.7",
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
