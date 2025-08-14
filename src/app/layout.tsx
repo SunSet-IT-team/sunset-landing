@@ -6,6 +6,7 @@ import { akony, arodoraPro } from "../assets/fonts/lindex"
 import BodyScriptMetrika from "../feature/metrika/BodyScriptMetrika"
 import HeadScriptMetrika from "../feature/metrika/HeadScriptMetrika"
 import NotificationsBlock from "../components/NotificationsBlock/NotificationBlock"
+import MainMenu from "../components/Layout/MainMenu/MainMenu"
 
 export const metadata: Metadata = {
   title: "Sunset IT — digital-команда разработчиков",
@@ -83,7 +84,7 @@ export default function RootLayout({
       >
         <BodyScriptMetrika />
         <CanvasPortal>{children}</CanvasPortal>
-        <NotificationsBlock />
+        <MainMenu />
       </body>
     </html>
   )
