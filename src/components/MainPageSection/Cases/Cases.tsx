@@ -10,6 +10,8 @@ import Case, { CasePreview } from "./Case"
 import { data } from "./data"
 import OrangeNotification from "../../ui/Notifications/OrangeNotification"
 import { useNavStore } from "@/src/store/navStore"
+import { twMerge } from "tailwind-merge"
+import { useMediaQuery } from "@/src/hooks/useMediaQuery"
 
 /**
  * Секция с примерами проектов
@@ -18,10 +20,11 @@ export default function Cases() {
   const swiperRef = useRef<SwiperType | null>(null)
   const [activeId, setActiveId] = useState(0)
   const { activeId: sectionActiveId } = useNavStore()
+  const isMobileSmall = useMediaQuery("(max-width: 480px)")
 
   // Скрывать уведомление вместе со стрелочкой
   const isNotificationHidden = sectionActiveId !== 2
-  
+
   const [isNotificationOpen, setIsNotificationOpen] = useState<boolean>(false)
   const [displayedNotificationCard, setDisplayedNotificationCard] =
     useState<CasePreview>(data[activeId])
@@ -106,17 +109,20 @@ export default function Cases() {
       {displayedNotificationCard && (
         <OrangeNotification
           title={displayedNotificationCard.title}
-          body={displayedNotificationCard.description}
+          body={
+            <div
+              className={twMerge(
+                "max-w-[445px] text-descr text-[16px]",
+                isMobileSmall ? "max-w-none" : ""
+              )}
+            >
+              {displayedNotificationCard.description}
+            </div>
+          }
           isOpen={isNotificationOpen}
           setIsOpen={setIsNotificationOpen}
           align="right"
-          style={
-            isNotificationHidden
-              ? {
-                  transform: "translateX(calc(100% + 25px))",
-                }
-              : {}
-          }
+          hidden={isNotificationHidden}
         />
       )}
 
