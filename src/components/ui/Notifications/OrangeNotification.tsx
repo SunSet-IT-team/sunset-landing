@@ -1,13 +1,13 @@
 "use client"
 
-import { FC } from "react"
+import { FC, ReactNode } from "react"
 import Notification, {
-  IPorps as NotificationProps,
+  IProps as NotificationProps,
 } from "../../NotificationsBlock/Notification"
 
-interface IProps extends NotificationProps {
+type IProps = NotificationProps & {
   title: string
-  body: string
+  body: ReactNode
   children?: never
 }
 

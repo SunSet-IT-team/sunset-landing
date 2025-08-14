@@ -5,27 +5,55 @@ import { FC, HTMLAttributes, ReactNode, useEffect, useState } from "react"
 import { createPortal } from "react-dom"
 import { twMerge } from "tailwind-merge"
 
-export interface IPorps extends HTMLAttributes<HTMLDivElement> {
+/**
+ * Общие пропсы
+ */
+interface BaseProps extends HTMLAttributes<HTMLDivElement> {
   align: "right" | "left"
-  isOpen: boolean
-  setIsOpen: (isOpen: boolean) => void
+  hidden?: boolean
   children?: ReactNode
 }
 
 /**
+ * Контролируемый режим
+ */
+interface ControlledProps extends BaseProps {
+  isOpen: boolean
+  setIsOpen: (isOpen: boolean) => void
+}
+
+/**
+ * Неконтролируемый режим
+ */
+interface UncontrolledProps extends BaseProps {
+  isOpen?: undefined
+  setIsOpen?: undefined
+}
+
+export type IProps = ControlledProps | UncontrolledProps
+
+/**
  * Базовый элемент блока уведомлений
  */
-const Notification: FC<IPorps> = ({
-  isOpen,
-  setIsOpen,
+const Notification: FC<IProps> = ({
+  isOpen: isOpenProps,
+  setIsOpen: setIsOpenProps,
   align,
+  hidden,
   style,
   className,
   children,
 }) => {
+  // Локальное состояние для неконтролируемого режима
+  const [_isOpen, _setIsOpen] = useState<boolean>(false)
+
+  const isControlledMode =
+    isOpenProps !== undefined && setIsOpenProps !== undefined
+  const isOpen = isControlledMode ? isOpenProps : _isOpen
+  const setIsOpen = isControlledMode ? setIsOpenProps : _setIsOpen
+
   const [container, setContainer] = useState<HTMLElement | null>(null)
   const isMobileSmall = useMediaQuery("(max-width: 480px)")
-  console.log(isMobileSmall)
 
   useEffect(() => {
     const el = document.getElementById(`notifications-${align}`)
@@ -47,13 +75,19 @@ const Notification: FC<IPorps> = ({
           : "-translate-x-full",
         className
       )}
-      style={style}
+      style={{
+        ...(hidden
+          ? {
+              transform:
+                align === "right"
+                  ? "translateX(calc(100% + 25px))"
+                  : "translateX(calc(-1 * (100% + 25px)))",
+            }
+          : {}),
+        ...style,
+      }}
     >
-      <div
-        className={twMerge("max-w-[445px]", isMobileSmall ? "max-w-none" : "")}
-      >
-        {children}
-      </div>
+      {children}
       <button
         className={twMerge(
           "bg-transparent outline-none cursor-pointer absolute top-[50%] h-[25px] w-[25px] rounded-[4px] mb-[10px]",
