@@ -9,18 +9,18 @@ const NotificationsBlock: FC = () => {
   return (
     <div
       id="notifications-root"
-      className="fixed inset-0 pointer-events-none z-[1000] flex"
+      className="fixed inset-0 pointer-events-none z-[100] flex"
     >
       {/* Левая колонка уведомлений */}
       <div
         id="notifications-left"
-        className="relative flex flex-col justify-end items-start gap-2 h-full pb-[112px] flex-1"
+        className="relative flex flex-col justify-end items-start gap-2 h-full pb-[112px] flex-1 min-w-0"
       ></div>
 
       {/* Правая колонка уведомлений */}
       <div
         id="notifications-right"
-        className="relative flex flex-col justify-end items-end gap-2 h-full pb-[112px] flex-1"
+        className="relative flex flex-col justify-end items-end gap-2 h-full pb-[112px] flex-1 min-w-0"
       ></div>
     </div>
   )
