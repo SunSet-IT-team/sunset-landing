@@ -12,6 +12,7 @@ import OrangeNotification from "../../ui/Notifications/OrangeNotification"
 import { useNavStore } from "@/src/store/navStore"
 import { twMerge } from "tailwind-merge"
 import { useMediaQuery } from "@/src/hooks/useMediaQuery"
+import NewCase from "./NewCase"
 
 /**
  * Секция с примерами проектов
@@ -91,7 +92,7 @@ export default function Cases() {
               key={card.id}
               className="flex justify-center items-center"
             >
-              <Case
+              <NewCase
                 id={card.id}
                 isActive={activeId === i}
                 isPrev={i === prevIndex}
