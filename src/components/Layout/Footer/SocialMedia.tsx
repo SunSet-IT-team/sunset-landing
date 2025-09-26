@@ -1,24 +1,40 @@
-import { metrika, MetrikGoal } from '@/src/feature/metrika/MetrikSender';
+import { metrika, MetrikGoal } from '@/src/feature/Metrika/MetrikSender';
 import { FC } from 'react';
 import { FaInstagram, FaTelegramPlane, FaVk, FaYoutube } from 'react-icons/fa';
+import Image from 'next/image';
 
 const data = [
     {
         id: 1,
         icon: <FaTelegramPlane className="w-[24px] mdw-[38px] h-[24px] md:h-[38px]" />,
         src: 'https://t.me/sunset_digital_team',
-        type: 'Telegram ',
+        type: 'Telegram',
     },
-    // {
-    // 	id: 2,
-    // 	icon: <FaYoutube size={38} />,
-    // 	src: '',
-    // },
+    {
+        id: 2,
+        icon: <FaYoutube className="w-[24px] mdw-[38px] h-[24px] md:h-[38px]" />,
+        src: 'https://www.youtube.com/@SunSetIT',
+        type: 'YouTube',
+    },
     {
         id: 3,
         icon: <FaInstagram className="w-[24px] mdw-[38px] h-[24px] md:h-[38px]" />,
         src: 'https://www.instagram.com/sunset_digital_team/',
-        type: 'Instagram ',
+        type: 'Instagram',
+    },
+    {
+        id: 4,
+        icon: (
+            <Image
+                src="/icons/workspace.svg" // путь относительно public/
+                alt="Workspace"
+                className="w-[52px] h-[24px] md:h-[38px]"
+                width={52}
+                height={24}
+            />
+        ),
+        src: 'https://workspace.ru/contractors/sunset-it/',
+        type: 'WorkSpace',
     },
     // {
     // 	id: 4,

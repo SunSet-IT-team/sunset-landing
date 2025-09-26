@@ -3,10 +3,11 @@ import { CanvasPortal } from '../components/CanvasPortal/CanvasPortal';
 
 import '../assets/globals.css';
 import { akony, arodoraPro } from '../assets/fonts/lindex';
-import BodyScriptMetrika from '../feature/metrika/BodyScriptMetrika';
-import HeadScriptMetrika from '../feature/metrika/HeadScriptMetrika';
+import BodyScriptMetrika from '../feature/Metrika/BodyScriptMetrika';
+import HeadScriptMetrika from '../feature/Metrika/HeadScriptMetrika';
 import NotificationsBlock from '../components/NotificationsBlock/NotificationBlock';
 import MainMenu from '../components/Layout/MainMenu/MainMenu';
+import WorkSpaceVerification from '../feature/WorkSpace';
 
 export const metadata: Metadata = {
     title: 'Sunset IT — digital-команда разработчиков',
@@ -70,6 +71,7 @@ export default function RootLayout({
             <head>
                 <meta name="apple-mobile-web-app-title" content="SunSet IT" />
                 <HeadScriptMetrika />
+                <WorkSpaceVerification />
             </head>
             <body
                 className={`${akony.variable} ${arodoraPro.variable} 
