@@ -52,6 +52,7 @@ const SocialMedia: FC = () => {
                         <a
                             href={item.src}
                             target="_blank"
+                            className="cursor-target"
                             onClick={() =>
                                 metrika(MetrikGoal.GO_MEDIA, {
                                     type: item.type,

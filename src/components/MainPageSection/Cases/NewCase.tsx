@@ -85,7 +85,7 @@ export default function NewCase({
                     backgroundImage: `url(${caseData.bg || ''})`,
                 }}>
                 <div
-                    className="relative w-full h-[40%] -top-[0.45rem]"
+                    className="relative w-full h-full"
                     style={{
                         backgroundImage: `linear-gradient(180deg, #ffffff45, #ffffffcf 80%, #ffffff)`,
                     }}>
