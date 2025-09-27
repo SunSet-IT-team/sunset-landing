@@ -61,7 +61,7 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
                 onClick={() => setActiveId(id)}>
                 {id != 1 && (
                     <h2
-                        className={`transition-all duration-300 ease-in-out origin-bottom-left
+                        className={`transition-all duration-300 ease-in-out origin-bottom-left cursor-target
                          relative z-20 heading cursor-pointer ${
                              id == 4 ? 'xl:-tracking-wider 2xl:tracking-wider' : ''
                          }

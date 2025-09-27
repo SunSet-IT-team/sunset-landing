@@ -12,7 +12,7 @@ const Logo: FC = () => {
     return (
         <Link
             href="/"
-            className="flex items-center main-heading gap-2 pointer-events-auto"
+            className="flex items-center main-heading gap-2 pointer-events-auto cursor-target"
             onClick={() => setActiveId(1)}>
             <div className="relative w-[35px] h-[37px] md:w-[50px] md:h-[52px] lg:w-[73px] lg:h-[81px] ">
                 <Image

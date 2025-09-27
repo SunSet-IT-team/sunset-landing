@@ -1,6 +1,5 @@
 'use client';
 
-import { useMediaQuery } from '@/src/hooks/useMediaQuery';
 import { FC, HTMLAttributes, ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { twMerge } from 'tailwind-merge';
@@ -90,7 +89,7 @@ const Notification: FC<IProps> = ({
             {children}
             <button
                 className={twMerge(
-                    'border-blue-400 border-dashed md:border-none bg-transparent outline-none cursor-pointer absolute top-[50%] h-[99%] md:h-[25px] w-[25px] transition-[left,right] ',
+                    'border-blue-400 border-dashed md:border-none bg-transparent outline-none cursor-pointer absolute top-[50%] h-[99%] md:h-[25px] w-[25px] transition-[left,right] cursor-target',
                     align === 'right'
                         ? isOpen
                             ? 'border-r-2 md:border-r-0 left-0 md:left-[unset] md:right-[100%]  md:rounded-l-[4px]'

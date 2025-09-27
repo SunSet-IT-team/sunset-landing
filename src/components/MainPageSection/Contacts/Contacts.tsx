@@ -35,8 +35,12 @@ const Contacts: FC = () => {
                 isOpen={isNotificationOpen}
                 setIsOpen={setIsNotificationOpen}>
                 <div className="flex flex-col text-descr text-[16px] gap-2">
-                    <a href="tel:+79937287798">+7 993 728 77 98</a>
-                    <a href="mailto:manager@sunset-it.agency">manager@sunset-it.agency</a>
+                    <a href="tel:+79937287798" className="cursor-target">
+                        +7 993 728 77 98
+                    </a>
+                    <a href="mailto:manager@sunset-it.agency" className="cursor-target">
+                        manager@sunset-it.agency
+                    </a>
                 </div>
             </OrangeNotification>
             <View className="fixed -bottom-[10vw] md:bottom-[unset] md:top-[76%] left-0 md:left-[20%] xl:left-[45%]  h-[50vw] md:h-[20vw] w-[50vw] md:w-[20vw] ">

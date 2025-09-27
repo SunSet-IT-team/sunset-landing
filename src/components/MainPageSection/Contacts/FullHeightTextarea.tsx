@@ -17,9 +17,9 @@ const FullHeightTextarea: FC<IProps> = ({
     return (
         <div
             className={twMerge(
-                'w-full absolute h-full flex flex-col flex-end justify-end',
+                'w-full flex flex-col flex-end justify-end',
                 'transition-[padding] duration-300 ease',
-                isFullHeight ? 'p-0 delay-0' : 'pb-[80px] md:pb-[70px] delay-[500ms]',
+                isFullHeight ? 'p-0 delay-0 h-full' : 'delay-[500ms]',
             )}>
             <label
                 className={twMerge(
@@ -30,7 +30,7 @@ const FullHeightTextarea: FC<IProps> = ({
                 <span className="heading-h3">{label}</span>
                 <textarea
                     className={twMerge(
-                        'bg-grey w-full rounded outline-none px-2 pt-1 pb-1 resize-none text h-full',
+                        'bg-grey w-full rounded outline-none px-2 pt-1 pb-1 resize-none text h-full cursor-target',
                         'transition-[opacity] ease',
                         isFullHeight
                             ? 'opacity-100 delay-0 rounded-t-sm rounded-b-[0]'
@@ -46,7 +46,7 @@ const FullHeightTextarea: FC<IProps> = ({
                     e.stopPropagation();
                 }}
                 className={twMerge(
-                    'transition-all duration-300 ease overflow-hidden',
+                    'transition-all duration-300 ease overflow-hidden cursor-target',
                     'w-full bg-orange rounded-b-sm',
                     isFullHeight ? 'max-h-[500px] delay-[500ms]' : 'max-h-0',
                 )}>

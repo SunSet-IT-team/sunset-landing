@@ -12,6 +12,7 @@ import Field from '../../ui/Field';
 import Button from '../../ui/Button';
 import PhoneInput from '../../ui/PhoneInput';
 import FullHeightTextarea from './FullHeightTextarea';
+import { twMerge } from 'tailwind-merge';
 
 const urlLink =
     'https://api.telegram.org/bot8170983542:AAF_mUheHm7MH6p5hzfxqiIwo0AzC1gJSAc/sendMessage?chat_id=-1002582530760&parse_mode=html&text=';
@@ -60,7 +61,7 @@ const ContactForm: FC = () => {
             <AnimatePresence>
                 {!isSuccess && (
                     <motion.form
-                        className="flex flex-col gap-5 pl-2 lg:pl-0 mt-6 lg:mt-7 lg:max-w-[650px] lg:mx-auto lg:gap-6 max-h-[532px] h-[410px] sm:h-[435px] lg:h-[532px] relative"
+                        className="flex flex-col pl-2 lg:pl-0 mt-6 lg:mt-7 lg:max-w-[650px] lg:mx-auto max-h-[532px] h-[410px] sm:h-[435px] lg:h-[532px] relative"
                         onSubmit={handleSubmit(onSubmit)}
                         initial={{
                             opacity: 1,
@@ -76,11 +77,12 @@ const ContactForm: FC = () => {
                             control={control}
                             render={({ field }) => (
                                 <div
-                                    className={`"transition-[oopacity] duration-300 ease", ${
+                                    className={twMerge(
+                                        'transition-all duration-300 ease',
                                         isTextareaFocused
-                                            ? 'opacity-0 delay-500'
-                                            : 'opacity-90 delay-0'
-                                    }`}>
+                                            ? 'opacity-0 h-0 delay-0 mb-0 lg:mb-0'
+                                            : 'mb-5 lg:mb-6',
+                                    )}>
                                     <Field
                                         {...field}
                                         label="Как вас зовут?"
@@ -95,26 +97,42 @@ const ContactForm: FC = () => {
                             name="phone"
                             control={control}
                             render={({ field }) => (
-                                <PhoneInput
-                                    {...field}
-                                    label="Ваш телефон"
-                                    className=" px-3 py-2 tracking-wider"
-                                    isValid={!errors.phone?.message}
-                                    error={errors.phone?.message}
-                                />
+                                <div
+                                    className={twMerge(
+                                        'transition-all duration-300 ease',
+                                        isTextareaFocused
+                                            ? 'opacity-0 h-0 delay-0 mb-0 lg:mb-0'
+                                            : 'mb-5 lg:mb-6',
+                                    )}>
+                                    <PhoneInput
+                                        {...field}
+                                        label="Ваш телефон"
+                                        className=" px-3 py-2 tracking-wider"
+                                        isValid={!errors.phone?.message}
+                                        error={errors.phone?.message}
+                                    />
+                                </div>
                             )}
                         />
                         <Controller
                             name="email"
                             control={control}
                             render={({ field }) => (
-                                <Field
-                                    {...field}
-                                    label="Email"
-                                    className=" px-3 py-2 tracking-wider"
-                                    isValid={!errors.email?.message}
-                                    error={errors.email?.message}
-                                />
+                                <div
+                                    className={twMerge(
+                                        'transition-all duration-300 ease',
+                                        isTextareaFocused
+                                            ? 'opacity-0 h-0 delay-0 mb-0 lg:mb-0'
+                                            : 'mb-5 lg:mb-6',
+                                    )}>
+                                    <Field
+                                        {...field}
+                                        label="Email"
+                                        className=" px-3 py-2 tracking-wider"
+                                        isValid={!errors.email?.message}
+                                        error={errors.email?.message}
+                                    />
+                                </div>
                             )}
                         />
 
@@ -135,7 +153,7 @@ const ContactForm: FC = () => {
                         />
 
                         <Button
-                            className={`text-orange transition-all duration-300 mt-auto ${
+                            className={`text-orange transition-all duration-300 mt-auto cursor-target ${
                                 errorMessages.length ? 'opacity-0' : ''
                             }`}
                             disabled={errorMessages.length > 0}
