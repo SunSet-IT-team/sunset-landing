@@ -11,7 +11,6 @@ import { data } from './data';
 import OrangeNotification from '../../ui/Notifications/OrangeNotification';
 import { useNavStore } from '@/src/store/navStore';
 import { twMerge } from 'tailwind-merge';
-import { useMediaQuery } from '@/src/hooks/useMediaQuery';
 import NewCase from './NewCase';
 
 /**
@@ -21,19 +20,18 @@ export default function Cases() {
     const swiperRef = useRef<SwiperType | null>(null);
     const [activeId, setActiveId] = useState(0);
     const { activeId: sectionActiveId } = useNavStore();
-    const isMobileSmall = useMediaQuery('(max-width: 480px)');
+
+    const isActive = sectionActiveId == 2;
 
     // Скрывать уведомление вместе со стрелочкой
-    const isNotificationHidden = sectionActiveId !== 2;
-
-    const [isNotificationOpen, setIsNotificationOpen] = useState<boolean>(false);
+    const [isNotificationOpen, setIsNotificationOpen] = useState<boolean>(true);
     const [displayedNotificationCard, setDisplayedNotificationCard] = useState<CasePreview>(
         data[activeId],
     );
 
     // Если секция не активная - закрываем уведомление, иначе - показываем
     useEffect(() => {
-        if (isNotificationHidden) setIsNotificationOpen(false);
+        if (!isNotificationOpen) setIsNotificationOpen(false);
         else setIsNotificationOpen(true);
     }, [sectionActiveId]);
 
@@ -46,12 +44,14 @@ export default function Cases() {
     };
 
     const onRealIndexChange = (s: SwiperType) => {
+        const prevIsNotificationOpen = isNotificationOpen;
         setIsNotificationOpen(false);
         setActiveId(s.realIndex);
 
         setTimeout(() => {
             setDisplayedNotificationCard(data[s.realIndex]);
-            setIsNotificationOpen(true);
+            // Чтобы если 1 раз скрыли - не показывлось снова
+            prevIsNotificationOpen && setIsNotificationOpen(true);
         }, 800);
     };
 
@@ -109,14 +109,12 @@ export default function Cases() {
                     setIsOpen={setIsNotificationOpen}
                     align="right"
                     className="mb-[12vh] md:mb-[2vh]"
-                    hidden={isNotificationHidden}>
+                    hidden={!isActive}>
                     <div
-                        className={twMerge(
-                            'max-w-[445px] text-descr text-[16px]',
-                            isMobileSmall ? 'max-w-none' : '',
-                        )}>
-                        {displayedNotificationCard.description}
-                    </div>
+                        className={twMerge('max-w-none md:max-w-[445px] text-descr text-[16px]')}
+                        dangerouslySetInnerHTML={{
+                            __html: displayedNotificationCard.description,
+                        }}></div>
                 </OrangeNotification>
             )}
 

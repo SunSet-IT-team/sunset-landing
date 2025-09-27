@@ -30,7 +30,7 @@ const Contacts: FC = () => {
             <OrangeNotification
                 align="left"
                 title="Не хотите ждать?"
-                className="max-w-[220px] mb-[-4vh] md:mb-[2vh]"
+                className="max-w-[220px] md:max-w-[340px]  mb-[-4vh] md:mb-[2vh]"
                 hidden={!isActive}
                 isOpen={isNotificationOpen}
                 setIsOpen={setIsNotificationOpen}>
