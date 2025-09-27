@@ -7,7 +7,7 @@ import ConeModelWithLight from '../../Models/ConeModel/ConeModelWithLight';
 import TorModelWithLight from '../../Models/TorModel/TorModelWithLight';
 import { View } from '../../CanvasPortal/View';
 import OrangeNotification from '../../ui/Notifications/OrangeNotification';
-import { metrika, MetrikGoal } from '@/src/feature/Metrika/MetrikSender';
+import { metrika, MetrikGoal } from '@/src/feature/Metrika2/MetrikSender';
 
 /**
  * Секция связи

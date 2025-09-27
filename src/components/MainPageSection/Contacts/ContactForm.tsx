@@ -7,7 +7,7 @@ import { IContactData } from './contactData.type';
 import FormSuccess from './FormSuccess';
 import Lines from './Lines';
 import { contactSchema } from './validationSchema';
-import { metrika, MetrikGoal } from '@/src/feature/Metrika/MetrikSender';
+import { metrika, MetrikGoal } from '@/src/feature/Metrika2/MetrikSender';
 import Field from '../../ui/Field';
 import Button from '../../ui/Button';
 import PhoneInput from '../../ui/PhoneInput';

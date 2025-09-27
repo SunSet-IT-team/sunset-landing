@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { getRotation, useFrames, useTilt } from './anims';
-import { metrika, MetrikGoal } from '@/src/feature/Metrika/MetrikSender';
+import { metrika, MetrikGoal } from '@/src/feature/Metrika2/MetrikSender';
 
 export type CasePreview = {
     id?: number;

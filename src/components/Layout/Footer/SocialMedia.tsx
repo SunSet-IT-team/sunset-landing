@@ -1,4 +1,4 @@
-import { metrika, MetrikGoal } from '@/src/feature/Metrika/MetrikSender';
+import { metrika, MetrikGoal } from '@/src/feature/Metrika2/MetrikSender';
 import { FC } from 'react';
 import { FaInstagram, FaTelegramPlane, FaVk, FaYoutube } from 'react-icons/fa';
 import Image from 'next/image';
