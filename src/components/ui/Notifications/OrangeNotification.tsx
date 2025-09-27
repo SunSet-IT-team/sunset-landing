@@ -13,13 +13,14 @@ type IProps = NotificationProps & {
 const OrangeNotification: FC<IProps> = ({ title, children, ...rest }) => {
     return (
         <Notification {...rest}>
-            {title && (
-                <h3 className="uppercase text-[14px] font-bold font-akony text-white pb-[14px]">
-                    {title}
-                </h3>
-            )}
-
-            {children}
+            <div className="flex flex-col gap-3">
+                {title && (
+                    <h3 className="uppercase text-[14px] font-bold font-akony text-white">
+                        {title}
+                    </h3>
+                )}
+                {children && <div className="">{children}</div>}
+            </div>
         </Notification>
     );
 };

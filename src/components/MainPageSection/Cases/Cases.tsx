@@ -108,6 +108,7 @@ export default function Cases() {
                     isOpen={isNotificationOpen}
                     setIsOpen={setIsNotificationOpen}
                     align="right"
+                    className="mb-[12vh] md:mb-[2vh]"
                     hidden={isNotificationHidden}>
                     <div
                         className={twMerge(
