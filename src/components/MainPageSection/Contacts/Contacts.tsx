@@ -7,6 +7,7 @@ import ConeModelWithLight from '../../Models/ConeModel/ConeModelWithLight';
 import TorModelWithLight from '../../Models/TorModel/TorModelWithLight';
 import { View } from '../../CanvasPortal/View';
 import OrangeNotification from '../../ui/Notifications/OrangeNotification';
+import { metrika, MetrikGoal } from '@/src/feature/Metrika/MetrikSender';
 
 /**
  * Секция связи
@@ -35,10 +36,16 @@ const Contacts: FC = () => {
                 isOpen={isNotificationOpen}
                 setIsOpen={setIsNotificationOpen}>
                 <div className="flex flex-col text-descr text-[16px] gap-2">
-                    <a href="tel:+79937287798" className="cursor-target">
+                    <a
+                        href="tel:+79937287798"
+                        className="cursor-target"
+                        onClick={() => metrika(MetrikGoal.CLICK_PHONE)}>
                         +7 993 728 77 98
                     </a>
-                    <a href="mailto:manager@sunset-it.agency" className="cursor-target">
+                    <a
+                        href="mailto:manager@sunset-it.agency"
+                        className="cursor-target"
+                        onClick={() => metrika(MetrikGoal.CLICK_EMAIL)}>
                         manager@sunset-it.agency
                     </a>
                 </div>

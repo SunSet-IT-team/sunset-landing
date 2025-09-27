@@ -9,18 +9,21 @@ const data = [
         icon: <FaTelegramPlane className="w-[24px] mdw-[38px] h-[24px] md:h-[38px]" />,
         src: 'https://t.me/sunset_digital_team',
         type: 'Telegram',
+        metrik: MetrikGoal.GO_TELEGRAM,
     },
     {
         id: 2,
         icon: <FaYoutube className="w-[24px] mdw-[38px] h-[24px] md:h-[38px]" />,
         src: 'https://www.youtube.com/@SunSetIT',
         type: 'YouTube',
+        metrik: MetrikGoal.GO_YOUTUBE,
     },
     {
         id: 3,
         icon: <FaInstagram className="w-[24px] mdw-[38px] h-[24px] md:h-[38px]" />,
         src: 'https://www.instagram.com/sunset_digital_team/',
         type: 'Instagram',
+        metrik: MetrikGoal.GO_INSTAGRAM,
     },
     {
         id: 4,
@@ -35,6 +38,7 @@ const data = [
         ),
         src: 'https://workspace.ru/contractors/sunset-it/',
         type: 'WorkSpace',
+        metrik: MetrikGoal.GO_WORKSPACE,
     },
     // {
     // 	id: 4,
@@ -53,11 +57,12 @@ const SocialMedia: FC = () => {
                             href={item.src}
                             target="_blank"
                             className="cursor-target"
-                            onClick={() =>
+                            onClick={() => {
                                 metrika(MetrikGoal.GO_MEDIA, {
                                     type: item.type,
-                                })
-                            }>
+                                });
+                                metrika(item.metrik);
+                            }}>
                             {item.icon}
                         </a>
                     </li>
