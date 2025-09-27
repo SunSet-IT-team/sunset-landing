@@ -1,5 +1,6 @@
 'use client';
 
+import IconsSlider from '@/src/feature/IconsSlider';
 import { useNavStore } from '@/src/store/navStore';
 
 interface AccordionSectionProps {
@@ -53,7 +54,7 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
     return (
         <>
             <div
-                className={` min-w-0 overflow-hidden ]
+                className={` min-w-0 overflow-hidden
                     ${border} border-darkGrey border-opacity-50
                     transition-all duration-300 ease-in-out
                     ${padding}
@@ -77,7 +78,6 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
                         {title}
                     </h2>
                 )}
-
                 <div
                     className={`w-full overflow-hidden
                     transition-all duration-300 ease-in-out
@@ -86,6 +86,7 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
                      ${isActive ? 'opacity-1' : 'opacity-0'}`}>
                     {children}
                 </div>
+                {id === 1 && <IconsSlider />}
             </div>
         </>
     );
