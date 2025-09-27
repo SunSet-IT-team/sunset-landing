@@ -26,9 +26,9 @@ const data = [
         id: 4,
         icon: (
             <Image
-                src="/icons/workspace.svg" // путь относительно public/
+                src="/icons/workspace.svg"
                 alt="Workspace"
-                className="w-[52px] h-[24px] md:h-[38px]"
+                className="w-[52px] h-[24px] md:h-[38px] object-contain"
                 width={52}
                 height={24}
             />

@@ -21,7 +21,7 @@ const HomeLogo = () => {
                 }
                 `}
             style={{
-                backgroundImage: `url('/home_logo.webp')`,
+                backgroundImage: `url('/testlogo.png')`,
                 backgroundSize: 'contain',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
