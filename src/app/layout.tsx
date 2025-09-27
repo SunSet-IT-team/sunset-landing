@@ -3,8 +3,8 @@ import { CanvasPortal } from '../components/CanvasPortal/CanvasPortal';
 
 import '../assets/globals.css';
 import { akony, arodoraPro } from '../assets/fonts/lindex';
-import BodyScriptMetrika from '../feature/Metrika2/BodyScriptMetrika';
-import HeadScriptMetrika from '../feature/Metrika2/HeadScriptMetrika';
+import BodyScriptMetrika from '../feature/Metrika/BodyScriptMetrika';
+import HeadScriptMetrika from '../feature/Metrika/HeadScriptMetrika';
 import NotificationsBlock from '../components/NotificationsBlock/NotificationBlock';
 import MainMenu from '../components/Layout/MainMenu/MainMenu';
 import WorkSpaceVerification from '../feature/WorkSpace';
