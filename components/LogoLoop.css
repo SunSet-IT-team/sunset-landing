@@ -35,6 +35,7 @@
     margin-right: var(--logoloop-gap);
     font-size: var(--logoloop-logoHeight);
     line-height: 1;
+    transition: 0.3s color;
 }
 
 .logoloop__item:last-child {
@@ -55,6 +56,10 @@
     -webkit-user-drag: none;
     pointer-events: none; /* Links handle interaction */
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logoloop__item:hover {
+    color: var(--orange);
 }
 
 .logoloop--scale-hover .logoloop__item {
