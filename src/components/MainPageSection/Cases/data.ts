@@ -54,7 +54,7 @@ export const data: CasePreview[] = [
     {
         id: 6,
         title: 'Город детства',
-        description: 'Создание платёжной системы с возможностью оплаты сертфикатом',
+        description: 'Создание платёжной системы с оплатой сертфикатом',
         logo: '/cases/gorod-logo.webp',
         bg: '/cases/gorod.webp',
         link: 'https://xn---56-6cdjehbj0gaxsnb.xn--p1ai/oplata-sertificatom',

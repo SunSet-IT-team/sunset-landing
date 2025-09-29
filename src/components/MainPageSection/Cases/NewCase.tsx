@@ -85,13 +85,13 @@ export default function NewCase({
                     backgroundImage: `url(${caseData.bg || ''})`,
                 }}>
                 <div
-                    className="relative w-full h-full"
+                    className="absolute w-full h-[55%] top-0 left-0 flex justify-center items-center"
                     style={{
                         backgroundImage: `linear-gradient(180deg, #ffffff45, #ffffffcf 80%, #ffffff)`,
                     }}>
                     {caseData.logo && (
                         <Image
-                            className="mx-auto mt-10 md:mt-12 h-[50px] md:h-[90px] object-contain object-center"
+                            className="h-[50px] md:h-[90px] object-contain object-center mb-[10%]"
                             src={caseData.logo}
                             alt={`Логотип ${caseData.title}`}
                             width={90}
@@ -113,7 +113,7 @@ export default function NewCase({
                 )}
 
                 <div
-                    className={`relative w-full lg:min-h-[50%] min-h-[40%] bg-blue-400 text-left rounded-tl-[8px] rounded-tr-[8px]`}>
+                    className={`relative w-full h-[60%] bg-blue-400 text-left rounded-tl-[8px] rounded-tr-[8px]`}>
                     <div className="p-[15px] pt-[30px] lg:pt-[20px] lg:px-[8px] flex flex-col h-full items-start">
                         <h3 className="heading-h3 mb-2">{caseData.title}</h3>
                         <p
