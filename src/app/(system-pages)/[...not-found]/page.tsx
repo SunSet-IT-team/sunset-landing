@@ -2,6 +2,7 @@ import { View } from '@/src/components/CanvasPortal/View';
 import CubesModelWithLight from '@/src/components/Models/CubesModel/CubesModelWithLight';
 import { Metadata } from 'next';
 import { FC, Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 
 export const metadata: Metadata = {
     title: 'Страница не найдена',
@@ -17,7 +18,9 @@ const Custom404: FC = () => {
             </div>
             <View className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  w-full h-full">
                 <Suspense fallback={null}>
-                    <CubesModelWithLight />
+                    <ErrorBoundary fallback={null}>
+                        <CubesModelWithLight />
+                    </ErrorBoundary>
                 </Suspense>
             </View>
         </>
