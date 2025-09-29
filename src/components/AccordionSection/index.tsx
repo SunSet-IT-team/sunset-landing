@@ -2,6 +2,7 @@
 
 import IconsSlider from '@/src/feature/IconsSlider';
 import { useNavStore } from '@/src/store/navStore';
+import { twMerge } from 'tailwind-merge';
 
 interface AccordionSectionProps {
     children: React.ReactNode;
@@ -62,19 +63,19 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
                 onClick={() => setActiveId(id)}>
                 {id != 1 && (
                     <h2
-                        className={`transition-all duration-300 ease-in-out origin-bottom-left cursor-target
-                         relative z-20 heading cursor-pointer ${
-                             id == 4 ? 'xl:-tracking-wider 2xl:tracking-wider' : ''
-                         }
-                     ${
-                         isActiveText
-                             ? `md:mt-[104px] ${
-                                   isActive
-                                       ? 'cursor-text text-blue-200 md:[transform:none]'
-                                       : 'md:[transform:rotate(90deg)_translateX(50%)] '
-                               } xl:mt-[120px] xl:[transform:none]`
-                             : `md:mt-[32px] md:[transform:rotate(90deg)_translateX(50%)] xl:mt-[44px] xl:[transform:none]`
-                     }`}>
+                        className={twMerge(
+                            'transition-all duration-300 ease-in-out origin-bottom-left',
+                            'relative z-20 heading cursor-pointer',
+                            id == 4 ? 'xl:-tracking-wider 2xl:tracking-wider' : '',
+                            isActiveText
+                                ? `md:mt-[104px] ${
+                                      isActive
+                                          ? 'cursor-text text-blue-200 md:[transform:none]'
+                                          : 'md:[transform:rotate(90deg)_translateX(50%)] '
+                                  } xl:mt-[120px] xl:[transform:none]`
+                                : 'md:mt-[32px] md:[transform:rotate(90deg)_translateX(50%)] xl:mt-[44px] xl:[transform:none]',
+                            isActive ? '' : 'cursor-target',
+                        )}>
                         {title}
                     </h2>
                 )}
@@ -83,7 +84,7 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
                     transition-all duration-300 ease-in-out
                     relative z-10
                     ${id === 1 ? 'mt-[20px] md:mt-[150px]' : ''}
-                     ${isActive ? 'opacity-1' : 'opacity-0'}`}>
+                     ${isActive ? 'opacity-1' : 'opacity-0 pointer-events-none'}`}>
                     {children}
                 </div>
                 {id === 1 && <IconsSlider />}
