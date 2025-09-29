@@ -7,19 +7,19 @@
     }
 
     .heading {
-        @apply text-xs sm:text-sm lg:text-xl font-bold leading-[125%] font-akony tracking-wider;
+        @apply text-[clamp(12px,1.6vh,17px)]  sm:text-sm lg:text-xl font-bold leading-[125%] font-akony tracking-wider;
     }
 
     .heading-h3 {
-        @apply text-xs lg:text-sm  font-bold leading-[125%] font-akony tracking-wider;
+        @apply text-[clamp(12px,1.6vh,17px)] lg:text-sm  font-bold leading-[125%] font-akony tracking-wider;
     }
 
     .text {
-        @apply text-xs sm:text-sm  lg:text-xl font-light leading-[125%]  font-arodora-pro opacity-90;
+        @apply text-[clamp(12px,1.9vh,17px)]  sm:text-sm  lg:text-xl font-light leading-[125%]  font-arodora-pro opacity-90;
     }
 
     .text-descr {
-        @apply text-[13px]  lg:text-sm font-light leading-[125%]  font-arodora-pro opacity-85;
+        @apply text-[clamp(13px,2vh,18px)]  lg:text-sm font-light leading-[125%]  font-arodora-pro opacity-85;
     }
 
     .text-tag {
