@@ -12,6 +12,7 @@ import SocialMedia from './SocialMedia';
 const Footer: FC = () => {
     const [isVisible, setIsVisible] = useState(false);
 
+    const hideTimeoutRef = useRef<NodeJS.Timeout | null>(null); // Для дебаунса
     const footerRef = useRef<HTMLDivElement>(null);
 
     // Обработчик клика вне подвала
@@ -28,12 +29,28 @@ const Footer: FC = () => {
         };
     }, []);
 
+    const handleMouseLeave = () => {
+        // Запускаем таймер скрытия
+        hideTimeoutRef.current = setTimeout(() => {
+            setIsVisible(false);
+        }, 300);
+    };
+
+    const handleMouseEnter = () => {
+        // Если мышь вернулась быстро → отменяем таймер
+        if (hideTimeoutRef.current) {
+            clearTimeout(hideTimeoutRef.current);
+            hideTimeoutRef.current = null;
+        }
+        setIsVisible(true);
+    };
+
     return (
         <>
             {/* Триггер */}
             <div
                 className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full h-[12px] bg-blue-400 z-40 cursor-pointer"
-                onMouseEnter={() => setIsVisible(true)}
+                onMouseEnter={handleMouseEnter}
                 onClick={() => setIsVisible(true)}
                 style={{
                     backgroundImage: `url('/icons/arrow.svg')`,
@@ -49,7 +66,8 @@ const Footer: FC = () => {
                 className={`bg-blue-400 fixed left-0 right-0 bottom-0 py-2 md:py-4 h-26 md:h-36 z-50 transition-transform duration-300 ease-in-out ${
                     isVisible ? 'translate-y-0' : 'translate-y-full'
                 }`}
-                onMouseLeave={() => setIsVisible(false)}>
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}>
                 <Container className="flex flex-col items-center justify-center gap-2 md:gap-4 w-full h-full relative">
                     {/* <Questions /> */}
                     <SocialMedia />
