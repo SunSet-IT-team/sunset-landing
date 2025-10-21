@@ -1,7 +1,20 @@
-import { Float } from '@react-three/drei';
+import { Float, Html } from '@react-three/drei';
 import { FC } from 'react';
 import { DynamicBallModel } from '..';
 import { ModelSwitcher } from '../helpers/ModelSwitcher';
+import BallPreview from '@/src/assets/images/ball-preview.png';
+
+export const BallSuspense = () => {
+    const url = BallPreview.src; // Next.js оптимизированный путь
+    return (
+        <Html>
+            <div
+                className="w-[384px] h-[384px] bg-center bg-contain"
+                style={{ backgroundImage: `url(${url})` }}
+            />
+        </Html>
+    );
+};
 
 const BallModelWithLight: FC<{ active?: boolean }> = ({ active = true }) => {
     return (

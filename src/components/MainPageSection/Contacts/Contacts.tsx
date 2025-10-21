@@ -51,7 +51,7 @@ const Contacts: FC = () => {
                     </a>
                 </div>
             </OrangeNotification>
-            {/* <View className="fixed -bottom-[10vw] md:bottom-[unset] md:top-[76%] left-0 md:left-[20%] xl:left-[45%]  h-[50vw] md:h-[20vw] w-[50vw] md:w-[20vw] ">
+            <View className="fixed -bottom-[10vw] md:bottom-[unset] md:top-[76%] left-0 md:left-[20%] xl:left-[45%]  h-[50vw] md:h-[20vw] w-[50vw] md:w-[20vw] ">
                 <Suspense fallback={null}>
                     <ErrorBoundary fallback={null}>
                         <ConeModelWithLight active={isActive} />
@@ -64,7 +64,7 @@ const Contacts: FC = () => {
                         <TorModelWithLight active={isActive} />
                     </ErrorBoundary>
                 </Suspense>
-            </View> */}
+            </View>
         </>
     );
 };
