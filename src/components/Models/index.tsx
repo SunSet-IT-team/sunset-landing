@@ -1,6 +1,8 @@
 'use client';
 
+import { Html } from '@react-three/drei';
 import dynamic from 'next/dynamic';
+import { BallModelPlaceholder } from './BallModel/BallModelPlaceholder';
 
 export const DynamicHelmetModel = dynamic(() => import('./HelmetModel/HelmetModel'), {
     ssr: false,
@@ -8,6 +10,7 @@ export const DynamicHelmetModel = dynamic(() => import('./HelmetModel/HelmetMode
 
 export const DynamicTorModel = dynamic(() => import('./TorModel/TorModel'), {
     ssr: false,
+    loading: () => null,
 });
 
 export const DynamicCubesModel = dynamic(() => import('./CubesModel/CubesModel'), { ssr: false });
@@ -19,10 +22,12 @@ export const DynamicConeModel = dynamic(() => import('./ConeModel/ConeModel'), {
 
 export const DynamicBallModel = dynamic(() => import('./BallModel/BallModel'), {
     ssr: false,
+    loading: () => <BallModelPlaceholder />,
 });
 
 export const DynamicTriangleModel = dynamic(() => import('./TriangleModel/TriangleModel'), {
     ssr: false,
+    loading: () => null,
 });
 
 export const DynamicLogoAnimationModel = dynamic(

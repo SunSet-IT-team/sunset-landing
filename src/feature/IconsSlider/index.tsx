@@ -2,6 +2,7 @@
 
 import LogoLoop from '@/components/LogoLoop';
 import { useMediaQuery } from '@/src/hooks/useMediaQuery';
+import { useEffect, useState } from 'react';
 import {
     SiReact,
     SiNextdotjs,
@@ -38,6 +39,14 @@ const techLogos = [
  */
 const IconsSlider = () => {
     const isMobile = useMediaQuery('(max-width: 767px)');
+
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null;
     return (
         <div
             className={twMerge(

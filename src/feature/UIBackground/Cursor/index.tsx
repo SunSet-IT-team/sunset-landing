@@ -2,11 +2,18 @@
 
 import TargetCursor from '@/components/TargetCursor';
 import { useMediaQuery } from '@/src/hooks/useMediaQuery';
+import { useState, useEffect } from 'react';
 
 const Cursor = () => {
     const isMobile = useMediaQuery('(max-width: 767px)');
 
-    if (isMobile) return <></>;
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted || isMobile) return null;
 
     return <TargetCursor />;
 };
