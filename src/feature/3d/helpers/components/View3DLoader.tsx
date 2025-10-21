@@ -26,13 +26,13 @@ const View3DLoader = ({ children, className }: View3DLoaderProps) => {
         return () => clearTimeout(timer);
     }, []);
 
+    if (!mounted) return null;
+
     return (
         <View className={className}>
-            {mounted && (
-                <Suspense fallback={null}>
-                    <ErrorBoundary fallback={null}>{children}</ErrorBoundary>
-                </Suspense>
-            )}
+            <Suspense fallback={null}>
+                <ErrorBoundary fallback={null}>{children}</ErrorBoundary>
+            </Suspense>
         </View>
     );
 };
