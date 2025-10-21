@@ -1,7 +1,8 @@
 'use client';
 
+import { isWeakDevice } from '@/src/utils/share';
 import dynamic from 'next/dynamic';
-import { FC, PropsWithChildren, useRef } from 'react';
+import { FC, PropsWithChildren, useEffect, useRef, useState } from 'react';
 
 const Scene = dynamic(() => import('./Scene'), {
     ssr: false,
@@ -12,6 +13,12 @@ const Scene = dynamic(() => import('./Scene'), {
  */
 export const CanvasPortal: FC<PropsWithChildren> = ({ children }) => {
     const ref = useRef(null);
+    const [need3D, setNeed3D] = useState(false);
+
+    useEffect(() => {
+        const canRender = !navigator.webdriver && !isWeakDevice();
+        setNeed3D(canRender);
+    }, []);
 
     return (
         <div
@@ -37,19 +44,21 @@ export const CanvasPortal: FC<PropsWithChildren> = ({ children }) => {
                     backgroundColor: 'rgba(0, 0, 0, 0.5)',
                 }}
             />
-            <Scene
-                style={{
-                    position: 'fixed',
-                    top: 0,
-                    left: 0,
-                    width: '100vw',
-                    height: '100vh',
-                    pointerEvents: 'none',
-                    zIndex: 20,
-                }}
-                eventSource={ref}
-                eventPrefix="client"
-            />
+            {need3D && (
+                <Scene
+                    style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        width: '100vw',
+                        height: '100vh',
+                        pointerEvents: 'none',
+                        zIndex: 20,
+                    }}
+                    eventSource={ref}
+                    eventPrefix="client"
+                />
+            )}
         </div>
     );
 };

@@ -10,3 +10,19 @@ export const generateUniqueKeyframes = (count: number, range: number) => {
 
     return keyframes;
 };
+
+/**
+ * Проверка на слабый девайс
+ */
+export function isWeakDevice(): boolean {
+    if (typeof window === 'undefined' || typeof navigator === 'undefined') return false; // на сервере считаем устройство "нормальным"
+
+    const cores = navigator.hardwareConcurrency || 2;
+    const ramGB = (navigator as any).deviceMemory || 4;
+
+    // эвристика — можно подстроить под свой проект
+    const weakByCpu = cores <= 2;
+    const weakByRam = ramGB <= 2;
+
+    return weakByCpu || weakByRam;
+}
