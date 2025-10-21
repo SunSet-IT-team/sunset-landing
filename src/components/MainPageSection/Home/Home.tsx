@@ -2,7 +2,7 @@
 
 import { FC } from 'react';
 import TypeSlogan from './TypeSlogan';
-import IconsSlider from '@/src/feature/IconsSlider';
+import { isWebGLSupported } from '@/src/utils/share';
 
 const Home: FC = () => {
     return (
@@ -10,9 +10,10 @@ const Home: FC = () => {
             <main className="w-full">
                 <TypeSlogan />
                 <p className="mt-10 text">
-                    navigator - {navigator.webdriver ? 'да' : 'neet'}
-                    navigator.hardwareConcurrency - {navigator.hardwareConcurrency}
-                    ramGB - {(navigator as any).deviceMemory || 4}
+                    navigator - {navigator.webdriver ? 'да' : 'neet'} <br />
+                    navigator.hardwareConcurrency - {navigator.hardwareConcurrency} <br />
+                    ramGB - {(navigator as any).deviceMemory || 4} <br />
+                    isWebGLSupported - {isWebGLSupported() ? 'да' : 'neet'} <br />
                 </p>
                 <p className="mt-10 text">
                     Мы&nbsp;&mdash; за&nbsp;ясные планы, прозрачные результаты и&nbsp;спокойный сон

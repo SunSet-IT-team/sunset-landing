@@ -26,3 +26,18 @@ export function isWeakDevice(): boolean {
 
     return weakByCpu || weakByRam;
 }
+
+/**
+ * Проверка на WebGL
+ */
+export function isWebGLSupported(): boolean {
+    try {
+        const canvas = document.createElement('canvas');
+        return !!(
+            window.WebGLRenderingContext &&
+            (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+        );
+    } catch (e) {
+        return false;
+    }
+}
