@@ -45,7 +45,7 @@ const mappginRows = {
  * Секция услуги
  */
 const Services: FC = () => {
-    const { activeId } = useNavStore();
+    const { activeId, isSectionChanged } = useNavStore();
     const isActive = activeId == 3;
 
     return (
@@ -69,13 +69,17 @@ const Services: FC = () => {
                 })}
             </div>
 
-            {/* <View3DLoader className="absolute bottom-[0%] md:bottom-[unset] md:-top-[33%] left-[0%] md:left-[unset] md:right-0 h-[40vw] md:h-[20vw] w-[40vw] md:w-[20vw]">
-                <BallModelWithLight active={isActive} />
-            </View3DLoader>
+            {isSectionChanged && (
+                <>
+                    <View3DLoader className="absolute bottom-[0%] md:bottom-[unset] md:-top-[33%] left-[0%] md:left-[unset] md:right-0 h-[40vw] md:h-[20vw] w-[40vw] md:w-[20vw]">
+                        <BallModelWithLight active={isActive} />
+                    </View3DLoader>
 
-            <View3DLoader className="absolute -top-[10%] md:top-[unset] md:bottom-0 -right-[10%]  md:right-[unset] md:left-0 w-[55vw] md:w-[25vw] h-[55vw] md:h-[25vw] max-w-[250px] max-h-[250px]">
-                <TriangleModelWithLight active={isActive} />
-            </View3DLoader> */}
+                    <View3DLoader className="absolute -top-[10%] md:top-[unset] md:bottom-0 -right-[10%]  md:right-[unset] md:left-0 w-[55vw] md:w-[25vw] h-[55vw] md:h-[25vw] max-w-[250px] max-h-[250px]">
+                        <TriangleModelWithLight active={isActive} />
+                    </View3DLoader>
+                </>
+            )}
         </>
     );
 };
