@@ -6,6 +6,7 @@ import { FC, PropsWithChildren, useEffect, useRef, useState } from 'react';
 
 const Scene = dynamic(() => import('./Scene'), {
     ssr: false,
+    loading: () => <div />,
 });
 
 /**

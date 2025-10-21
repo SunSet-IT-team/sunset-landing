@@ -10,6 +10,12 @@ import OrangeNotification from '../../ui/Notifications/OrangeNotification';
 import { metrika, MetrikGoal } from '@/src/feature/Metrika/MetrikSender';
 import { ErrorBoundary } from 'react-error-boundary';
 import View3DLoader from '@/src/feature/3d/helpers/components/View3DLoader';
+import dynamic from 'next/dynamic';
+
+const DynamicConeWithLight = dynamic(() => import('../../Models/ConeModel/ConeModelWithLight'), {
+    ssr: false,
+    loading: () => null,
+});
 
 /**
  * Секция связи
@@ -53,7 +59,7 @@ const Contacts: FC = () => {
                 </div>
             </OrangeNotification>
             <View3DLoader className="fixed -bottom-[10vw] md:bottom-[unset] md:top-[76%] left-0 md:left-[20%] xl:left-[45%]  h-[50vw] md:h-[20vw] w-[50vw] md:w-[20vw] ">
-                <ConeModelWithLight active={isActive} />
+                <DynamicConeWithLight active={isActive} />
             </View3DLoader>
             {/* <View3DLoader className="fixed top-[10%] w-[300px] -right-[20vw] md:-top-[13%] md:-right-[10vw] h-[50vw] md:h-[30vw] md:w-[30vw]">
                 <TorModelWithLight active={isActive} />

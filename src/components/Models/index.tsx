@@ -14,6 +14,7 @@ export const DynamicCubesModel = dynamic(() => import('./CubesModel/CubesModel')
 
 export const DynamicConeModel = dynamic(() => import('./ConeModel/ConeModel'), {
     ssr: false,
+    loading: () => null,
 });
 
 export const DynamicBallModel = dynamic(() => import('./BallModel/BallModel'), {
