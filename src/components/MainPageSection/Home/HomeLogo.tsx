@@ -1,6 +1,8 @@
 'use client';
 
 import { useNavStore } from '@/src/store/navStore';
+import Image from 'next/image';
+import LogoImage from '@/src/assets/images/logo.png';
 
 /**
  * Гланая фотка для стартовой секции
@@ -19,14 +21,15 @@ const HomeLogo = () => {
                         ? 'bottom-[150%] md:bottom-[7%] right-[105%] md:right-[110%] opacity-0'
                         : 'bottom-[25%] sm:bottom-[15%] right-[5%] md:right-[1%] md:bottom-[7%] opacity-100'
                 }
-                `}
-            style={{
-                backgroundImage: `url('/testlogo.png')`,
-                backgroundSize: 'contain',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-            }}
-        />
+                `}>
+            <Image
+                src={LogoImage}
+                alt="3D sunset IT logo"
+                priority
+                className="w-full h-full object-contain"
+                unoptimized
+            />
+        </div>
     );
 };
 
