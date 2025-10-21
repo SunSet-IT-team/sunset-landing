@@ -6,8 +6,8 @@ import IconsSlider from '@/src/feature/IconsSlider';
 
 const Home: FC = () => {
     return (
-        <div className="w-full relative">
-            <main className="pr-[70px] w-full">
+        <div className="max-w-[calc(100%-70px)] mr-[70px] pointer-events-auto relative">
+            <main className="w-full">
                 <TypeSlogan />
                 <p className="mt-10 text">
                     Мы&nbsp;&mdash; за&nbsp;ясные планы, прозрачные результаты и&nbsp;спокойный сон

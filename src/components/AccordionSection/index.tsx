@@ -83,7 +83,7 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
                     className={`w-full overflow-hidden
                     transition-all duration-300 ease-in-out
                     relative z-10
-                    ${id === 1 ? 'mt-[20px] md:mt-[150px]' : ''}
+                    ${id === 1 ? 'mt-[20px] md:mt-[150px] pointer-events-none' : ''}
                      ${isActive ? 'opacity-1' : 'opacity-0 pointer-events-none'}`}>
                     {children}
                 </div>
