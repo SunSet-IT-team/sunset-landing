@@ -1,11 +1,9 @@
 'use client';
-import { FC, Suspense } from 'react';
 
+import { FC } from 'react';
 import { useNavStore } from '@/src/store/navStore';
 import TriangleModelWithLight from '../../Models/TriangleModel/TriangleModelWithLight';
-import { View } from '../../CanvasPortal/View';
 import BallModelWithLight from '../../Models/BallModel/BallModelWithLight';
-import { ErrorBoundary } from 'react-error-boundary';
 import View3DLoader from '@/src/feature/3d/helpers/components/View3DLoader';
 
 export const data = [
@@ -71,13 +69,13 @@ const Services: FC = () => {
                 })}
             </div>
 
-            <View3DLoader className="absolute bottom-[0%] md:bottom-[unset] md:-top-[33%] left-[0%] md:left-[unset] md:right-0 h-[40vw] md:h-[20vw] w-[40vw] md:w-[20vw]">
+            {/* <View3DLoader className="absolute bottom-[0%] md:bottom-[unset] md:-top-[33%] left-[0%] md:left-[unset] md:right-0 h-[40vw] md:h-[20vw] w-[40vw] md:w-[20vw]">
                 <BallModelWithLight active={isActive} />
             </View3DLoader>
 
             <View3DLoader className="absolute -top-[10%] md:top-[unset] md:bottom-0 -right-[10%]  md:right-[unset] md:left-0 w-[55vw] md:w-[25vw] h-[55vw] md:h-[25vw] max-w-[250px] max-h-[250px]">
                 <TriangleModelWithLight active={isActive} />
-            </View3DLoader>
+            </View3DLoader> */}
         </>
     );
 };

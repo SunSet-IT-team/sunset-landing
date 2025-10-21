@@ -44,7 +44,7 @@ export const CanvasPortal: FC<PropsWithChildren> = ({ children }) => {
                     backgroundColor: 'rgba(0, 0, 0, 0.5)',
                 }}
             />
-            {false && (
+            {need3D && (
                 <Scene
                     style={{
                         position: 'fixed',

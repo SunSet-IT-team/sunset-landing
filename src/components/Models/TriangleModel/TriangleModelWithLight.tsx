@@ -1,3 +1,5 @@
+'use client';
+
 import { Float } from '@react-three/drei';
 import { FC } from 'react';
 import { DynamicTriangleModel } from '..';

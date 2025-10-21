@@ -1,3 +1,5 @@
+'use client';
+
 import { Float, Html } from '@react-three/drei';
 import { FC } from 'react';
 import { DynamicBallModel } from '..';
