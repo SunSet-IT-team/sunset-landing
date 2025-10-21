@@ -70,7 +70,7 @@ const Services: FC = () => {
                 })}
             </div>
 
-            <View className="absolute bottom-[0%] md:bottom-[unset] md:-top-[33%] left-[0%] md:left-[unset] md:right-0 h-[40vw] md:h-[20vw] w-[40vw] md:w-[20vw]">
+            {/* <View className="absolute bottom-[0%] md:bottom-[unset] md:-top-[33%] left-[0%] md:left-[unset] md:right-0 h-[40vw] md:h-[20vw] w-[40vw] md:w-[20vw]">
                 <Suspense fallback={null}>
                     <ErrorBoundary fallback={null}>
                         <BallModelWithLight active={isActive} />
@@ -84,7 +84,7 @@ const Services: FC = () => {
                         <TriangleModelWithLight active={isActive} />
                     </ErrorBoundary>
                 </Suspense>
-            </View>
+            </View> */}
         </>
     );
 };
