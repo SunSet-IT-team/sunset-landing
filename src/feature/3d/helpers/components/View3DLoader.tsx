@@ -16,7 +16,7 @@ interface View3DLoaderProps {
 const View3DLoader = ({ children, className }: View3DLoaderProps) => {
     const [mounted, setMounted] = useState(false);
     useEffect(() => {
-        const timer = setTimeout(() => setMounted(true), 2000);
+        const timer = setTimeout(() => setMounted(true), 4000);
         return () => clearTimeout(timer);
     }, []);
 
