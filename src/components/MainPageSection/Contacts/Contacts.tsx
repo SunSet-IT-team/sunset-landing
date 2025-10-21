@@ -21,7 +21,7 @@ const DynamicConeWithLight = dynamic(() => import('../../Models/ConeModel/ConeMo
  * Секция связи
  */
 const Contacts: FC = () => {
-    const { activeId } = useNavStore();
+    const { activeId, isSectionChanged } = useNavStore();
     const isActive = activeId == 4;
 
     const [isNotificationOpen, setIsNotificationOpen] = useState<boolean>(false);
@@ -58,9 +58,12 @@ const Contacts: FC = () => {
                     </a>
                 </div>
             </OrangeNotification>
-            <View3DLoader className="fixed -bottom-[10vw] md:bottom-[unset] md:top-[76%] left-0 md:left-[20%] xl:left-[45%]  h-[50vw] md:h-[20vw] w-[50vw] md:w-[20vw] ">
-                <DynamicConeWithLight active={isActive} />
-            </View3DLoader>
+            {isSectionChanged && (
+                <View3DLoader className="fixed -bottom-[10vw] md:bottom-[unset] md:top-[76%] left-0 md:left-[20%] xl:left-[45%]  h-[50vw] md:h-[20vw] w-[50vw] md:w-[20vw] ">
+                    <DynamicConeWithLight active={isActive} />
+                </View3DLoader>
+            )}
+
             {/* <View3DLoader className="fixed top-[10%] w-[300px] -right-[20vw] md:-top-[13%] md:-right-[10vw] h-[50vw] md:h-[30vw] md:w-[30vw]">
                 <TorModelWithLight active={isActive} />
             </View3DLoader> */}

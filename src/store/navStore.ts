@@ -8,6 +8,13 @@ interface IState {
     activeId: number;
 
     /**
+     * Была ли смена секции
+     * (Нужно для оптизации)
+     * @default false
+     */
+    isSectionChanged: boolean;
+
+    /**
      * Изменяет активную секцию
      * @param id - новый ID активной секции
      * @remarks Автоматически добавляет ID в стек навигации
@@ -22,8 +29,11 @@ export const useNavStore = create<IState>((set) => ({
     // Состояние
     activeId: 1,
 
+    isSectionChanged: false,
+
     setActiveId: (id) =>
         set(() => ({
+            isSectionChanged: true,
             activeId: id,
         })),
 }));
