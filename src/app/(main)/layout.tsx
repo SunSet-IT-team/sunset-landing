@@ -34,34 +34,36 @@ interface MainLayoutProps {
  */
 export default function MainLayout({ children }: MainLayoutProps) {
     return (
-        <CanvasPortal>
-            <div className="w-full h-full flex flex-col overflow-y-hidden">
-                <Header />
-                <main className="pt-2 md:pt-0 relative z-30 flex-grow-[1] h-0 md:h-full ">
-                    {children}
-                </main>
-                <NotificationsBlock />
-                <Footer />
-                {!isOptimize && (
-                    <>
-                        <div className="fixed inset-0 left-0 right-0 -top-2 bottom-0 pointer-events-none">
-                            <DotGrid
-                                dotSize={2}
-                                gap={20}
-                                baseColor="#5227FF"
-                                activeColor="#FF6400"
-                                proximity={120}
-                                shockRadius={250}
-                                shockStrength={5}
-                                resistance={600}
-                                returnDuration={1.5}
-                            />
-                        </div>
-                        <UIBackground />
-                        <Cursor />
-                    </>
-                )}
-            </div>
-        </CanvasPortal>
+        <div className="h-[100dvh] md:-h-[100vh]">
+            <CanvasPortal>
+                <div className="w-full h-full flex flex-col overflow-y-hidden">
+                    <Header />
+                    <main className="pt-2 md:pt-0 relative z-30 flex-grow-[1] h-0 md:h-full ">
+                        {children}
+                    </main>
+                    <NotificationsBlock />
+                    <Footer />
+                    {!isOptimize && (
+                        <>
+                            <div className="fixed inset-0 left-0 right-0 -top-2 bottom-0 pointer-events-none">
+                                <DotGrid
+                                    dotSize={2}
+                                    gap={20}
+                                    baseColor="#5227FF"
+                                    activeColor="#FF6400"
+                                    proximity={120}
+                                    shockRadius={250}
+                                    shockStrength={5}
+                                    resistance={600}
+                                    returnDuration={1.5}
+                                />
+                            </div>
+                            <UIBackground />
+                            <Cursor />
+                        </>
+                    )}
+                </div>
+            </CanvasPortal>
+        </div>
     );
 }

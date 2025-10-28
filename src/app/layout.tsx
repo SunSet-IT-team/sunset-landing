@@ -59,7 +59,7 @@ export default function RootLayout({
             </head>
             <body
                 className={`${akony.variable} ${arodoraPro.variable} 
-                    antialiased h-[100vh] 
+                    antialiased min-h-[100dvh] md:min-h-[100vh] 
                     w-[100vw] bg-black-gradient
                     text-white  relative overflow-x-hidden `}>
                 <BodyScriptMetrika />
