@@ -4,6 +4,8 @@ import { isWeakDevice } from '@/src/utils/share';
 import dynamic from 'next/dynamic';
 import { FC, PropsWithChildren, useEffect, useRef, useState } from 'react';
 
+const isOptimize = process.env.NEXT_PUBLIC_IS_DEV_OPTIMIZE === 'true';
+
 const Scene = dynamic(() => import('./Scene'), {
     ssr: false,
     loading: () => <div />,
@@ -45,7 +47,7 @@ export const CanvasPortal: FC<PropsWithChildren> = ({ children }) => {
                     backgroundColor: 'rgba(0, 0, 0, 0.5)',
                 }}
             />
-            {need3D && (
+            {!isOptimize && need3D && (
                 <Scene
                     style={{
                         position: 'fixed',

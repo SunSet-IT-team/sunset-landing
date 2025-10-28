@@ -1,12 +1,8 @@
 import { Metadata } from 'next';
-import { CanvasPortal } from '../components/CanvasPortal/CanvasPortal';
-
 import '../assets/globals.css';
 import { akony, arodoraPro } from '../assets/fonts/lindex';
 import BodyScriptMetrika from '../feature/Metrika/BodyScriptMetrika';
 import HeadScriptMetrika from '../feature/Metrika/HeadScriptMetrika';
-import NotificationsBlock from '../components/NotificationsBlock/NotificationBlock';
-import MainMenu from '../components/Layout/MainMenu/MainMenu';
 import WorkSpaceVerification from '../feature/WorkSpace';
 
 export const metadata: Metadata = {
@@ -67,7 +63,7 @@ export default function RootLayout({
                     w-[100vw] bg-black-gradient
                     text-white  relative overflow-x-hidden `}>
                 <BodyScriptMetrika />
-                <CanvasPortal>{children}</CanvasPortal>
+                {children}
                 {/* <MainMenu /> */}
             </body>
         </html>
