@@ -1,7 +1,7 @@
 import DotGrid from '@/components/DotGrid';
 import { CanvasPortal } from '@/src/components/CanvasPortal/CanvasPortal';
 import Footer from '@/src/components/Layout/Footer/Footer';
-import Header from '@/src/components/Layout/Header/Header';
+import Header from '@/src/components/Layout/Header/HeaderLanding';
 import NotificationsBlock from '@/src/components/NotificationsBlock/NotificationBlock';
 import Cursor from '@/src/feature/UIBackground/Cursor';
 import UIBackground from '@/src/feature/UIBackground/ui';

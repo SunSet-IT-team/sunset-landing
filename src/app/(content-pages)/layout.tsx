@@ -1,5 +1,6 @@
 import Footer from '@/src/components/Layout/Footer/Footer';
-import Logo from '@/src/components/ui/Logo';
+import Header from '@/src/components/Layout/Header/Header';
+import Container from '@/src/components/ui/Container';
 import { Metadata } from 'next';
 
 /**
@@ -12,10 +13,8 @@ export default function ContentPagesLayout({
 }>) {
     return (
         <div className={`w-full h-full flex flex-col overflow-y-hidden relative z-[22]`}>
-            <div className="flex justify-center mt-10">
-                <Logo />
-            </div>
-            <main className="relative">{children}</main>
+            <Header />
+            <Container className="w-[100vw]">{children}</Container>
             <Footer />
         </div>
     );

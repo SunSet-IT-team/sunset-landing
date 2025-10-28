@@ -1,5 +1,5 @@
 import Footer from '@/src/components/Layout/Footer/Footer';
-import Logo from '@/src/components/ui/Logo';
+import Logo from '@/src/components/ui/LogoText';
 import { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Тех.работы',
