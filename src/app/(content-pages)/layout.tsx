@@ -12,7 +12,7 @@ export default function ContentPagesLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className={`w-full h-full flex flex-col overflow-y-hidden relative z-[22]`}>
+        <div className={`w-full h-full flex flex-col relative z-[22]`}>
             <Header />
             <Container className="w-[100vw]">{children}</Container>
             <Footer />

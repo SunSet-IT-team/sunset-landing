@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import Container from '../../ui/Container';
-import Logo from '../../ui/LogoText';
+import Logo from '../../ui/LogoLanding';
 
 /**
  * Шапка сайта

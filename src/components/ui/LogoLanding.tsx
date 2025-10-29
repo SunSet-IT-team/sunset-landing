@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { FC } from 'react';
 
 /**
- * Лого
+ * Лого для лендинга
  */
-const LogoText: FC = () => {
+const LogoLanding: FC = () => {
     const { setActiveId } = useNavStore();
     return (
         <Link
@@ -28,4 +28,4 @@ const LogoText: FC = () => {
     );
 };
 
-export default LogoText;
+export default LogoLanding;

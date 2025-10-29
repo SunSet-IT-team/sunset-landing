@@ -7,7 +7,7 @@ import { FC } from 'react';
  */
 const Logo: FC = () => {
     return (
-        <Link href="/" className="flex items-center main-heading cursor-target">
+        <Link href="/" className="flex items-center cursor-target">
             <div className="relative w-[35px] h-[37px] md:w-[50px] md:h-[52px] ">
                 <Image
                     alt="Логотип компании Sunset"
@@ -17,6 +17,7 @@ const Logo: FC = () => {
                     sizes="(max-width: 640px) 35px, 37px (max-width: 1024px) 50px, 52px"
                 />
             </div>
+            <span className="heading-h3 ml-2">Sunset</span>
         </Link>
     );
 };
