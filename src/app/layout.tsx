@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import NextTopLoader from 'nextjs-toploader';
 import '../assets/globals.css';
 import { akony, arodoraPro } from '../assets/fonts/lindex';
 import BodyScriptMetrika from '../feature/Metrika/BodyScriptMetrika';
@@ -63,6 +64,11 @@ export default function RootLayout({
                     w-[100vw] bg-black-gradient
                     text-white  relative overflow-x-hidden `}>
                 <BodyScriptMetrika />
+                <NextTopLoader
+                    color="var(--orange)" // цвет (Tailwind blue-500)
+                    height={3}
+                    showSpinner={false}
+                />
                 {children}
                 {/* <MainMenu /> */}
             </body>
