@@ -1,4 +1,4 @@
-import Footer from '@/src/components/Layout/Footer/Footer';
+import Footer from '@/src/components/Layout/Footer/FooterLanding';
 import Logo from '@/src/components/ui/LogoText';
 import { Metadata } from 'next';
 export const metadata: Metadata = {

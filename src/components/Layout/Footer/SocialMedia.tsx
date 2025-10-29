@@ -1,3 +1,5 @@
+'use client';
+
 import { metrika, MetrikGoal } from '@/src/feature/Metrika/MetrikSender';
 import { FC } from 'react';
 import { FaInstagram, FaTelegramPlane, FaVk, FaYoutube } from 'react-icons/fa';

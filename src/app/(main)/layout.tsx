@@ -1,6 +1,6 @@
 import DotGrid from '@/components/DotGrid';
 import { CanvasPortal } from '@/src/components/CanvasPortal/CanvasPortal';
-import Footer from '@/src/components/Layout/Footer/Footer';
+import FooterLanding from '@/src/components/Layout/Footer/FooterLanding';
 import Header from '@/src/components/Layout/Header/HeaderLanding';
 import NotificationsBlock from '@/src/components/NotificationsBlock/NotificationBlock';
 import Cursor from '@/src/feature/UIBackground/Cursor';
@@ -42,7 +42,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         {children}
                     </main>
                     <NotificationsBlock />
-                    <Footer />
+                    <FooterLanding />
                     {!isOptimize && (
                         <>
                             <div className="fixed inset-0 left-0 right-0 -top-2 bottom-0 pointer-events-none">
