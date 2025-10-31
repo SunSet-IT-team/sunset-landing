@@ -1,5 +1,5 @@
 import Footer from '@/src/components/Layout/Footer/FooterLanding';
-import LogoLanding from '@/src/share/ui/LogoLanding';
+import LogoLanding from '@/src/share/ui/Logo/LogoLanding';
 import { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Тех.работы',

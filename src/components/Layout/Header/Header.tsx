@@ -1,6 +1,6 @@
 'use client';
 import Container from '@/src/share/ui/Container';
-import Logo from '@/src/share/ui/Logo';
+import Logo from '@/src/share/ui/Logo/Logo';
 import { FC, useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 

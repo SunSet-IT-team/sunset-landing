@@ -1,5 +1,5 @@
 import Container from '@/src/share/ui/Container';
-import LogoLanding from '@/src/share/ui/LogoLanding';
+import LogoLanding from '@/src/share/ui/Logo/LogoLanding';
 import { FC } from 'react';
 
 /**
