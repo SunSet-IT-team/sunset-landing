@@ -13,7 +13,7 @@ const Page = () => {
         <>
             <h1 className="main-heading">Услуги</h1>
 
-            <div className="flex flex-col gap-5 w-full pt-8 hidden">
+            <div className="flex flex-col gap-5 w-full pt-8">
                 <Card title={placeholderTitle} src={placeholderImgae} descr={placeholderDescr} />
             </div>
 
