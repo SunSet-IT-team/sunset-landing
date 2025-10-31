@@ -2,22 +2,28 @@
 
 import { FC, useEffect, useState } from 'react';
 import ContactForm from './ContactForm';
-import { useNavStore } from '@/src/store/navStore';
+import { useNavStore } from '@/src/share/store/navStore';
 import OrangeNotification from '../../ui/Notifications/OrangeNotification';
 import { metrika, MetrikGoal } from '@/src/feature/Metrika/MetrikSender';
 import View3DLoader from '@/src/feature/3d/helpers/components/View3DLoader';
 import dynamic from 'next/dynamic';
 import { Html } from '@react-three/drei';
 
-const DynamicConeWithLight = dynamic(() => import('../../Models/ConeModel/ConeModelWithLight'), {
-    ssr: false,
-    loading: () => null,
-});
+const DynamicConeWithLight = dynamic(
+    () => import('../../../share/models/ConeModel/ConeModelWithLight'),
+    {
+        ssr: false,
+        loading: () => null,
+    },
+);
 
-const DynamicTorModelWithLight = dynamic(() => import('../../Models/TorModel/TorModelWithLight'), {
-    ssr: false,
-    loading: () => null,
-});
+const DynamicTorModelWithLight = dynamic(
+    () => import('../../../share/models/TorModel/TorModelWithLight'),
+    {
+        ssr: false,
+        loading: () => null,
+    },
+);
 
 /**
  * Секция связи

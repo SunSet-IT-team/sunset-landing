@@ -2,7 +2,7 @@
 
 import Container from '@/src/components/ui/Container';
 import GradientCircle from './GradientСircle';
-import { useNavStore } from '@/src/store/navStore';
+import { useNavStore } from '@/src/share/store/navStore';
 
 /**
  * Задний фон для интеракивных элементов

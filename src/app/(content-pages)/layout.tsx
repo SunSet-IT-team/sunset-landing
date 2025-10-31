@@ -1,6 +1,6 @@
 import Footer from '@/src/components/Layout/Footer/Footer';
 import Header from '@/src/components/Layout/Header/Header';
-import Container from '@/src/components/ui/Container';
+import Container from '@/src/share/ui/Container';
 import { Metadata } from 'next';
 
 /**
@@ -12,7 +12,7 @@ export default function ContentPagesLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className={`w-full h-full flex flex-col relative z-[22]`}>
+        <div className={`w-full min-h-[100dvh] md:min-h-[100vh]  flex flex-col relative z-[22]`}>
             <Header />
             <Container className="w-[100vw]">{children}</Container>
             <Footer />

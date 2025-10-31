@@ -1,7 +1,7 @@
 'use client';
 
 import IconsSlider from '@/src/feature/IconsSlider';
-import { useNavStore } from '@/src/store/navStore';
+import { useNavStore } from '@/src/share/store/navStore';
 import { twMerge } from 'tailwind-merge';
 
 interface AccordionSectionProps {

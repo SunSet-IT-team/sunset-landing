@@ -1,4 +1,4 @@
-import HelmetModelWithLight from '@/src/components/Models/HelmetModel/HelmetModelWithLight';
+import HelmetModelWithLight from '@/src/share/models/HelmetModel/HelmetModelWithLight';
 import { View } from '@react-three/drei';
 import { FC, Suspense } from 'react';
 

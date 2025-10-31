@@ -1,6 +1,6 @@
 'use client';
 
-import { isWeakDevice } from '@/src/utils/share';
+import { isWeakDevice } from '@/src/share/utils/share';
 import dynamic from 'next/dynamic';
 import { FC, PropsWithChildren, useEffect, useRef, useState } from 'react';
 

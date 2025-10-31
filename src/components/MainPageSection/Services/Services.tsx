@@ -1,16 +1,16 @@
 'use client';
 
 import { FC } from 'react';
-import { useNavStore } from '@/src/store/navStore';
-import TriangleModelWithLight from '../../Models/TriangleModel/TriangleModelWithLight';
-import BallModelWithLight from '../../Models/BallModel/BallModelWithLight';
+import { useNavStore } from '@/src/share/store/navStore';
+import TriangleModelWithLight from '../../../share/models/TriangleModel/TriangleModelWithLight';
+import BallModelWithLight from '../../../share/models/BallModel/BallModelWithLight';
 import View3DLoader from '@/src/feature/3d/helpers/components/View3DLoader';
 import dynamic from 'next/dynamic';
 import { Html } from '@react-three/drei';
-import { BallModelPlaceholder } from '../../Models/BallModel/BallModelPlaceholder';
+import { BallModelPlaceholder } from '../../../share/models/BallModel/BallModelPlaceholder';
 
 const DynamicTriangleModelWithLight = dynamic(
-    () => import('../../Models/TriangleModel/TriangleModelWithLight'),
+    () => import('../../../share/models/TriangleModel/TriangleModelWithLight'),
     {
         ssr: false,
         loading: () => null,
@@ -18,7 +18,7 @@ const DynamicTriangleModelWithLight = dynamic(
 );
 
 const DynamicBallModelWithLight = dynamic(
-    () => import('../../Models/BallModel/BallModelWithLight'),
+    () => import('../../../share/models/BallModel/BallModelWithLight'),
     {
         ssr: false,
         loading: () => <BallModelPlaceholder />,

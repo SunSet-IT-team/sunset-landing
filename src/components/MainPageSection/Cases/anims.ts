@@ -1,4 +1,4 @@
-import { generateUniqueKeyframes } from '@/src/utils/share';
+import { generateUniqueKeyframes } from '@/src/share/utils/share';
 import { MotionValue, useSpring } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useNavStore } from '@/src/store/navStore';
+import { useNavStore } from '@/src/share/store/navStore';
 import Image from 'next/image';
 import LogoImage from '@/src/assets/images/logo.png';
 

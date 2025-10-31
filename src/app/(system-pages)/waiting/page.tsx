@@ -1,4 +1,4 @@
-import { LogoAnimationModelWithLight } from '@/src/components/Models/LogoAnimationModel/LogoAnimationModelWithLight';
+import { LogoAnimationModelWithLight } from '@/src/share/models/LogoAnimationModel/LogoAnimationModelWithLight';
 import { View } from '@react-three/drei';
 import { Metadata } from 'next';
 import { FC, Suspense } from 'react';

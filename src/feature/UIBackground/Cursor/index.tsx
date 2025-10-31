@@ -1,7 +1,7 @@
 'use client';
 
 import TargetCursor from '@/components/TargetCursor';
-import { useMediaQuery } from '@/src/hooks/useMediaQuery';
+import { useMediaQuery } from '@/src/share/hooks/useMediaQuery';
 import { useState, useEffect } from 'react';
 
 const Cursor = () => {

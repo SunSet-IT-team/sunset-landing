@@ -1,5 +1,5 @@
 import { View } from '@/src/components/CanvasPortal/View';
-import CubesModelWithLight from '@/src/components/Models/CubesModel/CubesModelWithLight';
+import CubesModelWithLight from '@/src/share/models/CubesModel/CubesModelWithLight';
 import { Metadata } from 'next';
 import { FC, Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';

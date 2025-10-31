@@ -1,7 +1,7 @@
 'use client';
 
 import LogoLoop from '@/components/LogoLoop';
-import { useMediaQuery } from '@/src/hooks/useMediaQuery';
+import { useMediaQuery } from '@/src/share/hooks/useMediaQuery';
 import { useEffect, useState } from 'react';
 import {
     SiReact,
