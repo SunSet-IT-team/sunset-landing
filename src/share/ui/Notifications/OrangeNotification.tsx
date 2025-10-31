@@ -1,7 +1,9 @@
 'use client';
 
 import { FC } from 'react';
-import Notification, { IProps as NotificationProps } from '../../NotificationsBlock/Notification';
+import Notification, {
+    IProps as NotificationProps,
+} from '@/src/share/ui/Notifications/NotificationsBlock/Notification';
 
 type IProps = NotificationProps & {
     title?: string;

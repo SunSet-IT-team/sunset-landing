@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Container from '../../ui/Container';
+import Container from '@/src/share/ui/Container';
 import Legality from './Legality';
 import Questions from './Questions';
 import SocialMedia from './SocialMedia';

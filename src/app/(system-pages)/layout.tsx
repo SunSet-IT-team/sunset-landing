@@ -1,5 +1,5 @@
 import Footer from '@/src/components/Layout/Footer/FooterLanding';
-import Logo from '@/src/components/ui/LogoLanding';
+import LogoLanding from '@/src/share/ui/LogoLanding';
 import { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Тех.работы',
@@ -13,7 +13,7 @@ export default function SystemPagesLayout({
     return (
         <div className={`w-full h-full flex flex-col overflow-y-hidden relative z-[22]`}>
             <div className="flex justify-center mt-10">
-                <Logo />
+                <LogoLanding />
             </div>
             <main className=" h-[calc(100vh-120px)] relative">{children}</main>
             <Footer />

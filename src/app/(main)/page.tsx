@@ -1,7 +1,7 @@
-import Container from '@/src/components/ui/Container';
 import AccordionSection from '@/src/components/AccordionSection';
 import HomeLogo from '@/src/components/MainPageSection/Home/HomeLogo';
 import { sections } from './data';
+import Container from '@/src/share/ui/Container';
 
 export default function Page() {
     return (

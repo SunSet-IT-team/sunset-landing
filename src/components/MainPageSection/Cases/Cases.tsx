@@ -8,10 +8,10 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import Case, { CasePreview } from './Case';
 import { data } from './data';
-import OrangeNotification from '../../ui/Notifications/OrangeNotification';
 import { useNavStore } from '@/src/share/store/navStore';
 import { twMerge } from 'tailwind-merge';
 import NewCase from './NewCase';
+import OrangeNotification from '@/src/share/ui/Notifications/OrangeNotification';
 
 /**
  * Секция с примерами проектов

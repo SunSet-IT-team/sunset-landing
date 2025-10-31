@@ -1,6 +1,6 @@
 'use client';
 
-import Container from '@/src/components/ui/Container';
+import Container from '@/src/share/ui/Container';
 import GradientCircle from './GradientСircle';
 import { useNavStore } from '@/src/share/store/navStore';
 

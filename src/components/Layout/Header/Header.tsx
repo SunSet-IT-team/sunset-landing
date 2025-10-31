@@ -1,7 +1,7 @@
 'use client';
+import Container from '@/src/share/ui/Container';
+import Logo from '@/src/share/ui/Logo';
 import { FC, useEffect, useState } from 'react';
-import Container from '../../ui/Container';
-import Logo from '../../ui/Logo';
 import { twMerge } from 'tailwind-merge';
 
 const Header: FC = () => {

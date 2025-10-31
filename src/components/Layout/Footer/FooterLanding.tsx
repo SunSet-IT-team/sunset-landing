@@ -1,10 +1,10 @@
 'use client';
 
 import { FC, useEffect, useRef, useState } from 'react';
-import Container from '../../ui/Container';
 import Legality from './Legality';
 import Questions from './Questions';
 import SocialMedia from './SocialMedia';
+import Container from '@/src/share/ui/Container';
 
 /**
  * Подвал сайта для лендинга интерактивный

@@ -1,6 +1,6 @@
 'use client';
 import { FC } from 'react';
-import { IProps as TextareaProps } from '../../ui/Textarea';
+import { IProps as TextareaProps } from '@/src/share/ui/Textarea';
 import { twMerge } from 'tailwind-merge';
 
 interface IProps extends TextareaProps {

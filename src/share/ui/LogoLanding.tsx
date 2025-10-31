@@ -1,7 +1,6 @@
 'use client';
 import { useNavStore } from '@/src/share/store/navStore';
 import Image from 'next/image';
-import Link from 'next/link';
 import { FC } from 'react';
 
 /**
@@ -10,8 +9,7 @@ import { FC } from 'react';
 const LogoLanding: FC = () => {
     const { setActiveId } = useNavStore();
     return (
-        <Link
-            href="/"
+        <div
             className="flex items-center main-heading gap-2 pointer-events-auto cursor-target"
             onClick={() => setActiveId(1)}>
             <div className="relative w-[35px] h-[37px] md:w-[50px] md:h-[52px] lg:w-[73px] lg:h-[81px] ">
@@ -24,7 +22,7 @@ const LogoLanding: FC = () => {
                 />
             </div>
             <span className="main-heading">Sunset</span>
-        </Link>
+        </div>
     );
 };
 

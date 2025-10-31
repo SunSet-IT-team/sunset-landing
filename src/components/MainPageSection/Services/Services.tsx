@@ -7,7 +7,7 @@ import BallModelWithLight from '../../../share/models/BallModel/BallModelWithLig
 import View3DLoader from '@/src/feature/3d/helpers/components/View3DLoader';
 import dynamic from 'next/dynamic';
 import { Html } from '@react-three/drei';
-import { BallModelPlaceholder } from '../../../share/models/BallModel/BallModelPlaceholder';
+import { BallModelPlaceholder } from '@/src/share/Models/BallModel/BallModelPlaceholder';
 
 const DynamicTriangleModelWithLight = dynamic(
     () => import('../../../share/models/TriangleModel/TriangleModelWithLight'),

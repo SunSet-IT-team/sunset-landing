@@ -8,9 +8,9 @@ import FormSuccess from './FormSuccess';
 import Lines from './Lines';
 import { contactSchema } from './validationSchema';
 import { metrika, MetrikGoal } from '@/src/feature/Metrika/MetrikSender';
-import Field from '../../ui/Field';
-import Button from '../../ui/Button';
-import PhoneInput from '../../ui/PhoneInput';
+import Field from '@/src/share/ui/Field';
+import Button from '@/src/share/ui/Button';
+import PhoneInput from '@/src/share/ui/PhoneInput';
 import FullHeightTextarea from './FullHeightTextarea';
 import { twMerge } from 'tailwind-merge';
 

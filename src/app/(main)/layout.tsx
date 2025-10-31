@@ -1,11 +1,11 @@
 import DotGrid from '@/components/DotGrid';
 import { CanvasPortal } from '@/src/components/CanvasPortal/CanvasPortal';
 import FooterLanding from '@/src/components/Layout/Footer/FooterLanding';
-import Header from '@/src/components/Layout/Header/HeaderLanding';
-import NotificationsBlock from '@/src/components/NotificationsBlock/NotificationBlock';
+import NotificationsBlock from '@/src/share/ui/Notifications/NotificationsBlock/NotificationBlock';
 import Cursor from '@/src/feature/UIBackground/Cursor';
 import UIBackground from '@/src/feature/UIBackground/ui';
 import type { Metadata } from 'next';
+import HeaderLanding from '@/src/components/Layout/Header/HeaderLanding';
 
 const isOptimize = process.env.NEXT_PUBLIC_IS_DEV_OPTIMIZE === 'true';
 
@@ -37,7 +37,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
         <div className="h-[100dvh] md:-h-[100vh]">
             <CanvasPortal>
                 <div className="w-full h-full flex flex-col overflow-y-hidden">
-                    <Header />
+                    <HeaderLanding />
                     <main className="pt-2 md:pt-0 relative z-30 flex-grow-[1] h-0 md:h-full ">
                         {children}
                     </main>
