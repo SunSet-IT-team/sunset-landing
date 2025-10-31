@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
 
-interface CardProps {
+export interface CardProps {
     src?: string;
     title?: string;
     descr?: string;
@@ -37,7 +37,7 @@ const Card = (data: CardProps) => {
                     </div>
                     <div className="w-[60%]">
                         <h2 className="heading mb-3">{data.title || 'Название не указано'}</h2>
-                        <p className="text-descr">{descr}</p>
+                        <p className="text-descr max-w-[400px]">{descr}</p>
                     </div>
                 </>
             ) : (
