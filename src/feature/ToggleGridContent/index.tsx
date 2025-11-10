@@ -5,6 +5,7 @@ import Toggler from './Toggler';
 import { useState } from 'react';
 import Card, { CardProps } from '@/src/share/ui/Card';
 import { twMerge } from 'tailwind-merge';
+import SearchInput from '@/src/share/ui/Input/SearchInput';
 
 interface ToggleGridContentProps {
     className?: string;
@@ -20,14 +21,15 @@ const ToggleGridContent = ({ data, className }: ToggleGridContentProps) => {
     return (
         <div className={twMerge(className)}>
             <div className="mb-4 flex flex-row items-center justify-end">
+                <SearchInput />
                 <Toggler onChange={(mode) => setMode(mode)} defaultMode={mode} />
             </div>
             <div
                 className={twMerge(
                     mode == 'list' ? 'flex flex-col gap-5' : 'grid grid-cols-3  gap-4',
                 )}>
-                {data.map((post) => (
-                    <Card {...post} type={mode === 'grid' ? 'col' : 'row'} />
+                {data.map((post, i) => (
+                    <Card {...post} type={mode === 'grid' ? 'col' : 'row'} key={i} />
                 ))}
             </div>
         </div>
