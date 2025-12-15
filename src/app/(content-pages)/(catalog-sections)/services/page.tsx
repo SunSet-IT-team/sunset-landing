@@ -23,7 +23,7 @@ const Page = async () => {
     return (
         <>
             <Breadcrumbs items={breadcrumbs} className="mb-4" />
-            <PaginationInitializer itemsPerPage={3}>
+            <PaginationInitializer itemsPerPage={12}>
                 <ToggleGridContent
                     className="w-full pt-8"
                     initialServices={services}
