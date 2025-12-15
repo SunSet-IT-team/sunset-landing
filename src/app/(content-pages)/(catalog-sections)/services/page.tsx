@@ -2,8 +2,8 @@ import ServiceAPI from '@/src/entities/service/api';
 import { mapServiceDTO } from '@/src/entities/service/api/mapping';
 import { Service } from '@/src/entities/service/api/types';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
-import { ServicesPagination } from '@/src/feature/ServicesPagination';
 import ToggleGridContent from '@/src/feature/ToggleGridContent';
+import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationInitializer';
 
 // export const revalidate = 86400; // 24 часа
 
@@ -23,13 +23,13 @@ const Page = async () => {
     return (
         <>
             <Breadcrumbs items={breadcrumbs} className="mb-4" />
-            <ServicesPagination>
+            <PaginationInitializer itemsPerPage={3}>
                 <ToggleGridContent
                     className="w-full pt-8"
                     initialServices={services}
                     initialTotalPages={totalPages}
                 />
-            </ServicesPagination>
+            </PaginationInitializer>
         </>
     );
 };

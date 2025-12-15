@@ -5,11 +5,11 @@ import { getRotation, useFrames, useTilt } from './anims';
 import { metrika, MetrikGoal } from '@/src/feature/Metrika/MetrikSender';
 
 export type CasePreview = {
-    id?: number;
+    id: number;
     logo?: string;
     bg?: string;
-    title?: string;
-    description?: string;
+    title: string;
+    description: string;
     link?: string;
     tags?: string[];
     to?: string;
@@ -131,7 +131,7 @@ export default function Case({
                         <h3 className="heading-h3 mb-2">{caseData.title}</h3>
                         <p
                             className="text mb-4 flex-grow-[1]"
-                            dangerouslySetInnerHTML={{ __html: caseData.description }}></p>
+                            dangerouslySetInnerHTML={{ __html: caseData.description ?? '' }}></p>
                         <a
                             target="_blank"
                             href={caseData.link}

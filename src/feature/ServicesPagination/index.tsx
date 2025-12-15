@@ -19,7 +19,7 @@ export const ServicesPagination: FC<Props> = ({ children }) => {
     // });
 
     return (
-        <PaginationProvider itemsPerPage={12}>
+        <PaginationProvider itemsPerPage={3}>
             {children}
             <Pagination className="mt-8 md:mt-16" />
         </PaginationProvider>

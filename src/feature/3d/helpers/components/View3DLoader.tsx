@@ -16,14 +16,17 @@ interface View3DLoaderProps {
 const View3DLoader = ({ children, className }: View3DLoaderProps) => {
     const [mounted, setMounted] = useState(false);
     useEffect(() => {
-        let timer = null;
+        let timer: ReturnType<typeof setTimeout> | null = null;
+
         if ('requestIdleCallback' in window) {
             requestIdleCallback(() => setMounted(true));
         } else {
             timer = setTimeout(() => setMounted(true), 800);
         }
 
-        return () => clearTimeout(timer);
+        return () => {
+            if (timer) clearTimeout(timer);
+        };
     }, []);
 
     if (!mounted) return null;

@@ -5,11 +5,11 @@ import { getRotation, useFrames, useTilt } from './anims';
 import { metrika, MetrikGoal } from '@/src/feature/Metrika/MetrikSender';
 
 export type CasePreview = {
-    id?: number;
+    id: number;
     logo?: string;
     bg?: string;
-    title?: string;
-    description?: string;
+    title: string;
+    description: string;
     link?: string;
     tags?: string[];
     to?: string;

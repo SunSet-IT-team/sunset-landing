@@ -8,15 +8,18 @@ import {
     ReactNode,
     FC,
     SetStateAction,
+    Suspense,
 } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { PaginationContext as PaginationContextType, PaginationOptions } from '../model/types';
+import { PaginationURLSync } from './PaginationURLSync';
 
 export const PaginationContext = createContext<PaginationContextType | null>(null);
 
 interface BaseProps {
     children: ReactNode;
     options?: PaginationOptions;
+    initialPage?: number; // Добавляем начальную страницу
 }
 
 interface DefaultProps extends BaseProps {
@@ -35,43 +38,21 @@ type Props = DefaultProps | PerPageLikeStateProps;
  * Провайдер контекста для пагинации. Содержит все необходимые значения и callback для удобной
  * ее реализации. Требует уточнения totalPages при помощи setTotalPages для корректной работы (изначально = null)
  */
-export const PaginationProvider: FC<Props> = ({ children, itemsPerPage, setItemsPerPage }) => {
-    const searchParams = useSearchParams();
-    const pathname = usePathname();
-    const router = useRouter();
-
-    const [page, setPage] = useState(() => {
-        const p = Number(searchParams.get('page')) || 1;
-        return p >= 1 ? p : 1;
-    });
-
+export const PaginationProvider: FC<Props> = ({
+    children,
+    itemsPerPage,
+    setItemsPerPage,
+    initialPage = 1,
+}) => {
+    const [page, setPage] = useState(initialPage);
     const [totalPages, setTotalPages] = useState<number | null>(null);
-
-    // синхронизация URL params
-    useEffect(() => {
-        const newSearchParams = new URLSearchParams(searchParams.toString());
-        if (page > 1) {
-            newSearchParams.set('page', String(page));
-        } else {
-            newSearchParams.delete('page');
-        }
-        if (itemsPerPage > 1) {
-            newSearchParams.set('perPage', String(itemsPerPage));
-        } else {
-            newSearchParams.delete('perPage');
-        }
-
-        router.replace(`${pathname}?${newSearchParams.toString()}`, {
-            scroll: false,
-        });
-    }, [page, itemsPerPage, router, pathname]);
 
     // Корректируем максимальную возможную открытую страницу
     useEffect(() => {
         if (totalPages !== null && page > totalPages) {
             setPage(totalPages);
         }
-    }, [itemsPerPage, totalPages]);
+    }, [itemsPerPage, totalPages, page]);
 
     const goNextPage = useCallback(() => {
         setPage((p) => (totalPages !== null && p < totalPages ? p + 1 : p));
@@ -93,6 +74,9 @@ export const PaginationProvider: FC<Props> = ({ children, itemsPerPage, setItems
                 goNextPage,
                 goPrevPage,
             }}>
+            <Suspense fallback={null}>
+                <PaginationURLSync page={page} itemsPerPage={itemsPerPage} />
+            </Suspense>
             {children}
         </PaginationContext.Provider>
     );

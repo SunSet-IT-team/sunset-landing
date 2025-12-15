@@ -4,20 +4,23 @@ import { Three } from '@/src/feature/3d/helpers/components/Three';
 import { View as ViewImpl } from '@react-three/drei';
 import { forwardRef, HTMLAttributes, PropsWithChildren, useImperativeHandle, useRef } from 'react';
 
-export const View = forwardRef<HTMLDivElement, PropsWithChildren<HTMLAttributes<HTMLDivElement>>>(
-    ({ children, ...props }, ref) => {
-        const localRef = useRef<HTMLDivElement | null>(null);
+export const View = forwardRef<
+    HTMLDivElement | null,
+    PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+>(({ children, ...props }, ref) => {
+    const localRef = useRef<HTMLDivElement | null>(null);
 
-        useImperativeHandle(ref, () => localRef.current);
+    useImperativeHandle(ref, () => localRef.current!);
 
-        return (
-            <>
-                <div ref={localRef} {...props} />
-                <Three>
-                    <ViewImpl track={localRef}>{children}</ViewImpl>
-                </Three>
-            </>
-        );
-    },
-);
+    return (
+        <>
+            <div ref={localRef} {...props} />
+            <Three>
+                <ViewImpl track={localRef as React.MutableRefObject<HTMLElement>}>
+                    {children}
+                </ViewImpl>
+            </Three>
+        </>
+    );
+});
 View.displayName = 'View';
