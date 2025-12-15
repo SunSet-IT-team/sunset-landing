@@ -1,3 +1,4 @@
+import Breadcrumbs from '@/src/feature/Breadcrumbs';
 import { ServicesPagination } from '@/src/feature/ServicesPagination';
 import ToggleGridContent from '@/src/feature/ToggleGridContent';
 
@@ -7,10 +8,14 @@ import ToggleGridContent from '@/src/feature/ToggleGridContent';
  * Страница всех услуг
  */
 const Page = () => {
+    const breadcrumbs = [{ title: 'Главная', href: '/' }, { title: 'Услуги' }];
     return (
-        <ServicesPagination>
-            <ToggleGridContent className="w-full pt-8" />
-        </ServicesPagination>
+        <>
+            <Breadcrumbs items={breadcrumbs} className="mb-4" />
+            <ServicesPagination>
+                <ToggleGridContent className="w-full pt-8" />
+            </ServicesPagination>
+        </>
     );
 };
 

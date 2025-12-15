@@ -18,7 +18,7 @@ interface Props {
  */
 export const WPContent: FC<Props> = ({ children, className }) => {
     return (
-        <article
+        <div
             className={clsx('content', className)}
             dangerouslySetInnerHTML={{ __html: children }}
         />

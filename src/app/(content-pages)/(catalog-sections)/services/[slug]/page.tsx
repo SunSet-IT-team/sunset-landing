@@ -1,5 +1,6 @@
 import ServiceAPI from '@/src/entities/service/api';
 import { mapServiceDTO } from '@/src/entities/service/api/mapping';
+import Breadcrumbs from '@/src/feature/Breadcrumbs';
 import { WPContent } from '@/src/share/ui/WPContent';
 import { notFound } from 'next/navigation';
 
@@ -15,13 +16,22 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         notFound();
     }
 
+    const breadcrumbs = [
+        { title: 'Главная', href: '/' },
+        { title: 'Услуги', href: '/services' },
+        { title: service.title },
+    ];
+
     return (
-        <div className="mb-4 flex flex-col gap-8">
-            <h1
-                className="wp-block-heading"
-                dangerouslySetInnerHTML={{ __html: service.title }}></h1>
-            <WPContent>{service.content}</WPContent>
-        </div>
+        <>
+            <Breadcrumbs items={breadcrumbs} className="mb-4" />
+            <article className="mb-4 flex flex-col">
+                <h1
+                    className="wp-block-heading"
+                    dangerouslySetInnerHTML={{ __html: service.title }}></h1>
+                <WPContent>{service.content}</WPContent>
+            </article>
+        </>
     );
 };
 

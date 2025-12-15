@@ -10,7 +10,7 @@
 
     h1.wp-block-heading,
     .content h1 {
-        @apply text-[15px] lg:text-2xl font-bold leading-[125%] font-akony tracking-wider mb-8;
+        @apply text-[15px] lg:text-2xl font-bold leading-[125%] font-akony tracking-wider mb-6;
     }
 
     .content h2 {

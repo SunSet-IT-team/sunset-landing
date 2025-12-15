@@ -29,4 +29,8 @@
     .text-button {
         @apply text-[11px] lg:text-[12px]  font-bold leading-[100%] font-akony tracking-wider;
     }
+
+    .text-breadcrumbs {
+        @apply text-[9px] lg:text-[10px]  font-medium leading-[100%] font-akony tracking-wider;
+    }
 }
