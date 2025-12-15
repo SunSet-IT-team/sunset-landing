@@ -50,8 +50,16 @@ export const PaginationProvider: FC<Props> = ({ children, itemsPerPage, setItems
     // синхронизация URL params
     useEffect(() => {
         const newSearchParams = new URLSearchParams(searchParams.toString());
-        newSearchParams.set('page', String(page));
-        newSearchParams.set('perPage', String(itemsPerPage));
+        if (page > 1) {
+            newSearchParams.set('page', String(page));
+        } else {
+            newSearchParams.delete('page');
+        }
+        if (itemsPerPage > 1) {
+            newSearchParams.set('perPage', String(itemsPerPage));
+        } else {
+            newSearchParams.delete('perPage');
+        }
 
         router.replace(`${pathname}?${newSearchParams.toString()}`, {
             scroll: false,

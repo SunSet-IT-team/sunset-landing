@@ -9,15 +9,22 @@ import { usePagination } from '@/src/share/ui/Pagination/hooks/usePagination';
 import { useServicesQuery } from '@/src/entities/service/model/useServicesQuery';
 import { useSearchInput } from '@/src/share/hooks/useSearchInput';
 import { CardSkeleton } from '@/src/share/ui/Card/Skeleton';
+import { Service } from '@/src/entities/service/api/types';
 
 interface ToggleGridContentProps {
     className?: string;
+    initialServices: Service[];
+    initialTotalPages: number;
 }
 
 /**
  * Вывод контента с переключением между листом и таблицей
  */
-const ToggleGridContent = ({ className }: ToggleGridContentProps) => {
+const ToggleGridContent = ({
+    className,
+    initialServices,
+    initialTotalPages,
+}: ToggleGridContentProps) => {
     const [mode, setMode] = useState<ContentMode>('list');
 
     const { page, setPage, itemsPerPage, setTotalPages } = usePagination();
@@ -25,8 +32,8 @@ const ToggleGridContent = ({ className }: ToggleGridContentProps) => {
     const { value: query, debouncedValue: deboucedQuery, setValue: setQuery } = useSearchInput();
 
     const {
-        data: services,
-        totalPages,
+        data: services = initialServices,
+        totalPages = initialTotalPages,
         isLoading,
         error,
     } = useServicesQuery({
@@ -74,9 +81,9 @@ const ToggleGridContent = ({ className }: ToggleGridContentProps) => {
 
     return (
         <>
-            <div className="mb-4 flex flex-row items-center justify-between">
+            <div className="mb-4 flex flex-col gap-4 md:gap-auto md:flex-row md:items-center justify-between">
                 <h1 className="main-heading mr-[15px]">Услуги</h1>
-                <div className="flex flex-row gap-8">
+                <div className="flex flex-row gap-4 md:gap-8 justify-between">
                     <SearchInput value={query} onChange={onSearchChange} />
                     <Toggler onChange={(mode) => setMode(mode)} defaultMode={mode} />
                 </div>
@@ -84,7 +91,9 @@ const ToggleGridContent = ({ className }: ToggleGridContentProps) => {
             <div className={twMerge(className)}>
                 <div
                     className={twMerge(
-                        mode == 'list' ? 'flex flex-col gap-5' : 'grid grid-cols-3  gap-4',
+                        mode == 'list'
+                            ? 'flex flex-col gap-5'
+                            : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4',
                     )}>
                     {content}
                 </div>

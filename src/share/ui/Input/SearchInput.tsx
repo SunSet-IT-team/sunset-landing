@@ -11,7 +11,7 @@ interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {}
 const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
     ({ className, ...rest }, ref) => {
         return (
-            <div className="relative flex items-center">
+            <div className="relative flex flex-grow md:flex-grow-[initial] items-center h-8 md:h-auto">
                 {/* Иконка лупы */}
                 <Search
                     size={25}

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
-import { WPContent } from '../WPContent';
 
 export interface CardProps {
     src?: string;
@@ -36,8 +35,8 @@ const Card = (data: CardProps) => {
                             <div className="rounded-[6px] aspect-[3/2] w-full bg-orange" />
                         )}
                     </div>
-                    <div className="w-[60%] content">
-                        <h2 className="heading mb-3">{title}</h2>
+                    <div className="w-[60%]">
+                        <h2 className="heading-h3 mb-3 break-words hyphens-auto">{title}</h2>
                         <p
                             className="text-descr max-w-[400px]"
                             dangerouslySetInnerHTML={{ __html: descr }}></p>
@@ -57,8 +56,8 @@ const Card = (data: CardProps) => {
                             <div className="rounded-[6px] aspect-square w-full bg-orange" />
                         )}
                     </div>
-                    <div className="w-full content">
-                        <h2 className="heading mb-3">{title}</h2>
+                    <div className="w-full">
+                        <h2 className="text-button mb-3">{title}</h2>
                         <p className="text-descr" dangerouslySetInnerHTML={{ __html: descr }}></p>
                     </div>
                 </>
