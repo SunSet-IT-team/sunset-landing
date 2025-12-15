@@ -62,8 +62,13 @@ const ToggleGridContent = ({ className }: ToggleGridContentProps) => {
     else if (!services.length) {
         content = 'Ничего не нашлось';
     } else {
-        content = services.map(({ id, ...post }) => (
-            <Card {...post} type={mode === 'grid' ? 'col' : 'row'} key={id} />
+        content = services.map(({ id, url, ...post }) => (
+            <Card
+                {...post}
+                url={`/services/${post.slug}`}
+                type={mode === 'grid' ? 'col' : 'row'}
+                key={id}
+            />
         ));
     }
 

@@ -4,116 +4,116 @@
  * Красивый вывод контента
  */
 @layer components {
-  .content {
-    @apply text-gray-200 leading-relaxed;
-  }
+    .content {
+        @apply text-gray-200 leading-relaxed;
+    }
 
-  .content h1,
-  .content .wp-block-heading {
-    @apply text-[15px] lg:text-2xl font-bold leading-[125%] font-akony tracking-wider mb-8;
-  }
+    h1.wp-block-heading,
+    .content h1 {
+        @apply text-[15px] lg:text-2xl font-bold leading-[125%] font-akony tracking-wider mb-8;
+    }
 
-  .content h2 {
-    @apply text-[clamp(12px,1.6vh,13px)] sm:text-sm lg:text-xl font-bold leading-[125%] font-akony tracking-wider mb-6;
-  }
+    .content h2 {
+        @apply text-[clamp(12px,1.6vh,13px)] sm:text-sm lg:text-xl font-bold leading-[125%] font-akony tracking-wider mb-6;
+    }
 
-  .content h3 {
-    @apply text-[clamp(11px,1.5vh,12px)] lg:text-sm  font-bold leading-[125%] font-akony tracking-wider mt-6 mb-4;
-  }
+    .content h3 {
+        @apply text-[clamp(11px,1.5vh,12px)] lg:text-sm  font-bold leading-[125%] font-akony tracking-wider mt-6 mb-4;
+    }
 
-  .content p {
-    @apply text-[clamp(12px,1.9vh,17px)]  sm:text-sm  lg:text-xl font-light leading-[125%]  font-arodora-pro opacity-95;
-  }
+    .content p {
+        @apply text-[clamp(12px,1.9vh,17px)]  sm:text-sm  lg:text-xl font-light leading-[125%]  font-arodora-pro opacity-95;
+    }
 
-  .content a {
-    @apply text-blue-400 hover:text-blue-300 underline transition-colors;
-  }
+    .content a {
+        @apply text-blue-400 hover:text-blue-300 underline transition-colors;
+    }
 
-  .content ul {
-    @apply list-disc pl-6 space-y-1 mt-3 mb-5;
-  }
+    .content ul {
+        @apply list-disc pl-6 space-y-1 mt-3 mb-5;
+    }
 
-  .content ol {
-    @apply list-decimal pl-6 space-y-1 my-4;
-  }
+    .content ol {
+        @apply list-decimal pl-6 space-y-1 my-4;
+    }
 
-  .content li {
-    @apply text-[clamp(12px,1.9vh,17px)]  sm:text-sm  lg:text-xl font-light leading-[125%]  font-arodora-pro opacity-85;
-  }
+    .content li {
+        @apply text-[clamp(12px,1.9vh,17px)]  sm:text-sm  lg:text-xl font-light leading-[125%]  font-arodora-pro opacity-85;
+    }
 
-  .content blockquote {
-    @apply border-l-4 border-blue-500 pl-4 italic text-gray-400;
-  }
+    .content blockquote {
+        @apply border-l-4 border-blue-500 pl-4 italic text-gray-400;
+    }
 
-  .content strong {
-    @apply text-white font-bold;
-  }
+    .content strong {
+        @apply text-white font-bold;
+    }
 
-  .content a {
-    @apply text-blue-200 underline hover:text-blue-100 transition;
-  }
+    .content a {
+        @apply text-blue-200 underline hover:text-blue-100 transition;
+    }
 
-  .content em {
-    @apply italic;
-  }
+    .content em {
+        @apply italic;
+    }
 
-  /* Text align */
-  .content .has-text-align-center {
-    @apply text-center;
-  }
+    /* Text align */
+    .content .has-text-align-center {
+        @apply text-center;
+    }
 
-  .content .has-text-align-right {
-    @apply text-right;
-  }
+    .content .has-text-align-right {
+        @apply text-right;
+    }
 
-  /* Изображения */
-  .content img {
-    @apply rounded-md max-w-full h-auto object-cover;
-  }
+    /* Изображения */
+    .content img {
+        @apply rounded-md max-w-full h-auto object-cover;
+    }
 
-  .content figure {
-    @apply my-6;
-  }
+    .content figure {
+        @apply my-6;
+    }
 
-  .content figure figcaption {
-    @apply text-sm text-gray-400 mt-2 text-center;
-  }
+    .content figure figcaption {
+        @apply text-sm text-gray-400 mt-2 text-center;
+    }
 
-  /* Видео */
-  .content video {
-    @apply w-full max-w-full rounded-md;
-  }
+    /* Видео */
+    .content video {
+        @apply w-full max-w-full rounded-md;
+    }
 
-  /* Таблицы */
-  .content table {
-    @apply w-full border-collapse my-6 text-left;
-  }
+    /* Таблицы */
+    .content table {
+        @apply w-full border-collapse my-6 text-left;
+    }
 
-  .content td,
-  .content th {
-    @apply border border-gray-600 p-3;
-  }
+    .content td,
+    .content th {
+        @apply border border-gray-600 p-3;
+    }
 
-  .content thead th {
-    @apply bg-gray-800 font-semibold;
-  }
+    .content thead th {
+        @apply bg-gray-800 font-semibold;
+    }
 
-  /* Blockquote */
-  .content blockquote {
-    @apply border-l-4 border-blue-500 pl-4 italic text-gray-300 my-4;
-  }
+    /* Blockquote */
+    .content blockquote {
+        @apply border-l-4 border-blue-500 pl-4 italic text-gray-300 my-4;
+    }
 
-  /* Код */
-  .content pre {
-    @apply bg-gray-900 p-4 rounded-md overflow-x-auto my-6;
-  }
+    /* Код */
+    .content pre {
+        @apply bg-gray-900 p-4 rounded-md overflow-x-auto my-6;
+    }
 
-  .content code {
-    @apply text-green-400 font-mono text-sm;
-  }
+    .content code {
+        @apply text-green-400 font-mono text-sm;
+    }
 
-  /* <mark> */
-  .content mark {
-    @apply px-1 py-0.5 rounded;
-  }
+    /* <mark> */
+    .content mark {
+        @apply px-1 py-0.5 rounded;
+    }
 }
