@@ -9,7 +9,7 @@ import SocialMedia from './SocialMedia';
  */
 const Footer: FC = () => {
     return (
-        <footer className={`bg-blue-400 w-full py-2 md:py-4 h-26 md:h-36`}>
+        <footer className={`mt-auto bg-blue-400 w-full py-2 md:py-4 h-26 md:h-36`}>
             <Container className="flex flex-col items-center justify-center gap-2 md:gap-4 w-full h-full relative">
                 {/* <Questions /> */}
                 <SocialMedia />
