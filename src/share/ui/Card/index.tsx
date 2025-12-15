@@ -1,84 +1,81 @@
-import Link from "next/link"
-import { twMerge } from "tailwind-merge"
-import { WPContent } from "../WPContent"
+import Link from 'next/link';
+import { twMerge } from 'tailwind-merge';
+import { WPContent } from '../WPContent';
 
 export interface CardProps {
-  src?: string
-  title?: string
-  descr?: string
-  url?: string
-  type?: "col" | "row"
+    src?: string;
+    title?: string;
+    excerpt?: string;
+    url?: string;
+    type?: 'col' | 'row';
 }
 
 /**
  * Шаблон карточки чего угодно
  */
 const Card = (data: CardProps) => {
-  const type = data.type || "row"
-  const title = data.title || "Название не указано"
-  const descr = data.descr || ""
-  const src = data.src
-  const url = data.url
+    const type = data.type || 'row';
+    const title = data.title || 'Название не указано';
+    const descr = data.excerpt || '';
+    const src = data.src;
+    const url = data.url;
 
-  const content = (
-    <>
-      {type === "row" ? (
-        // Горизонтальная версия
+    const content = (
         <>
-          <div className="rounded-[6px] aspect-[3/2] w-[35%]">
-            {src ? (
-              <img
-                className="rounded-[6px] aspect-[3/2] w-full object-cover object-center"
-                src={src}
-                alt={title}
-              />
+            {type === 'row' ? (
+                // Горизонтальная версия
+                <>
+                    <div className="rounded-[6px] aspect-[3/2] w-[35%]">
+                        {src ? (
+                            <img
+                                className="rounded-[6px] aspect-[3/2] w-full object-cover object-center"
+                                src={src}
+                                alt={title}
+                            />
+                        ) : (
+                            <div className="rounded-[6px] aspect-[3/2] w-full bg-orange" />
+                        )}
+                    </div>
+                    <div className="w-[60%] content">
+                        <h2 className="heading mb-3">{title}</h2>
+                        <p
+                            className="text-descr max-w-[400px]"
+                            dangerouslySetInnerHTML={{ __html: descr }}></p>
+                    </div>
+                </>
             ) : (
-              <div className="rounded-[6px] aspect-[3/2] w-full bg-orange" />
+                // Вертикальная версия
+                <>
+                    <div className="rounded-[6px] aspect-square w-full">
+                        {src ? (
+                            <img
+                                className="rounded-[6px] aspect-square w-full object-cover object-center"
+                                src={src}
+                                alt={title}
+                            />
+                        ) : (
+                            <div className="rounded-[6px] aspect-square w-full bg-orange" />
+                        )}
+                    </div>
+                    <div className="w-full content">
+                        <h2 className="heading mb-3">{title}</h2>
+                        <p className="text-descr" dangerouslySetInnerHTML={{ __html: descr }}></p>
+                    </div>
+                </>
             )}
-          </div>
-          <div className="w-[60%] content">
-            <h2 className="heading mb-3">
-              {data.title || "Название не указано"}
-            </h2>
-            <WPContent className="text-descr max-w-[400px]">{descr}</WPContent>
-          </div>
         </>
-      ) : (
-        // Вертикальная версия
-        <>
-          <div className="rounded-[6px] aspect-square w-full">
-            {src ? (
-              <img
-                className="rounded-[6px] aspect-square w-full object-cover object-center"
-                src={src}
-                alt={title}
-              />
-            ) : (
-              <div className="rounded-[6px] aspect-square w-full bg-orange" />
-            )}
-          </div>
-          <div className="w-full content">
-            <h2 className="heading mb-3">{title}</h2>
-            <WPContent className="text-descr">{descr}</WPContent>
-          </div>
-        </>
-      )}
-    </>
-  )
+    );
 
-  const Article = (
-    <article
-      className={twMerge(
-        type === "row"
-          ? "flex flex-row gap-4 justify-between"
-          : "flex flex-col gap-4"
-      )}
-    >
-      {content}
-    </article>
-  )
+    const Article = (
+        <article
+            className={twMerge(
+                type === 'row' ? 'flex flex-row gap-4 justify-between' : 'flex flex-col gap-4',
+            )}>
+            {content}
+        </article>
+    );
 
-  return url ? <Link href={url}>{Article}</Link> : Article
-}
+    return url ? <Link href={url}>{Article}</Link> : Article;
+};
 
-export default Card
+export default Card;
