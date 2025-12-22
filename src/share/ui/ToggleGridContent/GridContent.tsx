@@ -31,6 +31,11 @@ interface GridContentProps {
      * Количесто плейсохледров загрузки
      */
     numberPlaceholderCard?: number;
+
+    /**
+     * Slug для записей
+     */
+    postSlug?: string;
 }
 
 /**
@@ -42,6 +47,7 @@ const GridContent = ({
     isError = false,
     data = [],
     mode = 'list',
+    postSlug = '',
     numberPlaceholderCard = 6,
 }: GridContentProps) => {
     let content: React.ReactNode;
@@ -58,7 +64,7 @@ const GridContent = ({
         content = data.map(({ id, url, ...post }) => (
             <Card
                 {...post}
-                url={`/services/${post.slug}`}
+                url={`${postSlug}/${post.slug}`}
                 type={mode === 'grid' ? 'col' : 'row'}
                 key={id}
             />

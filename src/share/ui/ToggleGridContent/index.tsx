@@ -30,6 +30,11 @@ interface ToggleGridContentProps {
      * Идёт ли загрузка
      */
     isLoading?: boolean;
+
+    /**
+     * Slug для записей
+     */
+    postSlug?: string;
 }
 
 /**
@@ -40,6 +45,7 @@ const ToggleGridContent = ({
     data = [],
     onChangeSearch,
     isLoading,
+    postSlug,
     title = 'Без названия',
 }: ToggleGridContentProps) => {
     // Тип отображения
@@ -67,7 +73,13 @@ const ToggleGridContent = ({
                     />
                 </Suspense>
             </div>
-            <GridContent isLoading={isLoading} data={data} mode={mode} className="pt-8" />
+            <GridContent
+                isLoading={isLoading}
+                data={data}
+                mode={mode}
+                className="pt-8"
+                postSlug={postSlug}
+            />
         </>
     );
 };

@@ -26,6 +26,16 @@ interface CaseGridContentProps {
      * Изначальная страница
      */
     initialPage?: number;
+
+    /**
+     * Slug для записей
+     */
+    postSlug?: string;
+
+    /**
+     * Заголовок
+     */
+    title?: string;
 }
 
 /**
@@ -36,6 +46,8 @@ const CaseGridContent = ({
     initialData = [],
     initialTotalPages = 1,
     initialPage = 1,
+    title,
+    postSlug,
 }: CaseGridContentProps) => {
     // Строка запроса
     const [searchQuery, setSearchQuery] = useState('');
@@ -73,9 +85,10 @@ const CaseGridContent = ({
 
     return (
         <ToggleGridContent
-            title="Кейсы"
+            title={title}
             onChangeSearch={onChangeSearch}
             data={data}
+            postSlug={postSlug}
             isLoading={isLoading}
             className={className}
         />

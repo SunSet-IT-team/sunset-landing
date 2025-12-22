@@ -26,6 +26,16 @@ interface ServiceGridContentProps {
      * Изначальная страница
      */
     initialPage?: number;
+
+    /**
+     * Slug для записей
+     */
+    postSlug?: string;
+
+    /**
+     * Заголовок
+     */
+    title?: string;
 }
 
 /**
@@ -36,6 +46,8 @@ const ServiceGridContent = ({
     initialData = [],
     initialTotalPages = 1,
     initialPage = 1,
+    postSlug,
+    title,
 }: ServiceGridContentProps) => {
     // Строка запроса
     const [searchQuery, setSearchQuery] = useState('');
@@ -73,7 +85,8 @@ const ServiceGridContent = ({
 
     return (
         <ToggleGridContent
-            title="Услуги"
+            title={title}
+            postSlug={postSlug}
             onChangeSearch={onChangeSearch}
             data={data}
             isLoading={isLoading}

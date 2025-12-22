@@ -34,6 +34,8 @@ const Page = async () => {
                     initialData={cases}
                     initialTotalPages={totalPages}
                     initialPage={1}
+                    title={routeData.cases.title}
+                    postSlug={routeData.cases.slug}
                 />
             </PaginationInitializer>
         </>

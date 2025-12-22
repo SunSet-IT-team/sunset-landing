@@ -14,7 +14,7 @@ import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationIn
 const Page = async () => {
     const breadcrumbs = [
         { title: routeData.main.title, href: routeData.main.slug },
-        { title: 'Услуги' },
+        { title: routeData.services.title },
     ];
 
     let services: Service[] = [];
@@ -34,6 +34,8 @@ const Page = async () => {
                     initialData={services}
                     initialTotalPages={totalPages}
                     initialPage={1}
+                    title={routeData.services.title}
+                    postSlug={routeData.services.slug}
                 />
             </PaginationInitializer>
         </>

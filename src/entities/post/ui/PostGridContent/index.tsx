@@ -26,6 +26,16 @@ interface PostGridContentProps {
      * Изначальная страница
      */
     initialPage?: number;
+
+    /**
+     * Slug для записей
+     */
+    postSlug?: string;
+
+    /**
+     * Заголовок
+     */
+    title?: string;
 }
 
 /**
@@ -36,6 +46,8 @@ const PostGridContent = ({
     initialData = [],
     initialTotalPages = 1,
     initialPage = 1,
+    postSlug,
+    title,
 }: PostGridContentProps) => {
     // Строка запроса
     const [searchQuery, setSearchQuery] = useState('');
@@ -73,9 +85,10 @@ const PostGridContent = ({
 
     return (
         <ToggleGridContent
-            title="Блог"
+            title={title}
             onChangeSearch={onChangeSearch}
             data={data}
+            postSlug={postSlug}
             isLoading={isLoading}
             className={className}
         />
