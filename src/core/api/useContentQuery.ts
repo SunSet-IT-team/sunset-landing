@@ -57,7 +57,10 @@ export function useContentQuery<T extends PostContent>({
 
     useEffect(() => {
         // Если изначальный запос - то ничего запрашивать не нужно
-        if (isInitialQuery) return;
+        if (isInitialQuery) {
+            setData(initialData);
+            return;
+        }
 
         let cancelled = false;
 
