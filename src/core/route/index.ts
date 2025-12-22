@@ -4,6 +4,11 @@ export type RouteData = {
 };
 
 /**
+ * Основной домен
+ */
+export const DOMAIN = 'sunset-it.agency';
+
+/**
  * Состыковка страниц, названий и slug
  */
 export const routeData = {

@@ -1,4 +1,4 @@
-import { APIGETParams } from '@/src/share/types/api';
+import { APIFielsParams, APIGETParams } from '@/src/share/types/api';
 import { ServiceDTO } from './dto';
 
 /**
@@ -19,7 +19,7 @@ export interface ServiceAPIMethods {
     getServicesBySlug: (slug: string) => Promise<ServiceDTO>;
 
     /**
-     * Получить все slugs
+     * Получить дату всех услуг
      */
-    getServicesSlug: () => Promise<{ slug: string }[]>;
+    getServicesData: (fields: APIFielsParams[]) => Promise<Partial<ServiceDTO>[]>;
 }

@@ -1,4 +1,4 @@
-import { APIGETParams } from '@/src/share/types/api';
+import { APIFielsParams, APIGETParams } from '@/src/share/types/api';
 import { CaseDTO } from './dto';
 
 /**
@@ -19,7 +19,7 @@ export interface CaseAPIMethods {
     getCasesBySlug: (slug: string) => Promise<CaseDTO>;
 
     /**
-     * Получить все slugs
+     * Получить дату всех записей
      */
-    getCasesSlug: () => Promise<{ slug: string }[]>;
+    getCasesData: (fields: APIFielsParams[]) => Promise<Partial<CaseDTO>[]>;
 }

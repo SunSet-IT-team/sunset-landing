@@ -37,9 +37,6 @@ const ServiceAPI: ServiceAPIMethods = {
         };
     },
 
-    /**
-     * Получить услугу по slug
-     */
     getServicesBySlug: async (slug: string) => {
         const url = buildUrl('https://server.sunset-it.agency/wp-json/wp/v2/services', {
             slug,
@@ -63,13 +60,10 @@ const ServiceAPI: ServiceAPIMethods = {
         return data[0];
     },
 
-    /**
-     * Получить slug всех услуг
-     */
-    getServicesSlug: async () => {
+    getServicesData: async (fields) => {
         const url = buildUrl('https://server.sunset-it.agency/wp-json/wp/v2/services', {
             per_page: 100,
-            _fields: 'slug',
+            _fields: fields.join(','),
         });
         const res = await fetch(url, {
             next: { revalidate: 60 * 60 * 24 },

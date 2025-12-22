@@ -132,3 +132,8 @@ export interface WordpressPostDTO {
         'wp:featuredmedia': WordPressFeaturedMediaDTO[];
     };
 }
+
+/**
+ * Параметры для запроса полей
+ */
+export type APIFielsParams = keyof WordpressPostDTO;

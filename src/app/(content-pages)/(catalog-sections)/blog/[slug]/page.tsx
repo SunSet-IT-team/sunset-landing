@@ -15,9 +15,9 @@ interface PageProps {
  * Определяем все slug необходимые для кеша
  */
 export async function generateStaticParams() {
-    const slugs = await PostAPI.getPostsSlug();
+    const data = await PostAPI.getPostsData(['slug']);
 
-    return slugs;
+    return data.map((s) => s.slug);
 }
 
 /**

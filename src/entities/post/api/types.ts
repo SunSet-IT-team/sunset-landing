@@ -1,4 +1,4 @@
-import { APIGETParams } from '@/src/share/types/api';
+import { APIFielsParams, APIGETParams } from '@/src/share/types/api';
 import { PostDTO } from './dto';
 
 /**
@@ -19,7 +19,7 @@ export interface PostAPIMethods {
     getPostsBySlug: (slug: string) => Promise<PostDTO>;
 
     /**
-     * Получить все slugs
+     * Получить дату всех записей
      */
-    getPostsSlug: () => Promise<{ slug: string }[]>;
+    getPostsData: (fields: APIFielsParams[]) => Promise<Partial<PostDTO>[]>;
 }

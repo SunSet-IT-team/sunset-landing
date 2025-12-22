@@ -60,10 +60,10 @@ const PostAPI: PostAPIMethods = {
         return data[0];
     },
 
-    getPostsSlug: async () => {
+    getPostsData: async (fields) => {
         const url = buildUrl('https://server.sunset-it.agency/wp-json/wp/v2/posts', {
             per_page: 100,
-            _fields: 'slug',
+            _fields: fields.join(','),
         });
         const res = await fetch(url, {
             next: { revalidate: 60 * 60 * 24 },
