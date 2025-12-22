@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { getRotation, useFrames, useTilt } from './anims';
 import { metrika, MetrikGoal } from '@/src/feature/Metrika/MetrikSender';
+import { twMerge } from 'tailwind-merge';
 
 export type CasePreview = {
     id: number;
@@ -50,9 +51,10 @@ export default function NewCase({
                 if (isPrev) changeSlide('prev');
                 if (isNext) changeSlide('next');
             }}
-            className={`relative w-full h-[40vh] md:min-h-[350px] lg:h-[50vh] 
-                rounded-[10px] overflow-hidden bg-white
-                ${isActive ? '' : 'cursor-pointer'}`}
+            className={twMerge(
+                'relative w-full h-[40vh] md:min-h-[350px] lg:h-[50vh]  max-w-[480px]rounded-[10px] overflow-hidden bg-white',
+                isActive ? '' : 'cursor-pointer',
+            )}
             ref={ref}
             initial={{
                 scale: 0.85,
