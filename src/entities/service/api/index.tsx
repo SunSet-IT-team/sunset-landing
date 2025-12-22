@@ -62,6 +62,28 @@ const ServiceAPI: ServiceAPIMethods = {
 
         return data[0];
     },
+
+    /**
+     * Получить slug всех услуг
+     */
+    getServicesSlug: async () => {
+        const url = buildUrl('https://server.sunset-it.agency/wp-json/wp/v2/services', {
+            per_page: 100,
+            _fields: 'slug',
+        });
+        const res = await fetch(url, {
+            next: { revalidate: 60 * 60 * 24 },
+        });
+        const slugs = await res.json();
+
+        if (!res.ok) {
+            const error = new Error(slugs.message || 'Ошибка при запросе услуг') as any;
+            error.wpCode = slugs.code;
+            throw error;
+        }
+
+        return slugs;
+    },
 };
 
 export default ServiceAPI;

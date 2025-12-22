@@ -17,4 +17,9 @@ export interface ServiceAPIMethods {
      * Получить услугу по slug
      */
     getServicesBySlug: (slug: string) => Promise<ServiceDTO>;
+
+    /**
+     * Получить все slugs
+     */
+    getServicesSlug: () => Promise<{ slug: string }[]>;
 }

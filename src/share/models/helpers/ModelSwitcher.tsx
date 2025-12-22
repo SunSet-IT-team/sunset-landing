@@ -1,4 +1,5 @@
-import { animated, useSpring } from '@react-spring/three';
+import { animated } from '@react-spring/three';
+import { useSpring } from '@react-spring/core';
 import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import * as THREE from 'three';
@@ -28,7 +29,7 @@ export function ModelSwitcher({ show, children }: { show: boolean; children: Rea
     });
 
     return (
-        <animated.group scale={scale.to((s) => [s, s, s])} ref={groupRef}>
+        <animated.group scale={scale.to((s: number) => [s, s, s])} ref={groupRef}>
             {children}
         </animated.group>
     );

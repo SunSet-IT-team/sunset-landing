@@ -11,6 +11,15 @@ interface PageProps {
 }
 
 /**
+ * Определяем все slug необходимые для кеша
+ */
+export async function generateStaticParams() {
+    const slugs = await ServiceAPI.getServicesSlug();
+
+    return slugs;
+}
+
+/**
  * Страница какой-то конкретной услуги
  */
 const Page = async ({ params }: PageProps) => {

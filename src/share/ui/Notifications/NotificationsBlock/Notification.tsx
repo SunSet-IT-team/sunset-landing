@@ -67,7 +67,7 @@ const Notification: FC<IProps> = ({
                     ? 'pl-8 pr-6 md:rounded-l-[6px]'
                     : 'pr-8 pl-6  md:rounded-r-[6px]',
                 'min-w-[100vw] md:min-w-[unset]',
-                'transition-[transform] duration-[400ms] linear',
+                'transition-[transform] duration-400 linear',
                 isOpen
                     ? 'translate-x-0'
                     : align === 'right'
