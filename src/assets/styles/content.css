@@ -116,4 +116,17 @@
     .content mark {
         @apply px-1 py-0.5 rounded;
     }
+
+    /* Короткий ответ */
+    .content .short-answer-block {
+        @apply p-5 my-3 bg-blue-400 rounded-lg;
+    }
+
+    .content .short-answer-block .short-answer-title {
+        @apply mb-3 pb-3 border-b border-orange border-dashed italic;
+    }
+
+    .content .short-answer-block .short-answer-content {
+        @apply font-semibold italic;
+    }
 }
