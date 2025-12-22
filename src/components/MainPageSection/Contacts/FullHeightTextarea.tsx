@@ -19,13 +19,13 @@ const FullHeightTextarea: FC<IProps> = ({
             className={twMerge(
                 'w-full flex flex-col flex-end justify-end',
                 'transition-[padding] duration-300 ease',
-                isFullHeight ? 'p-0 delay-0 h-full' : 'delay-[500ms]',
+                isFullHeight ? 'p-0 delay-0 h-full' : 'delay-500',
             )}>
             <label
                 className={twMerge(
                     'flex flex-col gap-2',
                     'transition-[height] duration-300 ease',
-                    isFullHeight ? 'h-full delay-[500ms]' : 'h-[121px] lg:h-[176px] delay-[0ms]',
+                    isFullHeight ? 'h-full delay-500' : 'h-[121px] lg:h-[176px] delay-0',
                 )}>
                 <span className="heading-h3">{label}</span>
                 <textarea
@@ -34,7 +34,7 @@ const FullHeightTextarea: FC<IProps> = ({
                         'transition-[opacity] ease',
                         isFullHeight
                             ? 'opacity-100 delay-0 rounded-t-sm rounded-b-[0]'
-                            : 'opacity-90 delay-[500ms]',
+                            : 'opacity-90 delay-500',
                         !isValid && 'border-2 border-orange',
                         className,
                     )}
@@ -48,7 +48,7 @@ const FullHeightTextarea: FC<IProps> = ({
                 className={twMerge(
                     'transition-all duration-300 ease overflow-hidden cursor-target',
                     'w-full bg-orange rounded-b-sm',
-                    isFullHeight ? 'max-h-[500px] delay-[500ms]' : 'max-h-0',
+                    isFullHeight ? 'max-h-[500px] delay-500' : 'max-h-0',
                 )}>
                 Готово
             </button>

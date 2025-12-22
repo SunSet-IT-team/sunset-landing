@@ -106,7 +106,7 @@ const Notification: FC<IProps> = ({
                 onClick={() => setIsOpen(!isOpen)}>
                 <div
                     className={twMerge(
-                        'transition-[transform] duration-[700ms] ease h-[23px] w-[23px] md:h-[25px] md:w-[25px] md:rounded-[4px]',
+                        'transition-[transform] duration-700 ease h-[23px] w-[23px] md:h-[25px] md:w-[25px] md:rounded-[4px]',
                     )}
                     style={{
                         backgroundColor: '#FF6400',
