@@ -21,9 +21,19 @@ const SearchAndToggle = ({ onSearchChange, onModeChange, defaultMode }: SearchAn
         onSearchChange?.(value);
     };
 
+    const onClickClear = () => {
+        setQuery('');
+        onSearchChange?.('');
+    };
+
     return (
         <div className="flex flex-row gap-4 md:gap-8 justify-between">
-            <SearchInput value={query} onChange={handleSearchChange} />
+            <SearchInput
+                value={query}
+                onChange={handleSearchChange}
+                hasValue={query.length > 0}
+                onClickClear={onClickClear}
+            />
             <Toggler onChange={onModeChange} defaultMode={defaultMode} />
         </div>
     );
