@@ -1,0 +1,39 @@
+import CaseAPI from '@/src/entities/case/api';
+import { mapCaseDTO } from '@/src/entities/case/api/mapping';
+import { Case } from '@/src/entities/case/model/types';
+import CaseGridContent from '@/src/entities/case/ui/CaseGridContent';
+import Breadcrumbs from '@/src/feature/Breadcrumbs';
+import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationInitializer';
+
+// export const revalidate = 86400; // 24 часа
+
+/**
+ * Страница всех кейсов
+ */
+const Page = async () => {
+    const breadcrumbs = [{ title: 'Главная', href: '/' }, { title: 'Кейсы' }];
+
+    let cases: Case[] = [];
+    let totalPages: number = 1;
+    try {
+        const res = await CaseAPI.getCases({ page: 1, per_page: 12 });
+        cases = res.data.map((s) => mapCaseDTO(s));
+        totalPages = res.totalPages;
+    } catch {}
+
+    return (
+        <>
+            <Breadcrumbs items={breadcrumbs} className="mb-4" />
+            <PaginationInitializer itemsPerPage={12}>
+                <CaseGridContent
+                    className="w-full"
+                    initialData={cases}
+                    initialTotalPages={totalPages}
+                    initialPage={1}
+                />
+            </PaginationInitializer>
+        </>
+    );
+};
+
+export default Page;
