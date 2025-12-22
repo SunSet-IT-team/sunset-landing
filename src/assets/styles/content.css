@@ -123,10 +123,10 @@
     }
 
     .content .short-answer-block .short-answer-title {
-        @apply mb-3 pb-3 border-b border-orange border-dashed italic;
+        @apply mb-3 pb-3 border-b border-orange border-dashed italic text-white;
     }
 
     .content .short-answer-block .short-answer-content {
-        @apply font-semibold italic;
+        @apply font-semibold italic opacity-100 text-white;
     }
 }
