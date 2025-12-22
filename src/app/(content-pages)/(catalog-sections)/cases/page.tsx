@@ -1,3 +1,4 @@
+import { routeData } from '@/src/core/route';
 import CaseAPI from '@/src/entities/case/api';
 import { mapCaseDTO } from '@/src/entities/case/api/mapping';
 import { Case } from '@/src/entities/case/model/types';
@@ -11,7 +12,10 @@ import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationIn
  * Страница всех кейсов
  */
 const Page = async () => {
-    const breadcrumbs = [{ title: 'Главная', href: '/' }, { title: 'Кейсы' }];
+    const breadcrumbs = [
+        { title: routeData.main.title, href: routeData.main.slug },
+        { title: routeData.cases.title },
+    ];
 
     let cases: Case[] = [];
     let totalPages: number = 1;

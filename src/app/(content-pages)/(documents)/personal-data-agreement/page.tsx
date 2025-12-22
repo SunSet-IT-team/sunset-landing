@@ -1,7 +1,8 @@
+import { routeData } from '@/src/core/route';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
 
 const breadcrumbs = [
-    { title: 'Главная', href: '/' },
+    { title: routeData.main.title, href: routeData.main.slug },
     { title: 'Согласшение на обработку персональных данных' },
 ];
 

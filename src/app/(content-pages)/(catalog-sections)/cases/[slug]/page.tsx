@@ -1,3 +1,4 @@
+import { routeData } from '@/src/core/route';
 import CaseAPI from '@/src/entities/case/api';
 import { mapCaseDTO } from '@/src/entities/case/api/mapping';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
@@ -34,8 +35,8 @@ const Page = async ({ params }: PageProps) => {
     }
 
     const breadcrumbs = [
-        { title: 'Главная', href: '/' },
-        { title: 'Кейсы', href: '/сases' },
+        { title: routeData.main.title, href: routeData.main.slug },
+        { title: routeData.cases.title, href: routeData.cases.slug },
         { title: caseData.title },
     ];
 

@@ -1,3 +1,4 @@
+import { routeData } from '@/src/core/route';
 import ServiceAPI from '@/src/entities/service/api';
 import { mapServiceDTO } from '@/src/entities/service/api/mapping';
 import { Service } from '@/src/entities/service/model/types';
@@ -11,7 +12,10 @@ import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationIn
  * Страница всех услуг
  */
 const Page = async () => {
-    const breadcrumbs = [{ title: 'Главная', href: '/' }, { title: 'Услуги' }];
+    const breadcrumbs = [
+        { title: routeData.main.title, href: routeData.main.slug },
+        { title: 'Услуги' },
+    ];
 
     let services: Service[] = [];
     let totalPages: number = 1;

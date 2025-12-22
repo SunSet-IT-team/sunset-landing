@@ -1,3 +1,4 @@
+import { routeData } from '@/src/core/route';
 import ServiceAPI from '@/src/entities/service/api';
 import { mapServiceDTO } from '@/src/entities/service/api/mapping';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
@@ -34,8 +35,8 @@ const Page = async ({ params }: PageProps) => {
     }
 
     const breadcrumbs = [
-        { title: 'Главная', href: '/' },
-        { title: 'Услуги', href: '/services' },
+        { title: routeData.main.title, href: routeData.main.slug },
+        { title: routeData.services.title, href: routeData.services.slug },
         { title: service.title },
     ];
 

@@ -1,3 +1,4 @@
+import { routeData } from '@/src/core/route';
 import PostAPI from '@/src/entities/post/api';
 import { mapPostDTO } from '@/src/entities/post/api/mapping';
 import { Post } from '@/src/entities/post/model/types';
@@ -11,7 +12,10 @@ import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationIn
  * Страница всех записей (блог)
  */
 const Page = async () => {
-    const breadcrumbs = [{ title: 'Главная', href: '/' }, { title: 'Блог' }];
+    const breadcrumbs = [
+        { title: routeData.main.title, href: routeData.main.slug },
+        { title: routeData.blog.title },
+    ];
 
     let posts: Post[] = [];
     let totalPages: number = 1;
