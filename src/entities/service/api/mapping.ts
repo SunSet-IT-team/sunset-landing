@@ -1,5 +1,5 @@
+import { Service } from '../model/types';
 import { ServiceDTO } from './dto';
-import { Service } from './types';
 
 /**
  * Переводим ServiceDTO в нормальный Service

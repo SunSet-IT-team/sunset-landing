@@ -1,8 +1,8 @@
 import ServiceAPI from '@/src/entities/service/api';
 import { mapServiceDTO } from '@/src/entities/service/api/mapping';
-import { Service } from '@/src/entities/service/api/types';
+import { Service } from '@/src/entities/service/model/types';
+import ServiceGridContent from '@/src/entities/service/ui/ServiceGridContent';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
-import ToggleGridContent from '@/src/feature/ToggleGridContent';
 import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationInitializer';
 
 // export const revalidate = 86400; // 24 часа
@@ -18,16 +18,18 @@ const Page = async () => {
     try {
         const res = await ServiceAPI.getServices({ page: 1, per_page: 12 });
         services = res.data.map((s) => mapServiceDTO(s));
+        totalPages = res.totalPages;
     } catch {}
 
     return (
         <>
             <Breadcrumbs items={breadcrumbs} className="mb-4" />
             <PaginationInitializer itemsPerPage={12}>
-                <ToggleGridContent
+                <ServiceGridContent
                     className="w-full pt-8"
-                    initialServices={services}
+                    initialData={services}
                     initialTotalPages={totalPages}
+                    initialPage={1}
                 />
             </PaginationInitializer>
         </>

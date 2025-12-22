@@ -19,12 +19,14 @@ export function useSearchInput() {
     useEffect(() => {
         const newSearchParams = new URLSearchParams(searchParams.toString());
         newSearchParams.set('search', debouncedValue);
-        if (!debouncedValue.trim().length) newSearchParams.delete('search');
+        if (!debouncedValue.trim().length) {
+            newSearchParams.delete('search');
+        }
 
         router.replace(`${pathname}?${newSearchParams.toString()}`, {
             scroll: false,
         });
-    }, [debouncedValue, pathname]);
+    }, [debouncedValue, pathname, searchParams, router]);
 
     return {
         value,

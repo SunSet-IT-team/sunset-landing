@@ -18,22 +18,3 @@ export interface ServiceAPIMethods {
      */
     getServicesBySlug: (slug: string) => Promise<ServiceDTO>;
 }
-
-/**
- * Объект услуги
- */
-export type Service = {
-    title: string;
-    excerpt: string;
-    content: string;
-    url: string;
-    slug: string;
-    id: number;
-};
-
-/**
- * Ошибка в ответе Api Wordpress сервера
- */
-export interface WPError extends Error {
-    wpCode?: 'rest_post_invalid_page_number';
-}

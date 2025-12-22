@@ -14,3 +14,15 @@ export type ImageSize =
     | 'thumbnail'
     | 'medium_large'
     | 'full';
+
+/**
+ * Тип стандартной записи
+ */
+export type PostContent = {
+    id: number;
+    title: string;
+    excerpt: string;
+    content: string;
+    url: string;
+    slug: string;
+};
