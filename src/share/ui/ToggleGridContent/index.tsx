@@ -3,6 +3,7 @@ import { Suspense, useState } from 'react';
 import { ContentMode, PostContent } from '@/src/share/types/share';
 import SearchAndToggle from './SearchAndToggle';
 import GridContent from './GridContent';
+import { twMerge } from 'tailwind-merge';
 
 interface ToggleGridContentProps {
     /**
@@ -46,7 +47,11 @@ const ToggleGridContent = ({
 
     return (
         <>
-            <div className="mb-4 flex flex-col gap-4 md:gap-auto md:flex-row md:items-center justify-between">
+            <div
+                className={twMerge(
+                    'mb-4 flex flex-col gap-4 md:gap-auto md:flex-row md:items-center justify-between',
+                    className,
+                )}>
                 <h1 className="main-heading mr-[15px]">{title}</h1>
                 <Suspense
                     fallback={
@@ -62,7 +67,7 @@ const ToggleGridContent = ({
                     />
                 </Suspense>
             </div>
-            <GridContent isLoading={isLoading} data={data} mode={mode} />
+            <GridContent isLoading={isLoading} data={data} mode={mode} className="pt-8" />
         </>
     );
 };

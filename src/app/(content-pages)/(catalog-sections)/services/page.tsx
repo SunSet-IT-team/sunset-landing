@@ -26,7 +26,7 @@ const Page = async () => {
             <Breadcrumbs items={breadcrumbs} className="mb-4" />
             <PaginationInitializer itemsPerPage={12}>
                 <ServiceGridContent
-                    className="w-full pt-8"
+                    className="w-full"
                     initialData={services}
                     initialTotalPages={totalPages}
                     initialPage={1}

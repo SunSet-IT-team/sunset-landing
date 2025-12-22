@@ -15,7 +15,7 @@ export interface CardProps {
 const Card = (data: CardProps) => {
     const type = data.type || 'row';
     const title = data.title || 'Название не указано';
-    const descr = data.excerpt || '';
+    const descr = data.excerpt || '<p></p>';
     const src = data.src;
     const url = data.url;
 
@@ -37,9 +37,10 @@ const Card = (data: CardProps) => {
                     </div>
                     <div className="w-[60%]">
                         <h2 className="heading-h3 mb-3 break-words hyphens-auto">{title}</h2>
-                        <p
+                        <div
                             className="text-descr max-w-[400px]"
-                            dangerouslySetInnerHTML={{ __html: descr }}></p>
+                            dangerouslySetInnerHTML={{ __html: descr }}
+                        />
                     </div>
                 </>
             ) : (

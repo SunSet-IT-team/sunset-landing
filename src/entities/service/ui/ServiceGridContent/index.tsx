@@ -77,6 +77,7 @@ const ServiceGridContent = ({
             onChangeSearch={onChangeSearch}
             data={data}
             isLoading={isLoading}
+            className={className}
         />
     );
 };
