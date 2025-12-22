@@ -20,7 +20,7 @@ interface Props {
 export default function Breadcrumbs({ items, className }: Props) {
     return (
         <nav aria-label="Breadcrumb" className={clsx(className)}>
-            <ol className="flex gap-2 text-sm text-gray-500">
+            <ol className="flex flex-wrap gap-2 text-sm text-gray-500">
                 {items.map((item, index) => (
                     <li key={index} className="flex gap-2">
                         {item.href ? (
