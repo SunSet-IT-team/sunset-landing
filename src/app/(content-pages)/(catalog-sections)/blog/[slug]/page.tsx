@@ -17,7 +17,7 @@ interface PageProps {
 export async function generateStaticParams() {
     const data = await PostAPI.getPostsData(['slug']);
 
-    return data.map((s) => s.slug);
+    return data.map((s) => ({ slug: s.slug }));
 }
 
 /**
