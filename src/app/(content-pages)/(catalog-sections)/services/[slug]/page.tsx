@@ -2,6 +2,9 @@ import { routeData } from '@/src/core/route';
 import ServiceAPI from '@/src/entities/service/api';
 import { mapServiceDTO } from '@/src/entities/service/api/mapping';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
+import ContentContainer from '@/src/share/ui/ContentContainer';
+import TOC from '@/src/share/ui/TOC';
+import { extractToc, injectHeadingIds } from '@/src/share/ui/TOC/utils';
 import { WPContent } from '@/src/share/ui/WPContent';
 import { notFound } from 'next/navigation';
 
@@ -40,15 +43,21 @@ const Page = async ({ params }: PageProps) => {
         { title: service.title },
     ];
 
+    const normalContent = injectHeadingIds(service.content);
+    const headings = extractToc(normalContent);
+
     return (
         <>
-            <Breadcrumbs items={breadcrumbs} className="mb-4" />
-            <article className="mb-4 flex flex-col">
-                <h1
-                    className="wp-block-heading"
-                    dangerouslySetInnerHTML={{ __html: service.title }}></h1>
-                <WPContent>{service.content}</WPContent>
-            </article>
+            <ContentContainer>
+                <Breadcrumbs items={breadcrumbs} className="mb-4" />
+                <article className="mb-4 flex flex-col">
+                    <h1
+                        className="wp-block-heading"
+                        dangerouslySetInnerHTML={{ __html: service.title }}></h1>
+                    <WPContent>{normalContent}</WPContent>
+                </article>
+            </ContentContainer>
+            <TOC items={headings} />
         </>
     );
 };

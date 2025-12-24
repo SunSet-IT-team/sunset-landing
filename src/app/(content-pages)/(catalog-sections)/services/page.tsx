@@ -4,6 +4,7 @@ import { mapServiceDTO } from '@/src/entities/service/api/mapping';
 import { Service } from '@/src/entities/service/model/types';
 import ServiceGridContent from '@/src/entities/service/ui/ServiceGridContent';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
+import ContentContainer from '@/src/share/ui/ContentContainer';
 import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationInitializer';
 
 // export const revalidate = 86400; // 24 часа
@@ -26,7 +27,7 @@ const Page = async () => {
     } catch {}
 
     return (
-        <>
+        <ContentContainer as="main">
             <Breadcrumbs items={breadcrumbs} className="mb-4" />
             <PaginationInitializer itemsPerPage={12}>
                 <ServiceGridContent
@@ -38,7 +39,7 @@ const Page = async () => {
                     postSlug={routeData.services.slug}
                 />
             </PaginationInitializer>
-        </>
+        </ContentContainer>
     );
 };
 
