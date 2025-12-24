@@ -6,6 +6,9 @@ import { WPContent } from '@/src/share/ui/WPContent';
 import { notFound } from 'next/navigation';
 import ReadingTime from '@/src/share/ui/ReadingTime';
 import calcReadingTime from 'reading-time';
+import ContentContainer from '@/src/share/ui/ContentContainer';
+import { injectHeadingIds, extractToc } from '@/src/share/ui/TOC/utils';
+import TOC from '@/src/share/ui/TOC';
 
 interface PageProps {
     params: Promise<{
@@ -44,18 +47,24 @@ const Page = async ({ params }: PageProps) => {
 
     const readingMinutes = calcReadingTime(caseData.content);
 
+    const normalContent = injectHeadingIds(caseData.content);
+    const headings = extractToc(normalContent);
+
     return (
         <>
-            <Breadcrumbs items={breadcrumbs} className="mb-4" />
-            <article className="mb-4 flex flex-col">
-                <h1
-                    className="wp-block-heading"
-                    dangerouslySetInnerHTML={{ __html: caseData.title }}></h1>
-                <div className="mb-6 rounded-lg bg-[#7031da70] px-4 py-2 w-fit">
-                    <ReadingTime readingMinutes={readingMinutes.minutes} />
-                </div>
-                <WPContent>{caseData.content}</WPContent>
-            </article>
+            <ContentContainer as="main">
+                <Breadcrumbs items={breadcrumbs} className="mb-4" />
+                <article className="mb-4 flex flex-col">
+                    <h1
+                        className="wp-block-heading"
+                        dangerouslySetInnerHTML={{ __html: caseData.title }}></h1>
+                    <div className="mb-6 rounded-lg bg-[#7031da70] px-4 py-2 w-fit">
+                        <ReadingTime readingMinutes={readingMinutes.minutes} />
+                    </div>
+                    <WPContent>{normalContent}</WPContent>
+                </article>
+            </ContentContainer>
+            {headings.length > 2 && <TOC items={headings} />}
         </>
     );
 };

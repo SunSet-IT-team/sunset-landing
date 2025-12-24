@@ -57,7 +57,7 @@ const Page = async ({ params }: PageProps) => {
                     <WPContent>{normalContent}</WPContent>
                 </article>
             </ContentContainer>
-            <TOC items={headings} />
+            {headings.length > 2 && <TOC items={headings} />}
         </>
     );
 };

@@ -4,6 +4,7 @@ import { mapPostDTO } from '@/src/entities/post/api/mapping';
 import { Post } from '@/src/entities/post/model/types';
 import PostGridContent from '@/src/entities/post/ui/PostGridContent';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
+import ContentContainer from '@/src/share/ui/ContentContainer';
 import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationInitializer';
 
 // export const revalidate = 86400; // 24 часа
@@ -26,7 +27,7 @@ const Page = async () => {
     } catch {}
 
     return (
-        <>
+        <ContentContainer as="main">
             <Breadcrumbs items={breadcrumbs} className="mb-4" />
             <PaginationInitializer itemsPerPage={12}>
                 <PostGridContent
@@ -38,7 +39,7 @@ const Page = async () => {
                     postSlug={routeData.blog.slug}
                 />
             </PaginationInitializer>
-        </>
+        </ContentContainer>
     );
 };
 

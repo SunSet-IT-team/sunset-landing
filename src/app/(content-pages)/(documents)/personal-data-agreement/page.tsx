@@ -1,5 +1,6 @@
 import { routeData } from '@/src/core/route';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
+import ContentContainer from '@/src/share/ui/ContentContainer';
 
 const breadcrumbs = [
     { title: routeData.main.title, href: routeData.main.slug },
@@ -11,7 +12,7 @@ const breadcrumbs = [
  */
 const Page = () => {
     return (
-        <>
+        <ContentContainer>
             <Breadcrumbs items={breadcrumbs} className="mb-4" />
             <div className="content">
                 <h1>Согласшение на обработку персональных данных</h1>
@@ -90,7 +91,7 @@ const Page = () => {
                     пользователей sunset-it.agency.
                 </p>
             </div>
-        </>
+        </ContentContainer>
     );
 };
 

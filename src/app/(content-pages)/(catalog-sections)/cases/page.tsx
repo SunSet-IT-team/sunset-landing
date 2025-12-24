@@ -4,6 +4,7 @@ import { mapCaseDTO } from '@/src/entities/case/api/mapping';
 import { Case } from '@/src/entities/case/model/types';
 import CaseGridContent from '@/src/entities/case/ui/CaseGridContent';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
+import ContentContainer from '@/src/share/ui/ContentContainer';
 import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationInitializer';
 
 // export const revalidate = 86400; // 24 часа
@@ -26,7 +27,7 @@ const Page = async () => {
     } catch {}
 
     return (
-        <>
+        <ContentContainer as="main">
             <Breadcrumbs items={breadcrumbs} className="mb-4" />
             <PaginationInitializer itemsPerPage={12}>
                 <CaseGridContent
@@ -38,7 +39,7 @@ const Page = async () => {
                     postSlug={routeData.cases.slug}
                 />
             </PaginationInitializer>
-        </>
+        </ContentContainer>
     );
 };
 
