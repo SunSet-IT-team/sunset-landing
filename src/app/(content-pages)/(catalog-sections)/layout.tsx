@@ -8,5 +8,9 @@ export default function CatalogPagesLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return <div className="w-full pt-6 mb-8 flex flex-row gap-10">{children}</div>;
+    return (
+        <div className="w-full pt-6 mb-8 flex flex-row gap-10 overflow-x-clip relative">
+            {children}
+        </div>
+    );
 }

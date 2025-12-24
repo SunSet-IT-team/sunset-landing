@@ -24,7 +24,7 @@ const TOC = ({ className, items }: TOCProps) => {
     const activeId = useActiveHeading(items.map((i) => i.id));
 
     return (
-        <div className="relative w-[280px] flex">
+        <div className="hidden lg:flex relative w-[280px]">
             <div className={twMerge('w-full h-fit sticky top-20', className)}>
                 <h3 className="heading-h3 mb-4">Содержание</h3>
                 <nav>
