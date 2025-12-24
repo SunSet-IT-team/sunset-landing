@@ -71,6 +71,9 @@ importers:
       react-icons:
         specifier: ^5.3.0
         version: 5.5.0(react@19.0.0-rc-66855b96-20241106)
+      reading-time:
+        specifier: ^1.5.0
+        version: 1.5.0
       shadcn:
         specifier: ^3.3.1
         version: 3.6.1(@types/node@20.19.27)(hono@4.11.1)(typescript@5.9.3)
@@ -1945,6 +1948,9 @@ packages:
   readdirp@3.6.0:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
+
+  reading-time@1.5.0:
+    resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
 
   recast@0.23.11:
     resolution: {integrity: sha512-YTUo+Flmw4ZXiWfQKGcwwc11KnoRAYgzAE2E7mXKCjSviTKShtxBsN6YUUBB2gtaBzKzeKunxhUwNHQuRryhWA==}
@@ -4153,6 +4159,8 @@ snapshots:
   readdirp@3.6.0:
     dependencies:
       picomatch: 2.3.1
+
+  reading-time@1.5.0: {}
 
   recast@0.23.11:
     dependencies:

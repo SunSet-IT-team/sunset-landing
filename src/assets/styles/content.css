@@ -14,15 +14,15 @@
     }
 
     .content h2 {
-        @apply text-[clamp(12px,1.6vh,13px)] sm:text-sm lg:text-xl font-bold leading-[125%] font-akony tracking-wider mb-6;
+        @apply text-[clamp(12px,2vw,13px)] sm:text-sm lg:text-xl font-bold leading-[125%] font-akony tracking-wider mb-6;
     }
 
     .content h3 {
-        @apply text-[clamp(11px,1.5vh,12px)] lg:text-sm  font-bold leading-[125%] font-akony tracking-wider mt-6 mb-4;
+        @apply text-[clamp(11px,2vw,12px)] lg:text-sm  font-bold leading-[125%] font-akony tracking-wider mt-6 mb-4;
     }
 
     .content p {
-        @apply text-[clamp(12px,1.9vh,17px)]  sm:text-sm  lg:text-xl font-light leading-[125%]  font-arodora-pro opacity-95;
+        @apply text-[clamp(14px,3.5vw,17px)]  sm:text-sm  lg:text-xl font-light leading-[125%]  font-arodora-pro opacity-95;
     }
 
     .content a {
@@ -38,7 +38,7 @@
     }
 
     .content li {
-        @apply text-[clamp(12px,1.9vh,17px)]  sm:text-sm  lg:text-xl font-light leading-[125%]  font-arodora-pro opacity-85;
+        @apply text-[clamp(12px,3.5vw,17px)]  sm:text-sm  lg:text-xl font-light leading-[125%]  font-arodora-pro opacity-85;
     }
 
     .content blockquote {
@@ -72,7 +72,7 @@
     }
 
     .content figure {
-        @apply my-6;
+        @apply my-6 overflow-auto;
     }
 
     .content figure figcaption {

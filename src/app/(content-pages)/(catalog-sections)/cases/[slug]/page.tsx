@@ -4,6 +4,8 @@ import { mapCaseDTO } from '@/src/entities/case/api/mapping';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
 import { WPContent } from '@/src/share/ui/WPContent';
 import { notFound } from 'next/navigation';
+import ReadingTime from '@/src/share/ui/ReadingTime';
+import calcReadingTime from 'reading-time';
 
 interface PageProps {
     params: Promise<{
@@ -40,6 +42,8 @@ const Page = async ({ params }: PageProps) => {
         { title: caseData.title },
     ];
 
+    const readingMinutes = calcReadingTime(caseData.content);
+
     return (
         <>
             <Breadcrumbs items={breadcrumbs} className="mb-4" />
@@ -47,6 +51,9 @@ const Page = async ({ params }: PageProps) => {
                 <h1
                     className="wp-block-heading"
                     dangerouslySetInnerHTML={{ __html: caseData.title }}></h1>
+                <div className="mb-6 rounded-lg bg-[#7031da70] px-4 py-2 w-fit">
+                    <ReadingTime readingMinutes={readingMinutes.minutes} />
+                </div>
                 <WPContent>{caseData.content}</WPContent>
             </article>
         </>

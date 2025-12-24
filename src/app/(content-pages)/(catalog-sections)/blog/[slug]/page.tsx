@@ -2,6 +2,8 @@ import { routeData } from '@/src/core/route';
 import PostAPI from '@/src/entities/post/api';
 import { mapPostDTO } from '@/src/entities/post/api/mapping';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
+import ReadingTime from '@/src/share/ui/ReadingTime';
+import calcReadingTime from 'reading-time';
 import { WPContent } from '@/src/share/ui/WPContent';
 import { notFound } from 'next/navigation';
 
@@ -40,6 +42,8 @@ const Page = async ({ params }: PageProps) => {
         { title: post.title },
     ];
 
+    const readingMinutes = calcReadingTime(post.content);
+
     return (
         <>
             <Breadcrumbs items={breadcrumbs} className="mb-4" />
@@ -47,6 +51,9 @@ const Page = async ({ params }: PageProps) => {
                 <h1
                     className="wp-block-heading"
                     dangerouslySetInnerHTML={{ __html: post.title }}></h1>
+                <div className="mb-6 rounded-lg bg-[#7031da70] px-4 py-2 w-fit">
+                    <ReadingTime readingMinutes={readingMinutes.minutes} />
+                </div>
                 <WPContent>{post.content}</WPContent>
             </article>
         </>
