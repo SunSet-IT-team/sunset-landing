@@ -7,12 +7,22 @@ import Breadcrumbs from '@/src/feature/Breadcrumbs';
 import ContentContainer from '@/src/share/ui/ContentContainer';
 import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationInitializer';
 
-// export const revalidate = 86400; // 24 часа
+export const revalidate = 86400; // 24 часа
+
+interface PageProps {
+    params: Promise<{
+        preview: string;
+    }>;
+}
 
 /**
  * Страница всех записей (блог)
  */
-const Page = async () => {
+const Page = async ({ params }: PageProps) => {
+    const { preview } = await params;
+
+    const isEditor = preview && preview === '1';
+
     const breadcrumbs = [
         { title: routeData.main.title, href: routeData.main.slug },
         { title: routeData.blog.title },
@@ -21,7 +31,7 @@ const Page = async () => {
     let posts: Post[] = [];
     let totalPages: number = 1;
     try {
-        const res = await PostAPI.getPosts({ page: 1, per_page: 12 });
+        const res = await PostAPI.getPosts({ page: 1, per_page: 12, cache: !isEditor });
         posts = res.data.map((s) => mapPostDTO(s));
         totalPages = res.totalPages;
     } catch {}

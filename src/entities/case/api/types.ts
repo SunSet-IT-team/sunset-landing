@@ -16,10 +16,10 @@ export interface CaseAPIMethods {
     /**
      * Получить кейс по slug
      */
-    getCasesBySlug: (slug: string) => Promise<CaseDTO>;
+    getCasesBySlug: (slug: string, cache?: boolean) => Promise<CaseDTO>;
 
     /**
      * Получить дату всех записей
      */
-    getCasesData: (fields: APIFielsParams[]) => Promise<Partial<CaseDTO>[]>;
+    getCasesData: (fields: APIFielsParams[], cache?: boolean) => Promise<Partial<CaseDTO>[]>;
 }

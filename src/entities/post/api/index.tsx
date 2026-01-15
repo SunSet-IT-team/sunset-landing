@@ -5,22 +5,24 @@ import { PostAPIMethods } from './types';
  * API по работе с услугами
  */
 const PostAPI: PostAPIMethods = {
-    getPosts: async ({
-        search,
-        page,
-        per_page,
-    }: {
+    getPosts: async (params: {
         search?: string;
         page?: number;
         per_page?: number;
+        cache?: boolean;
     }) => {
+        const { search, page, per_page, cache = true } = params;
+
         const url = buildUrl('https://server.sunset-it.agency/wp-json/wp/v2/posts', {
             search,
             page,
             per_page,
             _embed: true,
         });
-        const res = await fetch(url);
+        const res = await fetch(url, {
+            cache: cache ? 'force-cache' : 'no-store',
+            next: cache ? { revalidate: 60 * 60 * 24 } : undefined,
+        });
         const data = await res.json();
 
         if (!res.ok) {
@@ -37,13 +39,14 @@ const PostAPI: PostAPIMethods = {
         };
     },
 
-    getPostsBySlug: async (slug: string) => {
+    getPostsBySlug: async (slug: string, cache: boolean = true) => {
         const url = buildUrl('https://server.sunset-it.agency/wp-json/wp/v2/posts', {
             slug,
             _embed: true,
         });
         const res = await fetch(url, {
-            next: { revalidate: 60 * 60 * 24 },
+            cache: cache ? 'force-cache' : 'no-store',
+            next: cache ? { revalidate: 60 * 60 * 24 } : undefined,
         });
         const data = await res.json();
 
@@ -60,13 +63,14 @@ const PostAPI: PostAPIMethods = {
         return data[0];
     },
 
-    getPostsData: async (fields) => {
+    getPostsData: async (fields, cache: boolean = true) => {
         const url = buildUrl('https://server.sunset-it.agency/wp-json/wp/v2/posts', {
             per_page: 100,
             _fields: fields.join(','),
         });
         const res = await fetch(url, {
-            next: { revalidate: 60 * 60 * 24 },
+            cache: cache ? 'force-cache' : 'no-store',
+            next: cache ? { revalidate: 60 * 60 * 24 } : undefined,
         });
         const slugs = await res.json();
 

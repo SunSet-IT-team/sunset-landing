@@ -16,10 +16,10 @@ export interface PostAPIMethods {
     /**
      * Получить запись по slug
      */
-    getPostsBySlug: (slug: string) => Promise<PostDTO>;
+    getPostsBySlug: (slug: string, cache?: boolean) => Promise<PostDTO>;
 
     /**
      * Получить дату всех записей
      */
-    getPostsData: (fields: APIFielsParams[]) => Promise<Partial<PostDTO>[]>;
+    getPostsData: (fields: APIFielsParams[], cache?: boolean) => Promise<Partial<PostDTO>[]>;
 }

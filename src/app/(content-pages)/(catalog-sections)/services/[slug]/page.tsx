@@ -8,9 +8,12 @@ import { extractToc, injectHeadingIds } from '@/src/share/ui/TOC/utils';
 import { WPContent } from '@/src/share/ui/WPContent';
 import { notFound } from 'next/navigation';
 
+export const revalidate = 86400; // 24 часа
+
 interface PageProps {
     params: Promise<{
         slug: string;
+        preview: string;
     }>;
 }
 
@@ -27,11 +30,13 @@ export async function generateStaticParams() {
  * Страница какой-то конкретной услуги
  */
 const Page = async ({ params }: PageProps) => {
-    const { slug } = await params;
+    const { slug, preview } = await params;
+
+    const isEditor = preview && preview === '1';
 
     let service;
     try {
-        const res = await ServiceAPI.getServicesBySlug(slug);
+        const res = await ServiceAPI.getServicesBySlug(slug, !isEditor);
         service = mapServiceDTO(res);
     } catch {
         notFound();

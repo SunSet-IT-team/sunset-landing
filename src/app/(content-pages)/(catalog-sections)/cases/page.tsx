@@ -7,12 +7,22 @@ import Breadcrumbs from '@/src/feature/Breadcrumbs';
 import ContentContainer from '@/src/share/ui/ContentContainer';
 import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationInitializer';
 
-// export const revalidate = 86400; // 24 часа
+export const revalidate = 86400; // 24 часа
+
+interface PageProps {
+    params: Promise<{
+        preview: string;
+    }>;
+}
 
 /**
  * Страница всех кейсов
  */
-const Page = async () => {
+const Page = async ({ params }: PageProps) => {
+    const { preview } = await params;
+
+    const isEditor = preview && preview === '1';
+
     const breadcrumbs = [
         { title: routeData.main.title, href: routeData.main.slug },
         { title: routeData.cases.title },
@@ -21,7 +31,7 @@ const Page = async () => {
     let cases: Case[] = [];
     let totalPages: number = 1;
     try {
-        const res = await CaseAPI.getCases({ page: 1, per_page: 12 });
+        const res = await CaseAPI.getCases({ page: 1, per_page: 12, cache: !isEditor });
         cases = res.data.map((s) => mapCaseDTO(s));
         totalPages = res.totalPages;
     } catch {}

@@ -10,9 +10,12 @@ import ContentContainer from '@/src/share/ui/ContentContainer';
 import { injectHeadingIds, extractToc } from '@/src/share/ui/TOC/utils';
 import TOC from '@/src/share/ui/TOC';
 
+export const revalidate = 86400; // 24 часа
+
 interface PageProps {
     params: Promise<{
         slug: string;
+        preview: string;
     }>;
 }
 
@@ -29,11 +32,13 @@ export async function generateStaticParams() {
  * Страница какого-то конкретного кейса
  */
 const Page = async ({ params }: PageProps) => {
-    const { slug } = await params;
+    const { slug, preview } = await params;
+
+    const isEditor = preview && preview === '1';
 
     let caseData;
     try {
-        const res = await CaseAPI.getCasesBySlug(slug);
+        const res = await CaseAPI.getCasesBySlug(slug, !isEditor);
         caseData = mapCaseDTO(res);
     } catch {
         notFound();

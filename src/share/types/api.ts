@@ -35,6 +35,16 @@ export interface APISearchParams {
 }
 
 /**
+ * Параметры для кеша
+ */
+export interface APICacheParams {
+    /**
+     * Фраза для поиска
+     */
+    cache?: boolean;
+}
+
+/**
  * Параметры для встраивания связанных данных
  */
 export interface APIEmbedParams {
@@ -47,7 +57,11 @@ export interface APIEmbedParams {
 /**
  * Все доступные get-параметры
  */
-export interface APIGETParams extends APIPaginationParams, APISearchParams, APIEmbedParams {}
+export interface APIGETParams
+    extends APIPaginationParams,
+        APISearchParams,
+        APIEmbedParams,
+        APICacheParams {}
 
 /**
  * DTO картиники определённого размера из wordpress

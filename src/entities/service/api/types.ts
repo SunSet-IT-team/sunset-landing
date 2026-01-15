@@ -16,10 +16,10 @@ export interface ServiceAPIMethods {
     /**
      * Получить услугу по slug
      */
-    getServicesBySlug: (slug: string) => Promise<ServiceDTO>;
+    getServicesBySlug: (slug: string, cache?: boolean) => Promise<ServiceDTO>;
 
     /**
      * Получить дату всех услуг
      */
-    getServicesData: (fields: APIFielsParams[]) => Promise<Partial<ServiceDTO>[]>;
+    getServicesData: (fields: APIFielsParams[], cache?: boolean) => Promise<Partial<ServiceDTO>[]>;
 }
