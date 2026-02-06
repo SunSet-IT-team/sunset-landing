@@ -1,11 +1,10 @@
 
 User-agent: *
 Disallow: /api/         # запретить сканирование API
-Allow:    /api/sitemap  # Но открываем sitemap
 Disallow: /admin/       # запретить админку
 Disallow: /_next/       # запретить Next.js внутренние файлы
 Disallow: /node_modules/
 Allow: /
 
 
-Sitemap: https://sunset-it.agency/api/sitemap
+Sitemap: https://sunset-it.agency/sitemap.xml
