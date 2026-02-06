@@ -1,8 +1,8 @@
 
 User-agent: *
-Disallow: /api/         # запретить сканирование API
-Disallow: /admin/       # запретить админку
-Disallow: /_next/       # запретить Next.js внутренние файлы
+Disallow: /api/         
+Disallow: /admin/       
+Disallow: /_next/       
 Disallow: /node_modules/
 Allow: /
 
