@@ -14,11 +14,11 @@
     }
 
     .content h2 {
-        @apply text-[clamp(12px,2vw,13px)] sm:text-sm lg:text-xl font-bold leading-[125%] font-akony tracking-wider mb-6;
+        @apply text-[clamp(12px,2vw,13px)] sm:text-sm lg:text-xl font-bold leading-[125%] font-akony tracking-wider mt-8 mb-4;
     }
 
     .content h3 {
-        @apply text-[clamp(11px,2vw,12px)] lg:text-sm  font-bold leading-[125%] font-akony tracking-wider mt-6 mb-4;
+        @apply text-[clamp(11px,2vw,12px)] lg:text-sm  font-bold leading-[125%] font-akony tracking-wider mt-6 mb-3;
     }
 
     .content p {
