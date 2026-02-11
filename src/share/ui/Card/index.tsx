@@ -36,7 +36,9 @@ const Card = (data: CardProps) => {
                         )}
                     </div>
                     <div className="w-[60%]">
-                        <h2 className="heading-h3 mb-3 break-words hyphens-auto">{title}</h2>
+                        <h2
+                            className="heading-h3 mb-3 break-words hyphens-auto"
+                            dangerouslySetInnerHTML={{ __html: title }}></h2>
                         <div
                             className="text-descr max-w-[400px]"
                             dangerouslySetInnerHTML={{ __html: descr }}

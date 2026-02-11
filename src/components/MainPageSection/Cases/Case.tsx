@@ -128,7 +128,9 @@ export default function Case({
                             d="M0,64L48,90.7C96,117,192,171,288,170.7C384,171,480,117,576,85.3C672,53,768,43,864,64C960,85,1056,139,1152,160C1248,181,1344,171,1392,165.3L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
                     </svg>
                     <div className="pt-[40px] pb-6 px-2 flex flex-col h-full">
-                        <h3 className="heading-h3 mb-2">{caseData.title}</h3>
+                        <h3
+                            className="heading-h3 mb-2"
+                            dangerouslySetInnerHTML={{ __html: caseData.title }}></h3>
                         <p
                             className="text mb-4 flex-grow-[1]"
                             dangerouslySetInnerHTML={{ __html: caseData.description ?? '' }}></p>

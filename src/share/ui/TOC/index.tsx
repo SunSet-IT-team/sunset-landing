@@ -40,9 +40,8 @@ const TOC = ({ className, items }: TOCProps) => {
                                         item.id === activeId
                                             ? 'bg-[#7031da70] hover:bg-[#7031da70] text-blue-50'
                                             : '',
-                                    )}>
-                                    {item.title}
-                                </a>
+                                    )}
+                                    dangerouslySetInnerHTML={{ __html: item.title }}></a>
                             </li>
                         ))}
                     </ul>
