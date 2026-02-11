@@ -10,7 +10,7 @@ import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationIn
 export const revalidate = 86400; // 24 часа
 
 interface PageProps {
-    params: Promise<{
+    searchParams: Promise<{
         preview: string;
     }>;
 }
@@ -18,8 +18,8 @@ interface PageProps {
 /**
  * Страница всех услуг
  */
-const Page = async ({ params }: PageProps) => {
-    const { preview } = await params;
+const Page = async ({ searchParams }: PageProps) => {
+    const { preview } = await searchParams;
 
     const isEditor = preview && preview === '1';
 

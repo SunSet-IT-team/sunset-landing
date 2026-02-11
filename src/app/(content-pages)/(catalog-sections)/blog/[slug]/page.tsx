@@ -15,6 +15,8 @@ export const revalidate = 86400; // 24 часа
 interface PageProps {
     params: Promise<{
         slug: string;
+    }>;
+    searchParams: Promise<{
         preview: string;
     }>;
 }
@@ -31,8 +33,9 @@ export async function generateStaticParams() {
 /**
  * Страница какой-то конкретной записи
  */
-const Page = async ({ params }: PageProps) => {
-    const { slug, preview } = await params;
+const Page = async ({ params, searchParams }: PageProps) => {
+    const { slug } = await params;
+    const { preview } = await searchParams;
 
     const isEditor = preview && preview === '1';
 

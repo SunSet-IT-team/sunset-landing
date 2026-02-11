@@ -17,6 +17,9 @@ interface PageProps {
         slug: string;
         preview: string;
     }>;
+    searchParams: Promise<{
+        preview: string;
+    }>;
 }
 
 /**
@@ -31,8 +34,9 @@ export async function generateStaticParams() {
 /**
  * Страница какого-то конкретного кейса
  */
-const Page = async ({ params }: PageProps) => {
-    const { slug, preview } = await params;
+const Page = async ({ params, searchParams }: PageProps) => {
+    const { slug } = await params;
+    const { preview } = await searchParams;
 
     const isEditor = preview && preview === '1';
 
