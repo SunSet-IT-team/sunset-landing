@@ -12,5 +12,6 @@ export function mapPostDTO(dto: PostDTO): Post {
         url: dto.link,
         id: dto.id,
         slug: dto.slug,
+        faqs: dto.faqs ?? [],
     };
 }

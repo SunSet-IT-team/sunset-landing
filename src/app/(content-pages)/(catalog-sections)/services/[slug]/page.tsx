@@ -3,6 +3,7 @@ import ServiceAPI from '@/src/entities/service/api';
 import { mapServiceDTO } from '@/src/entities/service/api/mapping';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
 import ContentContainer from '@/src/share/ui/ContentContainer';
+import FAQ from '@/src/share/ui/FAQ';
 import TOC from '@/src/share/ui/TOC';
 import { extractToc, injectHeadingIds } from '@/src/share/ui/TOC/utils';
 import { WPContent } from '@/src/share/ui/WPContent';
@@ -64,6 +65,7 @@ const Page = async ({ params, searchParams }: PageProps) => {
                         dangerouslySetInnerHTML={{ __html: service.title }}></h1>
                     <WPContent>{normalContent}</WPContent>
                 </article>
+                {service.faqs.length > 0 && <FAQ items={service.faqs} />}
             </ContentContainer>
             {headings.length > 2 && <TOC items={headings} />}
         </>

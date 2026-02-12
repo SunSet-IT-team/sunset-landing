@@ -2,6 +2,7 @@
  * Все нужные типы и интерфейсы для работы с API
  */
 
+import { FAQItem } from '../ui/FAQ';
 import { ImageSize } from './share';
 
 /**
@@ -58,10 +59,7 @@ export interface APIEmbedParams {
  * Все доступные get-параметры
  */
 export interface APIGETParams
-    extends APIPaginationParams,
-        APISearchParams,
-        APIEmbedParams,
-        APICacheParams {}
+    extends APIPaginationParams, APISearchParams, APIEmbedParams, APICacheParams {}
 
 /**
  * DTO картиники определённого размера из wordpress
@@ -141,6 +139,8 @@ export interface WordpressPostDTO {
         _acf_changed: boolean;
     };
     class_list: string[];
+
+    faqs?: FAQItem[];
 
     _embedded?: {
         'wp:featuredmedia': WordPressFeaturedMediaDTO[];

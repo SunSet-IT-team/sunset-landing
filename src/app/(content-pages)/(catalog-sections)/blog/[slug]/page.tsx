@@ -9,6 +9,7 @@ import { notFound } from 'next/navigation';
 import ContentContainer from '@/src/share/ui/ContentContainer';
 import TOC from '@/src/share/ui/TOC';
 import { injectHeadingIds, extractToc } from '@/src/share/ui/TOC/utils';
+import FAQ from '@/src/share/ui/FAQ';
 
 export const revalidate = 86400; // 24 часа
 
@@ -42,6 +43,8 @@ const Page = async ({ params, searchParams }: PageProps) => {
     let post;
     try {
         const res = await PostAPI.getPostsBySlug(slug, !isEditor);
+        console.log(res);
+
         post = mapPostDTO(res);
     } catch {
         notFound();
@@ -69,8 +72,9 @@ const Page = async ({ params, searchParams }: PageProps) => {
                     <div className="mb-6 rounded-lg bg-[#7031da70] px-4 py-2 w-fit">
                         <ReadingTime readingMinutes={readingMinutes.minutes} />
                     </div>
-                    <WPContent>{post.content}</WPContent>
+                    <WPContent>{normalContent}</WPContent>
                 </article>
+                {post.faqs.length > 0 && <FAQ items={post.faqs} />}
             </ContentContainer>
             {headings.length > 2 && <TOC items={headings} />}
         </>

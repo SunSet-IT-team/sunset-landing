@@ -12,5 +12,6 @@ export function mapServiceDTO(dto: ServiceDTO): Service {
         url: dto.link,
         id: dto.id,
         slug: dto.slug,
+        faqs: dto.faqs ?? [],
     };
 }
