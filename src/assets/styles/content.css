@@ -22,11 +22,11 @@
     }
 
     .content p {
-        @apply text-[clamp(14px,3.5vw,17px)]  sm:text-sm  lg:text-xl font-light leading-[125%]  font-arodora-pro opacity-95;
+        @apply text-[clamp(14px,3.5vw,17px)]  sm:text-sm  lg:text-xl font-light leading-[125%]  font-arodora-pro opacity-95 mb-4;
     }
 
     .content a {
-        @apply text-blue-400 hover:text-blue-300 underline transition-colors;
+        @apply text-blue-50 hover:text-blue-300 underline transition-colors;
     }
 
     .content ul {
@@ -47,10 +47,6 @@
 
     .content strong {
         @apply text-white font-bold;
-    }
-
-    .content a {
-        @apply text-blue-200 underline hover:text-blue-100 transition;
     }
 
     .content em {
