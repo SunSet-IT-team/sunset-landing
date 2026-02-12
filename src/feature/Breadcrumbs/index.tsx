@@ -30,7 +30,9 @@ export default function Breadcrumbs({ items, className }: Props) {
                                 {item.title}
                             </Link>
                         ) : (
-                            <span className="text-breadcrumbs  opacity-70">{item.title}</span>
+                            <span
+                                className="text-breadcrumbs  opacity-70"
+                                dangerouslySetInnerHTML={{ __html: item.title }}></span>
                         )}
                         {index < items.length - 1 && <span className="text-breadcrumbs">/</span>}
                     </li>
