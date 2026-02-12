@@ -2,6 +2,7 @@
 
 import { twMerge } from 'tailwind-merge';
 import { useActiveHeading } from './useActiveHeading';
+import { useRef, useEffect } from 'react';
 
 /**
  * Элемент навигации
@@ -22,13 +23,28 @@ interface TOCProps {
  */
 const TOC = ({ className, items }: TOCProps) => {
     const activeId = useActiveHeading(items.map((i) => i.id));
+    const containerRef = useRef<HTMLUListElement>(null);
+
+    // 👉 Автоскролл к активному пункту
+    useEffect(() => {
+        if (!activeId || !containerRef.current) return;
+
+        const activeElement = containerRef.current.querySelector(`a[href="#${activeId}"]`);
+
+        if (activeElement) {
+            activeElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+            });
+        }
+    }, [activeId]);
 
     return (
         <div className="hidden lg:flex relative w-[280px]">
             <div className={twMerge('w-full h-fit sticky top-20', className)}>
                 <h3 className="heading-h3 mb-4">Содержание</h3>
-                <nav>
-                    <ul className="flex flex-col gap-2">
+                <nav className="max-h-[calc(100vh-200px)] overflow-y-auto ui-scroll">
+                    <ul className="flex flex-col gap-2" ref={containerRef}>
                         {items.map((item) => (
                             <li key={item.id}>
                                 <a

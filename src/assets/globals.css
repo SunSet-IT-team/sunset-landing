@@ -5,6 +5,7 @@
 @import './styles/typography.css';
 @import './styles/content.css';
 @import './styles/swiper.css';
+@import './styles/ui.css';
 
 :root {
     --blue-400: #4a11af;
