@@ -25,9 +25,28 @@ const FAQ = ({ items, className, defaultOpenIndex = null }: FAQProps) => {
         setOpenIndex(openIndex === index ? null : index);
     };
 
+    // JSON-LD микроразметка
+    const faqSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: items.map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.answer,
+            },
+        })),
+    };
+
     return (
         <div className={twMerge('w-full mx-auto py-8', className)}>
             <h2 className="heading mb-4">Часто задаваемые Вопросы</h2>
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
 
             <div className="flex flex-col divide-y divide-orange dark:divide-neutral-800">
                 {items.map((item, index) => {
