@@ -60,7 +60,9 @@ const Card = (data: CardProps) => {
                         )}
                     </div>
                     <div className="w-full">
-                        <h2 className="text-button mb-3">{title}</h2>
+                        <h2
+                            className="text-button mb-3"
+                            dangerouslySetInnerHTML={{ __html: title }}></h2>
                         <p className="text-descr" dangerouslySetInnerHTML={{ __html: descr }}></p>
                     </div>
                 </>
