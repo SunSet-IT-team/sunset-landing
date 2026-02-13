@@ -1,10 +1,10 @@
 'use client';
-import { PostContent } from '@/src/share/types/share';
 import { useEffect, useState } from 'react';
 import { usePagination } from '@/src/share/ui/Pagination/hooks/usePagination';
 import { useInputDebounce } from '@/src/share/hooks/useInputDebounce';
 import ToggleGridContent from '@/src/share/ui/ToggleGridContent';
 import { usePostsQuery } from '../../model/usePostsQuery';
+import { Post } from '../../model/types';
 
 interface PostGridContentProps {
     /**
@@ -15,7 +15,7 @@ interface PostGridContentProps {
     /**
      * Изначальные данные для показа
      */
-    initialData?: PostContent[];
+    initialData?: Post[];
 
     /**
      * Изначальное количество страниц
