@@ -5,6 +5,7 @@ import { akony, arodoraPro } from '../assets/fonts/lindex';
 import BodyScriptMetrika from '../feature/Metrika/BodyScriptMetrika';
 import HeadScriptMetrika from '../feature/Metrika/HeadScriptMetrika';
 import WorkSpaceVerification from '../feature/WorkSpace';
+import { GoogleTagManager } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
     title: 'Sunset IT — digital-команда разработчиков',
@@ -57,6 +58,7 @@ export default function RootLayout({
                 <meta name="apple-mobile-web-app-title" content="SunSet IT" />
                 <HeadScriptMetrika />
                 <WorkSpaceVerification />
+                <GoogleTagManager gtmId="GTM-52TXJ8RQ" />
             </head>
             <body
                 className={`${akony.variable} ${arodoraPro.variable} 

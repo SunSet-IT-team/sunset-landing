@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
+    "@next/third-parties": "^16.1.6",
     "@react-spring/core": "^10.0.3",
     "@react-spring/three": "^10.0.3",
     "@react-three/drei": "^9.120.4",
