@@ -11,6 +11,8 @@ import TOC from '@/src/share/ui/TOC';
 import { injectHeadingIds, extractToc } from '@/src/share/ui/TOC/utils';
 import FAQ from '@/src/share/ui/FAQ';
 import { Views } from '@/src/feature/Views/ui';
+import BreadcrumbsSchema from '@/src/feature/Breadcrumbs/BreadcrumbsSchema';
+import FAQSchema from '@/src/share/ui/FAQ/FAQSchema';
 
 export const revalidate = 86400; // 24 часа
 
@@ -64,6 +66,8 @@ const Page = async ({ params, searchParams }: PageProps) => {
 
     return (
         <>
+            <BreadcrumbsSchema items={breadcrumbs} />
+            {post.faqs.length > 0 && <FAQSchema items={post.faqs} />}
             <ContentContainer as="main">
                 <Breadcrumbs items={breadcrumbs} className="mb-4" />
                 <article className="mb-4 flex flex-col">

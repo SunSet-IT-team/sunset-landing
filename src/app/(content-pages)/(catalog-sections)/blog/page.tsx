@@ -4,6 +4,7 @@ import { mapPostDTO } from '@/src/entities/post/api/mapping';
 import { Post } from '@/src/entities/post/model/types';
 import PostGridContent from '@/src/entities/post/ui/PostGridContent';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
+import BreadcrumbsSchema from '@/src/feature/Breadcrumbs/BreadcrumbsSchema';
 import ContentContainer from '@/src/share/ui/ContentContainer';
 import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationInitializer';
 
@@ -37,19 +38,22 @@ const Page = async ({ searchParams }: PageProps) => {
     } catch {}
 
     return (
-        <ContentContainer as="main">
-            <Breadcrumbs items={breadcrumbs} className="mb-4" />
-            <PaginationInitializer itemsPerPage={12}>
-                <PostGridContent
-                    className="w-full"
-                    initialData={posts}
-                    initialTotalPages={totalPages}
-                    initialPage={1}
-                    title={routeData.blog.title}
-                    postSlug={routeData.blog.slug}
-                />
-            </PaginationInitializer>
-        </ContentContainer>
+        <>
+            <BreadcrumbsSchema items={breadcrumbs} />
+            <ContentContainer as="main">
+                <Breadcrumbs items={breadcrumbs} className="mb-4" />
+                <PaginationInitializer itemsPerPage={12}>
+                    <PostGridContent
+                        className="w-full"
+                        initialData={posts}
+                        initialTotalPages={totalPages}
+                        initialPage={1}
+                        title={routeData.blog.title}
+                        postSlug={routeData.blog.slug}
+                    />
+                </PaginationInitializer>
+            </ContentContainer>
+        </>
     );
 };
 

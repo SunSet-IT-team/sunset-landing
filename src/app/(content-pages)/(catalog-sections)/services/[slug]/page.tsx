@@ -2,8 +2,10 @@ import { routeData } from '@/src/core/route';
 import ServiceAPI from '@/src/entities/service/api';
 import { mapServiceDTO } from '@/src/entities/service/api/mapping';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
+import BreadcrumbsSchema from '@/src/feature/Breadcrumbs/BreadcrumbsSchema';
 import ContentContainer from '@/src/share/ui/ContentContainer';
 import FAQ from '@/src/share/ui/FAQ';
+import FAQSchema from '@/src/share/ui/FAQ/FAQSchema';
 import TOC from '@/src/share/ui/TOC';
 import { extractToc, injectHeadingIds } from '@/src/share/ui/TOC/utils';
 import { WPContent } from '@/src/share/ui/WPContent';
@@ -57,6 +59,8 @@ const Page = async ({ params, searchParams }: PageProps) => {
 
     return (
         <>
+            <BreadcrumbsSchema items={breadcrumbs} />
+            {service.faqs.length > 0 && <FAQSchema items={service.faqs} />}
             <ContentContainer>
                 <Breadcrumbs items={breadcrumbs} className="mb-4" />
                 <article className="mb-4 flex flex-col">

@@ -13,7 +13,6 @@ const ViewsAPI: ViewsApiMethods = {
             },
         );
         const data: any = await res.json();
-        console.log(data);
 
         if (!res.ok) {
             const error = new Error(data.message || 'Ошибка при запросе записей') as any;

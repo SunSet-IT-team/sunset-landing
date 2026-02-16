@@ -10,6 +10,7 @@ import ContentContainer from '@/src/share/ui/ContentContainer';
 import { injectHeadingIds, extractToc } from '@/src/share/ui/TOC/utils';
 import TOC from '@/src/share/ui/TOC';
 import { Views } from '@/src/feature/Views/ui';
+import BreadcrumbsSchema from '@/src/feature/Breadcrumbs/BreadcrumbsSchema';
 
 export const revalidate = 86400; // 24 часа
 
@@ -62,6 +63,7 @@ const Page = async ({ params, searchParams }: PageProps) => {
 
     return (
         <>
+            <BreadcrumbsSchema items={breadcrumbs} />
             <ContentContainer as="main">
                 <Breadcrumbs items={breadcrumbs} className="mb-4" />
                 <article className="mb-4 flex flex-col">

@@ -4,6 +4,7 @@ import { mapServiceDTO } from '@/src/entities/service/api/mapping';
 import { Service } from '@/src/entities/service/model/types';
 import ServiceGridContent from '@/src/entities/service/ui/ServiceGridContent';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
+import BreadcrumbsSchema from '@/src/feature/Breadcrumbs/BreadcrumbsSchema';
 import ContentContainer from '@/src/share/ui/ContentContainer';
 import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationInitializer';
 
@@ -37,19 +38,22 @@ const Page = async ({ searchParams }: PageProps) => {
     } catch {}
 
     return (
-        <ContentContainer as="main">
-            <Breadcrumbs items={breadcrumbs} className="mb-4" />
-            <PaginationInitializer itemsPerPage={12}>
-                <ServiceGridContent
-                    className="w-full"
-                    initialData={services}
-                    initialTotalPages={totalPages}
-                    initialPage={1}
-                    title={routeData.services.title}
-                    postSlug={routeData.services.slug}
-                />
-            </PaginationInitializer>
-        </ContentContainer>
+        <>
+            <BreadcrumbsSchema items={breadcrumbs} />
+            <ContentContainer as="main">
+                <Breadcrumbs items={breadcrumbs} className="mb-4" />
+                <PaginationInitializer itemsPerPage={12}>
+                    <ServiceGridContent
+                        className="w-full"
+                        initialData={services}
+                        initialTotalPages={totalPages}
+                        initialPage={1}
+                        title={routeData.services.title}
+                        postSlug={routeData.services.slug}
+                    />
+                </PaginationInitializer>
+            </ContentContainer>
+        </>
     );
 };
 
