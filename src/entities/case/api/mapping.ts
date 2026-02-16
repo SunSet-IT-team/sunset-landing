@@ -12,5 +12,6 @@ export function mapCaseDTO(dto: CaseDTO): Case {
         url: dto.link,
         id: dto.id,
         slug: dto.slug,
+        views: dto.views,
     };
 }

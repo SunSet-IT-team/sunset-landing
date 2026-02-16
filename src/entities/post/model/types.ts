@@ -6,4 +6,5 @@ import { FAQItem } from '@/src/share/ui/FAQ';
  */
 export type Post = PostContent & {
     faqs: FAQItem[];
+    views: number;
 };

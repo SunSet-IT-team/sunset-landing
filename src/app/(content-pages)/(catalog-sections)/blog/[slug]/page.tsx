@@ -10,6 +10,7 @@ import ContentContainer from '@/src/share/ui/ContentContainer';
 import TOC from '@/src/share/ui/TOC';
 import { injectHeadingIds, extractToc } from '@/src/share/ui/TOC/utils';
 import FAQ from '@/src/share/ui/FAQ';
+import { Views } from '@/src/feature/Views/ui';
 
 export const revalidate = 86400; // 24 часа
 
@@ -69,8 +70,13 @@ const Page = async ({ params, searchParams }: PageProps) => {
                     <h1
                         className="wp-block-heading"
                         dangerouslySetInnerHTML={{ __html: post.title }}></h1>
-                    <div className="mb-6 rounded-lg bg-[#7031da70] px-4 py-2 w-fit">
-                        <ReadingTime readingMinutes={readingMinutes.minutes} />
+                    <div className="flex flex-row gap-2 items-center">
+                        <div className="mb-6 rounded-lg bg-[#7031da70] px-4 py-2 w-fit">
+                            <ReadingTime readingMinutes={readingMinutes.minutes} />
+                        </div>
+                        <div className="mb-6 rounded-lg bg-[#7031da70] px-4 py-2 w-fit">
+                            <Views postId={post.id} initialViews={post.views} />
+                        </div>
                     </div>
                     <WPContent>{normalContent}</WPContent>
                 </article>
