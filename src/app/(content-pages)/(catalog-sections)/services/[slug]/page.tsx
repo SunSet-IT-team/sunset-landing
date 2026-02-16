@@ -2,14 +2,16 @@ import { routeData } from '@/src/core/route';
 import ServiceAPI from '@/src/entities/service/api';
 import { mapServiceDTO } from '@/src/entities/service/api/mapping';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
-import BreadcrumbsSchema from '@/src/feature/Breadcrumbs/BreadcrumbsSchema';
+import { generatePostMeta } from '@/src/feature/SEO/model/post';
+import BreadcrumbsSchema from '@/src/feature/SEO/ui/BreadcrumbsSchema';
+import FAQSchema from '@/src/feature/SEO/ui/FAQSchema';
 import ContentContainer from '@/src/share/ui/ContentContainer';
 import FAQ from '@/src/share/ui/FAQ';
-import FAQSchema from '@/src/share/ui/FAQ/FAQSchema';
 import ThumbnailCard from '@/src/share/ui/ThumbnailCard';
 import TOC from '@/src/share/ui/TOC';
 import { extractToc, injectHeadingIds } from '@/src/share/ui/TOC/utils';
 import { WPContent } from '@/src/share/ui/WPContent';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 export const revalidate = 86400; // 24 часа
@@ -30,6 +32,26 @@ export async function generateStaticParams() {
     const data = await ServiceAPI.getServicesData(['slug']);
 
     return data.map((s) => ({ slug: s.slug }));
+}
+
+/**
+ * Генерируем мета-информацию
+ */
+export async function generateMetadata({ params, searchParams }: PageProps): Promise<Metadata> {
+    const { slug } = await params;
+    const { preview } = await searchParams;
+
+    const isEditor = preview && preview === '1';
+
+    let service;
+    try {
+        const res = await ServiceAPI.getServicesBySlug(slug, !isEditor);
+        service = mapServiceDTO(res);
+    } catch {
+        notFound();
+    }
+
+    return generatePostMeta(service);
 }
 
 /**

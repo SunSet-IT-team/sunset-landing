@@ -10,8 +10,10 @@ import ContentContainer from '@/src/share/ui/ContentContainer';
 import { injectHeadingIds, extractToc } from '@/src/share/ui/TOC/utils';
 import TOC from '@/src/share/ui/TOC';
 import { Views } from '@/src/feature/Views/ui';
-import BreadcrumbsSchema from '@/src/feature/Breadcrumbs/BreadcrumbsSchema';
+import BreadcrumbsSchema from '@/src/feature/SEO/ui/BreadcrumbsSchema';
 import ThumbnailCard from '@/src/share/ui/ThumbnailCard';
+import { generatePostMeta } from '@/src/feature/SEO/model/post';
+import { Metadata } from 'next';
 
 export const revalidate = 86400; // 24 часа
 
@@ -35,6 +37,26 @@ export async function generateStaticParams() {
 }
 
 /**
+ * Генерируем мета-информацию
+ */
+export async function generateMetadata({ params, searchParams }: PageProps): Promise<Metadata> {
+    const { slug } = await params;
+    const { preview } = await searchParams;
+
+    const isEditor = preview && preview === '1';
+
+    let caseData;
+    try {
+        const res = await CaseAPI.getCasesBySlug(slug, !isEditor);
+        caseData = mapCaseDTO(res);
+    } catch {
+        notFound();
+    }
+
+    return generatePostMeta(caseData);
+}
+
+/**
  * Страница какого-то конкретного кейса
  */
 const Page = async ({ params, searchParams }: PageProps) => {
@@ -46,7 +68,6 @@ const Page = async ({ params, searchParams }: PageProps) => {
     let caseData;
     try {
         const res = await CaseAPI.getCasesBySlug(slug, !isEditor);
-        console.log(res);
         caseData = mapCaseDTO(res);
     } catch {
         notFound();

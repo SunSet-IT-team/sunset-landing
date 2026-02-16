@@ -4,7 +4,7 @@ import { mapServiceDTO } from '@/src/entities/service/api/mapping';
 import { Service } from '@/src/entities/service/model/types';
 import ServiceGridContent from '@/src/entities/service/ui/ServiceGridContent';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
-import BreadcrumbsSchema from '@/src/feature/Breadcrumbs/BreadcrumbsSchema';
+import BreadcrumbsSchema from '@/src/feature/SEO/ui/BreadcrumbsSchema';
 import ContentContainer from '@/src/share/ui/ContentContainer';
 import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationInitializer';
 

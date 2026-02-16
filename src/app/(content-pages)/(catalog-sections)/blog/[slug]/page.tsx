@@ -11,9 +11,11 @@ import TOC from '@/src/share/ui/TOC';
 import { injectHeadingIds, extractToc } from '@/src/share/ui/TOC/utils';
 import FAQ from '@/src/share/ui/FAQ';
 import { Views } from '@/src/feature/Views/ui';
-import BreadcrumbsSchema from '@/src/feature/Breadcrumbs/BreadcrumbsSchema';
-import FAQSchema from '@/src/share/ui/FAQ/FAQSchema';
+import BreadcrumbsSchema from '@/src/feature/SEO/ui/BreadcrumbsSchema';
 import ThumbnailCard from '@/src/share/ui/ThumbnailCard';
+import { generatePostMeta } from '@/src/feature/SEO/model/post';
+import { Metadata } from 'next';
+import FAQSchema from '@/src/feature/SEO/ui/FAQSchema';
 
 export const revalidate = 86400; // 24 часа
 
@@ -36,6 +38,26 @@ export async function generateStaticParams() {
 }
 
 /**
+ * Генерируем мета-информацию
+ */
+export async function generateMetadata({ params, searchParams }: PageProps): Promise<Metadata> {
+    const { slug } = await params;
+    const { preview } = await searchParams;
+
+    const isEditor = preview && preview === '1';
+
+    let post;
+    try {
+        const res = await PostAPI.getPostsBySlug(slug, !isEditor);
+        post = mapPostDTO(res);
+    } catch {
+        notFound();
+    }
+
+    return generatePostMeta(post);
+}
+
+/**
  * Страница какой-то конкретной записи
  */
 const Page = async ({ params, searchParams }: PageProps) => {
@@ -47,8 +69,6 @@ const Page = async ({ params, searchParams }: PageProps) => {
     let post;
     try {
         const res = await PostAPI.getPostsBySlug(slug, !isEditor);
-        console.log(res);
-
         post = mapPostDTO(res);
     } catch {
         notFound();

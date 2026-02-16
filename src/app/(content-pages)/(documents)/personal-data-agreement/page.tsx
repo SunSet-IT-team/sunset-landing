@@ -1,6 +1,6 @@
 import { routeData } from '@/src/core/route';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
-import BreadcrumbsSchema from '@/src/feature/Breadcrumbs/BreadcrumbsSchema';
+import BreadcrumbsSchema from '@/src/feature/SEO/ui/BreadcrumbsSchema';
 import ContentContainer from '@/src/share/ui/ContentContainer';
 
 const breadcrumbs = [

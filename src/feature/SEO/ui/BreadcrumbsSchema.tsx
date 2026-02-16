@@ -1,4 +1,4 @@
-import { Breadcrumb } from './types';
+import { Breadcrumb } from '../../Breadcrumbs/types';
 
 interface Props {
     items: Breadcrumb[];

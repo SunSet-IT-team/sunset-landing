@@ -1,4 +1,4 @@
-import { FAQItem } from '.';
+import { FAQItem } from '@/src/share/ui/FAQ';
 
 interface Props {
     items: FAQItem[];

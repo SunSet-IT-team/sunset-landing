@@ -4,7 +4,7 @@ import { mapPostDTO } from '@/src/entities/post/api/mapping';
 import { Post } from '@/src/entities/post/model/types';
 import PostGridContent from '@/src/entities/post/ui/PostGridContent';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
-import BreadcrumbsSchema from '@/src/feature/Breadcrumbs/BreadcrumbsSchema';
+import BreadcrumbsSchema from '@/src/feature/SEO/ui/BreadcrumbsSchema';
 import ContentContainer from '@/src/share/ui/ContentContainer';
 import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationInitializer';
 
