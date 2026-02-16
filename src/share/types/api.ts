@@ -145,6 +145,17 @@ export interface WordpressPostDTO {
     _embedded?: {
         'wp:featuredmedia': WordPressFeaturedMediaDTO[];
     };
+    yoast_head_json: {
+        article_modified_time: string;
+        article_published_time: string;
+        description: string;
+        og_description: string;
+        og_locale: string;
+        og_title: string;
+        og_type: string;
+        og_url: string;
+        title: string;
+    };
 }
 
 /**

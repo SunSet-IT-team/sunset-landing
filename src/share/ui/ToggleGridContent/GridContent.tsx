@@ -67,6 +67,7 @@ const GridContent = ({
                 url={`${postSlug}/${post.slug}`}
                 type={mode === 'grid' ? 'col' : 'row'}
                 key={id}
+                src={post.thumbnail ? post.thumbnail.url : ''}
             />
         ));
     }

@@ -6,6 +6,7 @@ import BreadcrumbsSchema from '@/src/feature/Breadcrumbs/BreadcrumbsSchema';
 import ContentContainer from '@/src/share/ui/ContentContainer';
 import FAQ from '@/src/share/ui/FAQ';
 import FAQSchema from '@/src/share/ui/FAQ/FAQSchema';
+import ThumbnailCard from '@/src/share/ui/ThumbnailCard';
 import TOC from '@/src/share/ui/TOC';
 import { extractToc, injectHeadingIds } from '@/src/share/ui/TOC/utils';
 import { WPContent } from '@/src/share/ui/WPContent';
@@ -68,6 +69,12 @@ const Page = async ({ params, searchParams }: PageProps) => {
                         className="wp-block-heading"
                         dangerouslySetInnerHTML={{ __html: service.title }}></h1>
                     <WPContent>{normalContent}</WPContent>
+                    {service.thumbnail && (
+                        <ThumbnailCard
+                            src={service.thumbnail.url}
+                            className="w-full aspect-video mb-6"
+                        />
+                    )}
                 </article>
                 {service.faqs.length > 0 && <FAQ items={service.faqs} />}
             </ContentContainer>

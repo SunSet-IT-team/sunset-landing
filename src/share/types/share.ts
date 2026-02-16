@@ -16,6 +16,35 @@ export type ImageSize =
     | 'full';
 
 /**
+ * Вложения в виде картинки
+ */
+export type PostImage = {
+    url: string;
+    width: number;
+    height: number;
+};
+
+/**
+ * Превью
+ */
+export type Thumbnail = PostImage;
+
+/**
+ * Сео
+ */
+export type SeoMetaData = {
+    modified_time: string;
+    published_time: string;
+    description: string;
+    og_description: string;
+    og_locale: string;
+    og_title: string;
+    og_type: string;
+    og_url: string;
+    title: string;
+};
+
+/**
  * Тип стандартной записи
  */
 export type PostContent = {
@@ -25,4 +54,6 @@ export type PostContent = {
     content: string;
     url: string;
     slug: string;
+    thumbnail?: Thumbnail;
+    seo?: SeoMetaData;
 };

@@ -13,6 +13,7 @@ import FAQ from '@/src/share/ui/FAQ';
 import { Views } from '@/src/feature/Views/ui';
 import BreadcrumbsSchema from '@/src/feature/Breadcrumbs/BreadcrumbsSchema';
 import FAQSchema from '@/src/share/ui/FAQ/FAQSchema';
+import ThumbnailCard from '@/src/share/ui/ThumbnailCard';
 
 export const revalidate = 86400; // 24 часа
 
@@ -82,6 +83,12 @@ const Page = async ({ params, searchParams }: PageProps) => {
                             <Views postId={post.id} initialViews={post.views} />
                         </div>
                     </div>
+                    {post.thumbnail && (
+                        <ThumbnailCard
+                            src={post.thumbnail.url}
+                            className="w-full aspect-video mb-6"
+                        />
+                    )}
                     <WPContent>{normalContent}</WPContent>
                 </article>
                 {post.faqs.length > 0 && <FAQ items={post.faqs} />}

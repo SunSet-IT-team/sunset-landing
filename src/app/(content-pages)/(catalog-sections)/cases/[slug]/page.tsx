@@ -11,6 +11,7 @@ import { injectHeadingIds, extractToc } from '@/src/share/ui/TOC/utils';
 import TOC from '@/src/share/ui/TOC';
 import { Views } from '@/src/feature/Views/ui';
 import BreadcrumbsSchema from '@/src/feature/Breadcrumbs/BreadcrumbsSchema';
+import ThumbnailCard from '@/src/share/ui/ThumbnailCard';
 
 export const revalidate = 86400; // 24 часа
 
@@ -45,6 +46,7 @@ const Page = async ({ params, searchParams }: PageProps) => {
     let caseData;
     try {
         const res = await CaseAPI.getCasesBySlug(slug, !isEditor);
+        console.log(res);
         caseData = mapCaseDTO(res);
     } catch {
         notFound();
@@ -78,6 +80,12 @@ const Page = async ({ params, searchParams }: PageProps) => {
                             <Views postId={caseData.id} initialViews={caseData.views} />
                         </div>
                     </div>
+                    {caseData.thumbnail && (
+                        <ThumbnailCard
+                            src={caseData.thumbnail.url}
+                            className="w-full aspect-video mb-6"
+                        />
+                    )}
                     <WPContent>{normalContent}</WPContent>
                 </article>
             </ContentContainer>
