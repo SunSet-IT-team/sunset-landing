@@ -16,6 +16,7 @@ import ThumbnailCard from '@/src/share/ui/ThumbnailCard';
 import { generatePostMeta } from '@/src/feature/SEO/model/post';
 import { Metadata } from 'next';
 import FAQSchema from '@/src/feature/SEO/ui/FAQSchema';
+import ArticleSchema from '@/src/feature/SEO/ui/ArticleSchema';
 
 export const revalidate = 86400; // 24 часа
 
@@ -87,6 +88,7 @@ const Page = async ({ params, searchParams }: PageProps) => {
 
     return (
         <>
+            <ArticleSchema post={post} />
             <BreadcrumbsSchema items={breadcrumbs} />
             {post.faqs.length > 0 && <FAQSchema items={post.faqs} />}
             <ContentContainer as="main">

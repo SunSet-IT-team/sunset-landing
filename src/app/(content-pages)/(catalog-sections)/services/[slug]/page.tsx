@@ -5,6 +5,7 @@ import Breadcrumbs from '@/src/feature/Breadcrumbs';
 import { generatePostMeta } from '@/src/feature/SEO/model/post';
 import BreadcrumbsSchema from '@/src/feature/SEO/ui/BreadcrumbsSchema';
 import FAQSchema from '@/src/feature/SEO/ui/FAQSchema';
+import ServiceSchema from '@/src/feature/SEO/ui/ServiceSchema';
 import ContentContainer from '@/src/share/ui/ContentContainer';
 import FAQ from '@/src/share/ui/FAQ';
 import ThumbnailCard from '@/src/share/ui/ThumbnailCard';
@@ -82,6 +83,7 @@ const Page = async ({ params, searchParams }: PageProps) => {
 
     return (
         <>
+            <ServiceSchema service={service} />
             <BreadcrumbsSchema items={breadcrumbs} />
             {service.faqs.length > 0 && <FAQSchema items={service.faqs} />}
             <ContentContainer>
