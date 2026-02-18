@@ -3,19 +3,19 @@ import { PostContent } from '@/src/share/types/share';
 /**
  * Генерирует мета-информацию для записей
  */
-export const generatePostMeta = (post: PostContent) => {
+export const generatePostMeta = (post: PostContent, postType = 'post') => {
     return {
         title: post.seo?.title || post.title,
         description: post.seo?.description || post.excerpt || '',
 
         alternates: {
-            canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/services/${post.slug}/`,
+            canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${postType}/${post.slug}/`,
         },
 
         openGraph: {
             title: post.seo?.title || post.title,
             description: post.seo?.description || post.excerpt || '',
-            url: `${process.env.NEXT_PUBLIC_SITE_URL}/services/${post.slug}/`,
+            url: `${process.env.NEXT_PUBLIC_SITE_URL}/${postType}/${post.slug}/`,
             siteName: 'Sunset IT Agency',
             type: 'website',
             images: post.thumbnail

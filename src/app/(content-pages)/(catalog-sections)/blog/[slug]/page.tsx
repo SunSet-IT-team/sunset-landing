@@ -55,7 +55,7 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
         notFound();
     }
 
-    return generatePostMeta(post);
+    return generatePostMeta(post, 'blog');
 }
 
 /**

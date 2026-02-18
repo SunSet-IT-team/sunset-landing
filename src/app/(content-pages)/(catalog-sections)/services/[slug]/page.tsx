@@ -52,7 +52,7 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
         notFound();
     }
 
-    return generatePostMeta(service);
+    return generatePostMeta(service, 'services');
 }
 
 /**

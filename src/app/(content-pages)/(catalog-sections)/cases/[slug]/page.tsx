@@ -54,7 +54,7 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
         notFound();
     }
 
-    return generatePostMeta(caseData);
+    return generatePostMeta(caseData, 'cases');
 }
 
 /**
