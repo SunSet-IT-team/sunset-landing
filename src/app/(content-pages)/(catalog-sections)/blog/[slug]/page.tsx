@@ -17,6 +17,7 @@ import { generatePostMeta } from '@/src/feature/SEO/model/post';
 import { Metadata } from 'next';
 import FAQSchema from '@/src/feature/SEO/ui/FAQSchema';
 import ArticleSchema from '@/src/feature/SEO/ui/ArticleSchema';
+import { FormCTA } from '@/src/feature/Forms/ui';
 
 export const revalidate = 86400; // 24 часа
 
@@ -113,6 +114,7 @@ const Page = async ({ params, searchParams }: PageProps) => {
                     )}
                     <WPContent>{normalContent}</WPContent>
                 </article>
+                <FormCTA />
                 {post.faqs.length > 0 && <FAQ items={post.faqs} />}
             </ContentContainer>
             {headings.length > 2 && <TOC items={headings} />}

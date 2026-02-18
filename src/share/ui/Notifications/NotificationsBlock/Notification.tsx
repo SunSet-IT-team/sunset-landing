@@ -71,8 +71,8 @@ const Notification: FC<IProps> = ({
                 isOpen
                     ? 'translate-x-0'
                     : align === 'right'
-                    ? 'translate-x-full'
-                    : '-translate-x-full',
+                      ? 'translate-x-full'
+                      : '-translate-x-full',
                 className,
             )}
             style={{
@@ -95,8 +95,8 @@ const Notification: FC<IProps> = ({
                             ? 'border-r-2 md:border-r-0 left-0 md:left-[unset] md:right-[100%]  md:rounded-l-[4px]'
                             : 'right-[100%] rounded-l-[4px]'
                         : isOpen
-                        ? 'border-l-2 md:border-l-0 right-0 md:right-[unset] md:left-[100%] md:rounded-r-[4px]'
-                        : 'left-[100%] rounded-r-[4px]',
+                          ? 'border-l-2 md:border-l-0 right-0 md:right-[unset] md:left-[100%] md:rounded-r-[4px]'
+                          : 'left-[100%] rounded-r-[4px]',
                     align === 'right' ? 'md:mr-[-1px]' : 'md:ml-[-1px]',
                 )}
                 style={{
