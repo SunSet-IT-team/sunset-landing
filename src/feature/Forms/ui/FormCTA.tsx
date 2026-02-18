@@ -59,20 +59,19 @@ const FormCTA = () => {
 
     return (
         <section className="mb-8 rounded-xl border-2 border-orange p-4 md:p-6">
-            <h2 className="heading mb-2">Хотите обсудить проект?</h2>
-            <p className="text mb-4">
-                Оставьте контакты, мы свяжемся с вами.{' '}
-                <span
-                    onClick={() => setFastContact(true)}
-                    className="text-orange cursor-pointer underline">
-                    Либо сделайте первый шаг.
-                </span>
-            </p>
-
             {isSuccess ? (
-                <p className="text">Спасибо! Заявка отправлена.</p>
+                <p className="heading text-center">Спасибо! Заявка отправлена</p>
             ) : (
                 <>
+                    <h2 className="heading mb-2">Хотите обсудить проект?</h2>
+                    <p className="text mb-4">
+                        Оставьте контакты, мы свяжемся с вами.{' '}
+                        <span
+                            onClick={() => setFastContact(true)}
+                            className="text-orange cursor-pointer underline">
+                            Либо сделайте первый шаг.
+                        </span>
+                    </p>
                     <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
                         <Controller
                             name="name"
