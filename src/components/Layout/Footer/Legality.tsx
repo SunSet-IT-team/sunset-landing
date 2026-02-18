@@ -15,7 +15,7 @@ const data = [
     },
     {
         id: 3,
-        text: '© 2025 Все права защищены',
+        text: '© 2025-2026 Все права защищены',
         href: '',
     },
 ];
@@ -32,8 +32,8 @@ const Legality: FC = () => {
                             item.id != 1 && item.id != 3
                                 ? 'text-center'
                                 : item.id == 1
-                                ? 'text-center md:text-start'
-                                : 'text-center md:text-end',
+                                  ? 'text-center md:text-start'
+                                  : 'text-center md:text-end',
                         )}>
                         {item.href ? (
                             <Link
