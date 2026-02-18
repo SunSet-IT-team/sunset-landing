@@ -1,10 +1,10 @@
 'use client';
-import { PostContent } from '@/src/share/types/share';
 import { useEffect, useState } from 'react';
 import { usePagination } from '@/src/share/ui/Pagination/hooks/usePagination';
 import { useInputDebounce } from '@/src/share/hooks/useInputDebounce';
 import ToggleGridContent from '@/src/share/ui/ToggleGridContent';
 import { useCasesQuery } from '../../model/useCasesQuery';
+import { Case } from '../../model/types';
 
 interface CaseGridContentProps {
     /**
@@ -15,7 +15,7 @@ interface CaseGridContentProps {
     /**
      * Изначальные данные для показа
      */
-    initialData?: PostContent[];
+    initialData?: Case[];
 
     /**
      * Изначальное количество страниц
