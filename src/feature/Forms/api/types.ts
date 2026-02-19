@@ -1,5 +1,5 @@
-import { FormLeadData, FormLeadResponse } from '../model/types';
+import { FormLeadRequest, FormLeadResponse } from '../model/types';
 
 export interface FormsApiMethods {
-    sendLead: (payload: FormLeadData) => Promise<FormLeadResponse>;
+    sendLead: (payload: FormLeadRequest) => Promise<FormLeadResponse>;
 }

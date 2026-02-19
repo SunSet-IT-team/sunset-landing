@@ -4,6 +4,11 @@ export interface FormLeadData {
     comment?: string;
 }
 
+export interface FormLeadRequest extends FormLeadData {
+    pageUrl: string;
+    recaptchaToken: string;
+}
+
 export interface FormLeadResponse {
     ok?: boolean;
     message?: string;

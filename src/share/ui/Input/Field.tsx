@@ -23,7 +23,9 @@ const Field = forwardRef<HTMLInputElement, IProps>(
                     {...rest}
                 />
                 {!isValid && (
-                    <span className="text-red-500 text">{error || 'Заполните поле верно'}</span>
+                    <span className="text-red-500 text mt-1">
+                        {error || 'Заполните поле верно'}
+                    </span>
                 )}
             </label>
         );

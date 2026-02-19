@@ -4,7 +4,7 @@ import { FormsApiMethods } from './types';
 const FormsAPI: FormsApiMethods = {
     sendLead: async (payload) => {
         const apiHost = process.env.NEXT_PUBLIC_API_URL;
-        const endpoint = '/wp-json/sunset/v1/form';
+        const endpoint = '/wp-json/sunset/v1/lead';
 
         if (!apiHost) {
             throw new Error('Не задан NEXT_PUBLIC_API_URL');

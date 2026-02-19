@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import FormsAPI from '../api';
 import { formLeadSchema } from '../model/schema';
+import { getRecaptchaToken } from '../model/recaptcha';
 import { FormLeadData } from '../model/types';
 import { metrika, MetrikGoal } from '@/src/feature/Metrika/MetrikSender';
 import Button from '@/src/share/ui/Button';
@@ -22,6 +23,9 @@ const FormCTA = () => {
     const [isSuccess, setIsSuccess] = useState(false);
     const [serverError, setServerError] = useState('');
 
+    // UX-идея с заполнением имени
+    const [nameWarningShown, setNameWarningShown] = useState(false);
+
     // Открытие всплывашки
     const [fastContact, setFastContact] = useState(false);
 
@@ -30,6 +34,7 @@ const FormCTA = () => {
         control,
         register,
         reset,
+        setError,
         formState: { errors },
     } = useForm<FormLeadData>({
         defaultValues: {
@@ -42,14 +47,35 @@ const FormCTA = () => {
     });
 
     const onSubmit = async (data: FormLeadData) => {
+        // Если имя пустое и предупреждение ещё не показывали
+        if (!data.name?.trim() && !nameWarningShown) {
+            setNameWarningShown(true);
+
+            setError('name', {
+                type: 'manual',
+                message: 'Если Вы не укажите имя — мы будем обращаться к Вам как «Извините».',
+            });
+
+            return;
+        }
+
         setIsLoading(true);
         setServerError('');
 
         try {
-            await FormsAPI.sendLead(data);
+            const recaptchaToken = await getRecaptchaToken('form_cta_submit');
+
+            const res = await FormsAPI.sendLead({
+                ...data,
+                name: data.name?.trim() || '«Извините»',
+                pageUrl: window.location.href,
+                recaptchaToken,
+            });
+
             metrika(MetrikGoal.SEND_FORM);
             setIsSuccess(true);
             reset();
+            setNameWarningShown(false);
         } catch {
             setServerError('Не удалось отправить форму. Попробуйте позже.');
         } finally {
@@ -135,6 +161,7 @@ const FormCTA = () => {
                                 <a
                                     href="https://t.me/sunset_digital_team"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                     onClick={() => {
                                         metrika(MetrikGoal.GO_MEDIA, {
                                             type: 'Telegram',
