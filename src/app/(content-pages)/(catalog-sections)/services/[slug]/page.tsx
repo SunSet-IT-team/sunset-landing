@@ -92,13 +92,13 @@ const Page = async ({ params, searchParams }: PageProps) => {
                     <h1
                         className="wp-block-heading"
                         dangerouslySetInnerHTML={{ __html: service.title }}></h1>
-                    <WPContent>{normalContent}</WPContent>
                     {service.thumbnail && (
                         <ThumbnailCard
                             src={service.thumbnail.url}
                             className="w-full aspect-video mb-6"
                         />
                     )}
+                    <WPContent>{normalContent}</WPContent>
                 </article>
                 {service.faqs.length > 0 && <FAQ items={service.faqs} />}
             </ContentContainer>
