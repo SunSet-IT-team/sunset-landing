@@ -1,11 +1,12 @@
 import DotGrid from '@/components/DotGrid';
 import { CanvasPortal } from '@/src/components/CanvasPortal/CanvasPortal';
-import FooterLanding from '@/src/components/Layout/Footer/FooterLanding';
+import FooterLanding from '@/src/widgets/Layout/Footer/FooterLanding';
 import NotificationsBlock from '@/src/share/ui/Notifications/NotificationsBlock/NotificationBlock';
 import Cursor from '@/src/feature/UIBackground/Cursor';
 import UIBackground from '@/src/feature/UIBackground/ui';
 import type { Metadata } from 'next';
-import HeaderLanding from '@/src/components/Layout/Header/HeaderLanding';
+import HeaderLanding from '@/src/widgets/Layout/Header/HeaderLanding';
+import LandingMenu from '@/src/widgets/Layout/Menu/ui/LandingMenu';
 
 const isOptimize = process.env.NEXT_PUBLIC_IS_DEV_OPTIMIZE === 'true';
 
@@ -33,6 +34,7 @@ interface MainLayoutProps {
  * Страница лендоса
  */
 export default function MainLayout({ children }: MainLayoutProps) {
+    const idProd = process.env.NEXT_PUBLIC_IS_PROD;
     return (
         <div className="h-[100dvh] md:-h-[100vh]">
             <CanvasPortal>
@@ -64,6 +66,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                     )}
                 </div>
             </CanvasPortal>
+            {idProd && <LandingMenu />}
         </div>
     );
 }

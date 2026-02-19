@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Plus } from 'lucide-react';
-import Head from 'next/head';
 
 export interface FAQItem {
     question: string;
@@ -26,77 +25,55 @@ const FAQ = ({ items, className, defaultOpenIndex = null }: FAQProps) => {
         setOpenIndex(openIndex === index ? null : index);
     };
 
-    // JSON-LD микроразметка
-    const faqSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: items.map((item) => ({
-            '@type': 'Question',
-            name: item.question,
-            acceptedAnswer: {
-                '@type': 'Answer',
-                text: item.answer,
-            },
-        })),
-    };
-
     return (
-        <>
-            <Head>
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-                />
-            </Head>
-            <div className={twMerge('w-full mx-auto py-8', className)}>
-                <h2 className="heading mb-4">Часто задаваемые Вопросы</h2>
+        <div className={twMerge('w-full mx-auto py-8', className)}>
+            <h2 className="heading mb-4">Часто задаваемые Вопросы</h2>
 
-                <div className="flex flex-col divide-y divide-orange dark:divide-neutral-800">
-                    {items.map((item, index) => {
-                        const isOpen = openIndex === index;
+            <div className="flex flex-col divide-y divide-orange dark:divide-neutral-800">
+                {items.map((item, index) => {
+                    const isOpen = openIndex === index;
 
-                        return (
-                            <div key={index} className="py-2">
-                                <button
-                                    onClick={() => toggle(index)}
+                    return (
+                        <div key={index} className="py-2">
+                            <button
+                                onClick={() => toggle(index)}
+                                className={twMerge(
+                                    'w-full text-left flex items-center justify-between gap-4',
+                                    'py-4 px-4 rounded-xl',
+                                    'transition-all duration-200',
+                                    'hover:bg-orange-50 dark:hover:bg-orange-950/30',
+                                    isOpen && 'bg-orange-50 dark:bg-orange-950/30',
+                                )}
+                                aria-expanded={isOpen}>
+                                <span className="heading-h3">{item.question}</span>
+
+                                <Plus
                                     className={twMerge(
-                                        'w-full text-left flex items-center justify-between gap-4',
-                                        'py-4 px-4 rounded-xl',
+                                        'w-5 h-5',
                                         'transition-all duration-200',
-                                        'hover:bg-orange-50 dark:hover:bg-orange-950/30',
-                                        isOpen && 'bg-orange-50 dark:bg-orange-950/30',
+                                        isOpen && 'rotate-45 text-orange',
                                     )}
-                                    aria-expanded={isOpen}>
-                                    <span className="heading-h3">{item.question}</span>
+                                />
+                            </button>
 
-                                    <Plus
-                                        className={twMerge(
-                                            'w-5 h-5',
-                                            'transition-all duration-200',
-                                            isOpen && 'rotate-45 text-orange',
-                                        )}
-                                    />
-                                </button>
-
-                                <div
-                                    className={twMerge(
-                                        'grid transition-all duration-300 ease-in-out',
-                                        isOpen
-                                            ? 'grid-rows-[1fr] opacity-100'
-                                            : 'grid-rows-[0fr] opacity-0',
-                                    )}>
-                                    <div className="overflow-hidden">
-                                        <p className="px-4 pb-4 pt-1 text leading-relaxed">
-                                            {item.answer}
-                                        </p>
-                                    </div>
+                            <div
+                                className={twMerge(
+                                    'grid transition-all duration-300 ease-in-out',
+                                    isOpen
+                                        ? 'grid-rows-[1fr] opacity-100'
+                                        : 'grid-rows-[0fr] opacity-0',
+                                )}>
+                                <div className="overflow-hidden">
+                                    <p className="px-4 pb-4 pt-1 text leading-relaxed">
+                                        {item.answer}
+                                    </p>
                                 </div>
                             </div>
-                        );
-                    })}
-                </div>
+                        </div>
+                    );
+                })}
             </div>
-        </>
+        </div>
     );
 };
 

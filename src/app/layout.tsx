@@ -72,7 +72,6 @@ export default function RootLayout({
                     showSpinner={false}
                 />
                 {children}
-                {/* <MainMenu /> */}
             </body>
         </html>
     );
