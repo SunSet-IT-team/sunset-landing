@@ -14,11 +14,17 @@ import PhoneInput from '@/src/share/ui/Input/PhoneInput';
 import Textarea from '@/src/share/ui/Input/Textarea';
 import OrangeNotification from '@/src/share/ui/Notifications/OrangeNotification';
 import { FaTelegramPlane } from 'react-icons/fa';
+import { twMerge } from 'tailwind-merge';
+
+interface FormCTAProps {
+    className?: string;
+    title?: string;
+}
 
 /**
  * Форма захвата
  */
-const FormCTA = () => {
+const FormCTA = ({ className, title }: FormCTAProps) => {
     const [isLoading, setIsLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [serverError, setServerError] = useState('');
@@ -84,12 +90,13 @@ const FormCTA = () => {
     };
 
     return (
-        <section className="mb-8 rounded-xl border-2 border-orange p-4 md:p-6">
+        <section
+            className={twMerge('mb-8 rounded-xl border-2 border-orange p-4 md:p-6', className)}>
             {isSuccess ? (
                 <p className="heading text-center">Спасибо! Заявка отправлена</p>
             ) : (
                 <>
-                    <h2 className="heading mb-2">Хотите обсудить проект?</h2>
+                    <h2 className="heading mb-4">{title ? title : 'Хотите обсудить проект?'}</h2>
                     <p className="text mb-4">
                         Оставьте контакты, мы свяжемся с вами.{' '}
                         <span

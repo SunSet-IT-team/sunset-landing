@@ -2,6 +2,7 @@ import { routeData } from '@/src/core/route';
 import ServiceAPI from '@/src/entities/service/api';
 import { mapServiceDTO } from '@/src/entities/service/api/mapping';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
+import { FormCTA } from '@/src/feature/Forms/ui';
 import { generatePostMeta } from '@/src/feature/SEO/model/post';
 import BreadcrumbsSchema from '@/src/feature/SEO/ui/BreadcrumbsSchema';
 import FAQSchema from '@/src/feature/SEO/ui/FAQSchema';
@@ -100,6 +101,7 @@ const Page = async ({ params, searchParams }: PageProps) => {
                     )}
                     <WPContent>{normalContent}</WPContent>
                 </article>
+                <FormCTA />
                 {service.faqs.length > 0 && <FAQ items={service.faqs} />}
             </ContentContainer>
             {headings.length > 2 && <TOC items={headings} />}

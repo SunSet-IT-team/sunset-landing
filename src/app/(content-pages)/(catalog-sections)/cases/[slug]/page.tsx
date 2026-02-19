@@ -15,6 +15,7 @@ import ThumbnailCard from '@/src/share/ui/ThumbnailCard';
 import { generatePostMeta } from '@/src/feature/SEO/model/post';
 import { Metadata } from 'next';
 import ArticleSchema from '@/src/feature/SEO/ui/ArticleSchema';
+import { FormCTA } from '@/src/feature/Forms/ui';
 
 export const revalidate = 86400; // 24 часа
 
@@ -110,6 +111,7 @@ const Page = async ({ params, searchParams }: PageProps) => {
                         />
                     )}
                     <WPContent>{normalContent}</WPContent>
+                    <FormCTA title="Хотите лучше?" />
                 </article>
             </ContentContainer>
             {headings.length > 2 && <TOC items={headings} />}
