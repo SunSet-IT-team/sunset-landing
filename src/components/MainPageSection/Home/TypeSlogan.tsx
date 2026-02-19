@@ -12,7 +12,7 @@ const DELAY_BEFORE_DELETE = 1500;
 const TypeSlogan = () => {
     const phrases = ['digital-команда', 'двигатель', 'делаем сайты', 'делаем приложения'];
     const [index, setIndex] = useState(0);
-    const [text, setText] = useState('');
+    const [text, setText] = useState(phrases[0]);
     const [isDeleting, setIsDeleting] = useState(false);
 
     useEffect(() => {
