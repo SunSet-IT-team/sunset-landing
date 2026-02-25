@@ -91,7 +91,8 @@ const FormCTA = ({ className, title }: FormCTAProps) => {
 
     return (
         <section
-            className={twMerge('mb-8 rounded-xl border-2 border-orange p-4 md:p-6', className)}>
+            className={twMerge('mb-8 rounded-xl border-2 border-orange p-4 md:p-6', className)}
+            id="contact-form">
             {isSuccess ? (
                 <p className="heading text-center">Спасибо! Заявка отправлена</p>
             ) : (

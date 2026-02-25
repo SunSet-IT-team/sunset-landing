@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import clsx from 'clsx';
+import CTAEnhancer from './CTAEnhancer';
 
 interface Props {
     /**
@@ -18,9 +19,12 @@ interface Props {
  */
 export const WPContent: FC<Props> = ({ children, className }) => {
     return (
-        <div
-            className={clsx('content', className)}
-            dangerouslySetInnerHTML={{ __html: children }}
-        />
+        <>
+            <div
+                className={clsx('content', className)}
+                dangerouslySetInnerHTML={{ __html: children }}
+            />
+            <CTAEnhancer />
+        </>
     );
 };
