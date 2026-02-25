@@ -71,11 +71,12 @@ const FormCTA = ({ className, title }: FormCTAProps) => {
         try {
             const recaptchaToken = await getRecaptchaToken('form_cta_submit');
 
-            const res = await FormsAPI.sendLead({
+            await FormsAPI.sendLead({
                 ...data,
                 name: data.name?.trim() || '«Извините»',
                 pageUrl: window.location.href,
                 recaptchaToken,
+                action: 'form_cta_submit',
             });
 
             metrika(MetrikGoal.SEND_FORM);

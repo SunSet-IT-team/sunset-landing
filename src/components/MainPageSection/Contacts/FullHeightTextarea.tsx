@@ -18,23 +18,22 @@ const FullHeightTextarea: FC<IProps> = ({
         <div
             className={twMerge(
                 'w-full flex flex-col flex-end justify-end',
-                'transition-[padding] duration-300 ease',
-                isFullHeight ? 'p-0 delay-0 h-full' : 'delay-500',
+                'transition-[padding] duration-500 ease',
             )}>
             <label
                 className={twMerge(
                     'flex flex-col gap-2',
-                    'transition-[height] duration-300 ease',
-                    isFullHeight ? 'h-full delay-500' : 'h-[121px] lg:h-[176px] delay-0',
+                    'transition-[height] duration-500 ease',
+                    isFullHeight
+                        ? 'h-[30vh] md:h-[320px] lg:h-[384px] 3xl:h-[276px]'
+                        : 'h-[121px] lg:h-[124px] 3xl:h-[156px]',
                 )}>
                 <span className="heading-h3">{label}</span>
                 <textarea
                     className={twMerge(
                         'bg-grey w-full rounded outline-none px-2 pt-1 pb-1 resize-none text h-full cursor-target',
-                        'transition-[opacity] ease',
-                        isFullHeight
-                            ? 'opacity-100 delay-0 rounded-t-sm rounded-b-[0]'
-                            : 'opacity-90 delay-500',
+                        'transition-all ease',
+                        isFullHeight ? 'opacity-100rounded-t-sm rounded-b-[0]' : 'opacity-90',
                         !isValid && 'border-2 border-orange',
                         className,
                     )}
@@ -46,10 +45,11 @@ const FullHeightTextarea: FC<IProps> = ({
                     e.stopPropagation();
                 }}
                 className={twMerge(
-                    'transition-all duration-300 ease overflow-hidden cursor-target',
-                    'w-full bg-orange rounded-b-sm',
-                    isFullHeight ? 'max-h-[500px] delay-500' : 'max-h-0',
-                )}>
+                    'transition-all ease-in-out',
+                    'w-full bg-orange rounded-b-sm overflow-hidden',
+                    isFullHeight ? 'opacity-100 scale-y-100 mt-2' : 'opacity-0 scale-y-0 mt-0',
+                )}
+                style={{ transformOrigin: 'top' }}>
                 Готово
             </button>
         </div>

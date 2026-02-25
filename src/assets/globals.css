@@ -153,3 +153,8 @@ input[type='search']::-webkit-search-cancel-button {
         background-position: -200% 0;
     }
 }
+
+.grecaptcha-badge {
+    display: none !important;
+    visibility: hidden !important;
+}
