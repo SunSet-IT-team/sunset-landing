@@ -16,14 +16,22 @@ export function injectHeadingIds(html: string) {
  * Функция выбирает заголовки из контента
  */
 export function extractToc(html: string): TocItem[] {
-    const regex = /<h([2-4])[^>]*>(.*?)<\/h\1>/gi;
+    const regex = /<h([2-4])([^>]*)>(.*?)<\/h\1>/gi;
     const items: TocItem[] = [];
 
     let match;
+
     while ((match = regex.exec(html)) !== null) {
         const level = Number(match[1]) as 2 | 3 | 4;
-        const title = match[2].replace(/<[^>]+>/g, '');
-        const id = title.toLowerCase().replace(/\s+/g, '-');
+        const attrs = match[2] || '';
+        const rawTitle = match[3];
+
+        if (/\bshort-answer-title\b/.test(attrs)) {
+            continue;
+        }
+
+        const title = rawTitle.replace(/<[^>]+>/g, '');
+        const id = title.toLowerCase().trim().replace(/\s+/g, '-');
 
         items.push({ id, title, level });
     }
