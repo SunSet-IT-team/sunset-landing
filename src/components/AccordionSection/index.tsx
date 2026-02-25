@@ -2,19 +2,22 @@
 
 import IconsSlider from '@/src/feature/IconsSlider';
 import { useNavStore } from '@/src/share/store/navStore';
+import { useRouter } from 'next/navigation';
 import { twMerge } from 'tailwind-merge';
 
 interface AccordionSectionProps {
     children: React.ReactNode;
     id: number; // Айди секции
     title: string; // Название секции
+    url: string; // Название секции
 }
 
 /**
  * Секция, которая открывает аккордионы
  */
-const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
+const AccordionSection = ({ children, id, title, url }: AccordionSectionProps) => {
     const { setActiveId, activeId } = useNavStore();
+    const router = useRouter();
 
     // Выбрана ли текущая вкладка
     const isActive = activeId == id;
@@ -28,8 +31,8 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
             ? 'flex-[1] md:flex-[2.15]'
             : 'flex-[1] md:flex-[2.65]'
         : id === 1
-        ? 'h-0 flex-[0] md:h-[unset]'
-        : 'h-[52px] xl:flex-[1] md:h-[unset]';
+          ? 'h-0 flex-[0] md:h-[unset]'
+          : 'h-[52px] xl:flex-[1] md:h-[unset]';
 
     // Расчёт -  также для первой вкладки
     const width = id === 1 && !isActive ? 'w-full md:w-0' : 'w-full md:w-[50px] xl:w-[unset]';
@@ -39,18 +42,18 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
         id === 3
             ? 'border-y md:border-x md:border-y-0'
             : id === 1 && isActive
-            ? 'border-b md:border-r md:border-b-0'
-            : '';
+              ? 'border-b md:border-r md:border-b-0'
+              : '';
 
     // Расчёт - паддинги
     const padding =
         id === 1 && !isActive
             ? ''
             : (activeId !== 1 && id === 2) || id === 1
-            ? 'py-3 md:pr-3 md:py-0 2xl:pr-6'
-            : id === 4
-            ? 'py-3 md:pl-3 md:py-0 2xl:pl-6'
-            : 'py-3 md:px-3 md:py-0 2xl:px-6';
+              ? 'py-3 md:pr-3 md:py-0 2xl:pr-6'
+              : id === 4
+                ? 'py-3 md:pl-3 md:py-0 2xl:pl-6'
+                : 'py-3 md:px-3 md:py-0 2xl:px-6';
 
     return (
         <>
@@ -60,7 +63,10 @@ const AccordionSection = ({ children, id, title }: AccordionSectionProps) => {
                     transition-all duration-300 ease-in-out
                     ${padding}
                     relative ${flexGrow} ${width}`}
-                onClick={() => setActiveId(id)}>
+                onClick={() => {
+                    setActiveId(id);
+                    router.replace(`/?block=${url}`, { scroll: false });
+                }}>
                 {id != 1 && (
                     <h2
                         className={twMerge(
