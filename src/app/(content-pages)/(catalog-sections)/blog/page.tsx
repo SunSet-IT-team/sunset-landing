@@ -4,9 +4,14 @@ import { mapPostDTO } from '@/src/entities/post/api/mapping';
 import { Post } from '@/src/entities/post/model/types';
 import PostGridContent from '@/src/entities/post/ui/PostGridContent';
 import Breadcrumbs from '@/src/feature/Breadcrumbs';
+import SEOAPI from '@/src/feature/SEO/api';
+import { mapSEODTO } from '@/src/feature/SEO/api/mapping';
+import { generatePageMeta } from '@/src/feature/SEO/model/page';
 import BreadcrumbsSchema from '@/src/feature/SEO/ui/BreadcrumbsSchema';
 import ContentContainer from '@/src/share/ui/ContentContainer';
 import { PaginationInitializer } from '@/src/share/ui/Pagination/ui/PaginationInitializer';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 export const revalidate = 86400; // 24 часа
 
@@ -14,6 +19,29 @@ interface PageProps {
     searchParams: Promise<{
         preview: string;
     }>;
+}
+
+/**
+ * Генерируем мета-информацию
+ */
+export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
+    const { preview } = await searchParams;
+
+    const isEditor = preview && preview === '1';
+
+    let seo;
+    try {
+        const page = await SEOAPI.getSEOBySlug({
+            type: 'pages',
+            slug: 'blog',
+            cache: !isEditor,
+        });
+        seo = mapSEODTO(page);
+    } catch {
+        notFound();
+    }
+
+    return generatePageMeta(seo);
 }
 
 /**

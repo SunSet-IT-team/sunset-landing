@@ -32,14 +32,14 @@ export const metadata: Metadata = {
     // Open Graph — для соцсетей (Facebook, VK, LinkedIn)
     openGraph: {
         title: 'Sunset — digital-команда',
-        description: 'Мы создаём современные сайты и приложения для вашего бизнеса',
+        description: 'Создаём современные сайты и приложения для вашего бизнеса',
         url: 'https://sunset-it.agency',
         siteName: 'Sunset IT',
         images: [
             {
-                url: 'https://sunset-it.agency/og.png',
-                width: 1200,
-                height: 630,
+                url: 'https://server.sunset-it.agency/wp-content/uploads/2026/02/clop.webp',
+                width: 1920,
+                height: 1080,
                 alt: 'Sunset IT — digital-команда',
             },
         ],
