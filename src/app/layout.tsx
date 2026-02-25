@@ -5,6 +5,7 @@ import { akony, arodoraPro } from '../assets/fonts/lindex';
 import BodyScriptMetrika from '../feature/Metrika/BodyScriptMetrika';
 import HeadScriptMetrika from '../feature/Metrika/HeadScriptMetrika';
 import WorkSpaceVerification from '../feature/WorkSpace';
+import { MenuProvider } from '@/src/widgets/Layout/Menu/model/MenuContext';
 import { GoogleTagManager } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
@@ -71,7 +72,8 @@ export default function RootLayout({
                     height={3}
                     showSpinner={false}
                 />
-                {children}
+
+                <MenuProvider>{children}</MenuProvider>
             </body>
         </html>
     );

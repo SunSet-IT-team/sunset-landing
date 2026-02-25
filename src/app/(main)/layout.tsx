@@ -6,7 +6,7 @@ import Cursor from '@/src/feature/UIBackground/Cursor';
 import UIBackground from '@/src/feature/UIBackground/ui';
 import type { Metadata } from 'next';
 import HeaderLanding from '@/src/widgets/Layout/Header/HeaderLanding';
-import LandingMenu from '@/src/widgets/Layout/Menu/ui/LandingMenu';
+import BurgerMenu from '@/src/widgets/Layout/Menu/ui/BurgerMenu';
 
 const isOptimize = process.env.NEXT_PUBLIC_IS_DEV_OPTIMIZE === 'true';
 
@@ -35,6 +35,7 @@ interface MainLayoutProps {
  */
 export default function MainLayout({ children }: MainLayoutProps) {
     const idProd = process.env.NEXT_PUBLIC_IS_PROD;
+
     return (
         <div className="h-[100dvh] md:-h-[100vh]">
             <CanvasPortal>
@@ -66,7 +67,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                     )}
                 </div>
             </CanvasPortal>
-            {idProd && <LandingMenu />}
+            {idProd && <BurgerMenu />}
         </div>
     );
 }

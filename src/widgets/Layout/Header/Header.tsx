@@ -4,8 +4,7 @@ import Logo from '@/src/share/ui/Logo/Logo';
 import { FC, useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import Menu from '../Menu/ui/Menu';
-import { useMenuContext } from '../Menu/model/MenuContext';
-import MobileNavigation from '../Menu/ui/MobileNavigation';
+import AsideNavigation from '../Menu/ui/AsideNavigation';
 import { menuData } from '../Menu/model/menuData';
 
 const Header: FC = () => {
@@ -36,7 +35,7 @@ const Header: FC = () => {
                     <Menu />
                 </Container>
             </header>
-            <MobileNavigation items={menuData} />
+            <AsideNavigation items={menuData} />
         </>
     );
 };

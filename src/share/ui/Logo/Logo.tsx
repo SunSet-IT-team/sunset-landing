@@ -7,7 +7,9 @@ import { FC } from 'react';
  */
 const Logo: FC = () => {
     return (
-        <Link href="/" className="flex pointer-events-auto items-center cursor-target">
+        <Link
+            href="/"
+            className="flex pointer-events-auto items-center cursor-target cursor-pointer">
             <div className="relative w-[35px] h-[37px] md:w-[50px] md:h-[52px] ">
                 <Image
                     alt="Логотип компании Sunset"

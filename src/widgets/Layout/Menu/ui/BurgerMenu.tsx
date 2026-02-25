@@ -2,29 +2,26 @@
 
 import { FC, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { useMenuContext } from '../model/MenuContext';
 
 interface BurgerMenuProps {
-    isOpen?: boolean;
-    onClick?: () => void;
     className?: string;
 }
 
 /**
  * Иконка бургера для меню
  */
-const BurgerMenu: FC<BurgerMenuProps> = ({ onClick, isOpen: isOpenProps, className }) => {
-    const [_isOpen, setIsOpen] = useState<boolean>(false);
-    const isOpen = isOpenProps ?? _isOpen;
+const BurgerMenu: FC<BurgerMenuProps> = ({ className }) => {
+    const { isOpen, setIsOpen } = useMenuContext();
 
     return (
         <div
             className={twMerge(
-                'w-[24px] h-[15px] md:w-[32px] md:h-[20px] absolute  top-6 right-6  md:top-[44px] md:right-[30px] z-[9999] cursor-pointer flex flex-col justify-between',
+                'w-[24px] h-[15px] md:w-[32px] md:h-[20px] absolute  top-6 right-6  md:top-[44px] md:right-[30px] z-[50] cursor-pointer flex flex-col justify-between',
                 className,
             )}
             onClick={() => {
                 setIsOpen(!isOpen);
-                onClick?.();
             }}>
             {/* Верхняя палочка */}
             <span
