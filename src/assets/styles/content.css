@@ -125,4 +125,8 @@
     .content .short-answer-block .short-answer-content {
         @apply font-semibold italic opacity-100 text-white;
     }
+
+    .content .wp-block-image .aligncenter img {
+        margin: 0 auto;
+    }
 }
