@@ -92,8 +92,7 @@ const ContactForm: FC = () => {
                         className="flex flex-col pl-2 lg:pl-0 mt-6 lg:mt-4 xl:mt-7 relative"
                         initial={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.8 }}
-                        layout>
+                        transition={{ duration: 0.8 }}>
                         {['name', 'phone', 'email'].map((fieldName) => {
                             const fieldProps = { name: fieldName as keyof IContactData, control };
                             const errorMessage = errors[fieldName as keyof IContactData]?.message;
@@ -104,7 +103,6 @@ const ContactForm: FC = () => {
                                     {...fieldProps}
                                     render={({ field }) => (
                                         <motion.div
-                                            layout
                                             initial={{
                                                 opacity: 1,
                                                 height: 'auto',
@@ -152,7 +150,6 @@ const ContactForm: FC = () => {
                             control={control}
                             render={({ field }) => (
                                 <motion.div
-                                    layout
                                     initial={{ opacity: 1 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ duration: 0.5 }}>

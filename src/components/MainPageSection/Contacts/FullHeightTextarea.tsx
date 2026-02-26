@@ -26,7 +26,7 @@ const FullHeightTextarea: FC<IProps> = ({
                     'transition-[height] duration-500 ease',
                     isFullHeight
                         ? 'h-[30vh] md:h-[320px] lg:h-[384px] 3xl:h-[276px]'
-                        : 'h-[121px] lg:h-[124px] 3xl:h-[156px]',
+                        : 'h-[71px] sm:h-[121px] lg:h-[124px] 3xl:h-[156px]',
                 )}>
                 <span className="heading-h3">{label}</span>
                 <textarea
