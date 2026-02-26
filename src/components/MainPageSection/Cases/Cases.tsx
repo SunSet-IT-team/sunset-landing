@@ -12,6 +12,8 @@ import { useNavStore } from '@/src/share/store/navStore';
 import { twMerge } from 'tailwind-merge';
 import NewCase from './NewCase';
 import OrangeNotification from '@/src/share/ui/Notifications/OrangeNotification';
+import Link from 'next/link';
+import Button from '@/src/share/ui/Button';
 
 /**
  * Секция с примерами проектов
@@ -62,9 +64,10 @@ export default function Cases() {
                 modules={[EffectCoverflow]}
                 centeredSlides
                 slidesPerView={1.5}
-                loop
+                // loop
                 loopAdditionalSlides={2}
                 spaceBetween={0}
+                slideToClickedSlide={true}
                 onRealIndexChange={onRealIndexChange}
                 coverflowEffect={{
                     rotate: 20,
@@ -118,9 +121,11 @@ export default function Cases() {
                 </OrangeNotification>
             )}
 
-            {/* <Link href="#" className="mt-10 md:mt-24 block heading-h3">
+            <Link
+                href="/cases"
+                className="mt-10 md:mt-24 block mx-auto heading-h3 underline transition hover:text-orange text-center md:text-left xl:text-center">
                 Посмотреть все
-            </Link> */}
+            </Link>
         </div>
     );
 }

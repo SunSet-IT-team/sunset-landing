@@ -131,7 +131,7 @@ export default function NewCase({
                                     portfolioName: caseData.title,
                                 })
                             }
-                            className="text-button text-center w-full lg:w-full sm:w-auto rounded-[4px] bg-black py-2 px-[25px] transition-all duration-300 hover:bg-white hover:text-black cursor-target">
+                            className="text-button text-center w-full lg:w-full sm:w-auto rounded-[4px] bg-black py-2 px-[25px] transition-all duration-300 hover:bg-white hover:text-black cursor-target mx-auto">
                             Взглянуть
                         </a>
                     </div>

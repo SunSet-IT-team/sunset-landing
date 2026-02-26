@@ -1,6 +1,10 @@
 .swiper-cards .swiper-slide {
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
     opacity: 0;
+    overflow: hidden;
+    border-radius: 4px;
 }
 .swiper-cards .swiper-slide-prev,
 .swiper-cards .swiper-slide-next {
@@ -8,4 +12,12 @@
 }
 .swiper-cards .swiper-slide-active {
     opacity: 1;
+}
+
+.swiper-wrapper {
+    pointer-events: none;
+}
+
+.swiper-slide {
+    pointer-events: auto;
 }
