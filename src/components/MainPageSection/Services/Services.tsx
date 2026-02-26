@@ -5,6 +5,8 @@ import { useNavStore } from '@/src/share/store/navStore';
 import View3DLoader from '@/src/feature/3d/helpers/components/View3DLoader';
 import dynamic from 'next/dynamic';
 import { BallModelPlaceholder } from '@/src/share/models/BallModel/BallModelPlaceholder';
+import { twMerge } from 'tailwind-merge';
+import Link from 'next/link';
 
 const DynamicTriangleModelWithLight = dynamic(
     () => import('../../../share/models/TriangleModel/TriangleModelWithLight'),
@@ -62,14 +64,19 @@ const Services: FC = () => {
     return (
         <>
             <div
-                className="mt-8 ml-2 md:ml-auto md:mr-auto grid grid-rows-4 gap-y-6 md:gap-y-8 lg:gap-y-2 3xl:gap-y-10 relative
-                z-20 md:gap-x-2 md:grid-cols-3 xl:grid-cols-2 max-w-[600px] lg:max-w-[670px]">
+                className={twMerge(
+                    'mt-8 ml-2 md:ml-auto md:mr-auto grid md:grid-rows-4 gap-y-6 md:gap-y-8 lg:gap-y-2 3xl:gap-y-10 relative',
+                    'z-20 md:gap-x-2 md:grid-cols-3 xl:grid-cols-2 max-w-[600px] lg:max-w-[670px]',
+                )}>
                 {data.map((item, index) => {
                     return (
                         <div
                             key={item.title}
-                            className={`md:col-span-2 xl:col-span-1 ${mappginRows[index]}
-                                ${index % 2 == 0 ? 'md:!col-start-1' : 'md:!col-start-2'}`}>
+                            className={twMerge(
+                                'md:col-span-2 xl:col-span-1',
+                                mappginRows[index],
+                                index % 2 == 0 ? 'md:!col-start-1' : 'md:!col-start-2',
+                            )}>
                             <h3 className="heading-h3 mb-2">{item.title}</h3>
                             <p
                                 className="text-descr"
@@ -79,6 +86,12 @@ const Services: FC = () => {
                     );
                 })}
             </div>
+
+            <Link
+                href="/services"
+                className="mt-4 md:mt-8 3xl:mt-20 block mx-auto heading-h3 underline transition hover:text-orange text-center">
+                Все услуги
+            </Link>
 
             {isSectionChanged && (
                 <>

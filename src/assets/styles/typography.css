@@ -11,7 +11,7 @@
     }
 
     .heading-h3 {
-        @apply text-[clamp(12px,1.6vh,17px)] lg:text-sm  font-bold leading-[125%] font-akony tracking-wider;
+        @apply text-[clamp(11px,1.6vh,12px)] sm:text-[clamp(12px,1.6vh,17px)] lg:text-sm  font-bold leading-[125%] font-akony tracking-wider;
     }
 
     .text {
